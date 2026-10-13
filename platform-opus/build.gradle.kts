@@ -112,3 +112,14 @@ tasks.register<Exec>("frustumVerify") {
             "org.polydevs.opusmc.optim.smoke.FrustumVerify", "verify", minecraft, optifine)
     }
 }
+tasks.register<Exec>("pipelineVerify") {
+    group = "verification"
+    dependsOn(artifactJars, smoke.classesTaskName, verifyPlatformArtifact)
+    doFirst {
+        val java8 = providers.gradleProperty("java8Home").orNull ?: error("Supply java8Home")
+        val minecraft = providers.gradleProperty("minecraftJar").orNull ?: error("Supply minecraftJar")
+        val optifine = providers.gradleProperty("optifineJar").orNull ?: error("Supply optifineJar")
+        commandLine(file("$java8/bin/java").absolutePath, "-cp", smokeRuntime.asPath,
+            "org.polydevs.opusmc.optim.smoke.PipelineVerify", "verify", minecraft, optifine)
+    }
+}

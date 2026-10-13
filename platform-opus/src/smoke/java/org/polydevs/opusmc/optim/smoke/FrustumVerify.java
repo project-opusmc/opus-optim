@@ -185,16 +185,22 @@ public final class FrustumVerify {
         w.visitEnd(); return (BoxQuery) game.define("O2FrustumAdapter", w.toByteArray()).getConstructor().newInstance();
     }
     private static byte[] extract(Path minecraft, Path optifine) throws Exception {
+        return extract(minecraft,optifine,"bid");
+    }
+    static byte[] extract(Path minecraft, Path optifine, String className) throws Exception {
         try (ZipFile base = new ZipFile(minecraft.toFile()); ZipFile opti = new ZipFile(optifine.toFile());
                 URLClassLoader tools = new URLClassLoader(new URL[]{optifine.toUri().toURL()}, FrustumVerify.class.getClassLoader())) {
+            String entry=className+".class";
+            if (opti.getEntry(entry)!=null) { return read(opti.getInputStream(opti.getEntry(entry))); }
+            if (opti.getEntry("patch/"+entry+".xdelta")==null) { return read(base.getInputStream(base.getEntry(entry))); }
             Class<?> patcher = Class.forName("optifine.Patcher", true, tools);
             Object map = patcher.getMethod("getConfigurationMap", ZipFile.class).invoke(null, opti);
             Object patterns = patcher.getMethod("getConfigurationPatterns", Map.class).invoke(null, map);
             Object provider = Class.forName("optifine.ZipResourceProvider", true, tools).getConstructor(ZipFile.class).newInstance(base);
             Class<?> resource = Class.forName("optifine.IResourceProvider", true, tools);
-            byte[] delta = read(opti.getInputStream(opti.getEntry("patch/bid.class.xdelta")));
+            byte[] delta = read(opti.getInputStream(opti.getEntry("patch/"+entry+".xdelta")));
             return (byte[]) patcher.getMethod("applyPatch", String.class, byte[].class, Pattern[].class, Map.class, resource)
-                    .invoke(null, "bid.class", delta, patterns, map, provider);
+                    .invoke(null, entry, delta, patterns, map, provider);
         }
     }
     private static byte[] read(InputStream source) throws IOException {

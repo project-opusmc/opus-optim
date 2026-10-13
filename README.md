@@ -148,6 +148,21 @@ are the next work; this engine is not completion of those milestones.
 
 ## Loader handoff
 
+O2 is a wider suite still in development; see the [current implementation map](docs/ENGINEERING_STATUS.md).
+The new `PipelineOptimizations.candidates()` pack contains independent opt-in
+font-glyph lookup, vertex-buffer growth and chunk-upload deadline candidates.
+Retain each candidate's status handle and pass its binding to ProviderPlan.
+If the host routes a raw class under a mapped identity, supply that exact name
+through `candidate(kind, routingAliases)`; this never accepts remapped bytecode.
+The [pipeline results](evidence/2026-10-14-pipeline/RESULTS.md) record actual M5
+method-kernel parity, A/A/A/B font forks, allocation/copy savings with extra peak
+capacity, and upload deferral with increased completion latency. None is managed
+game installation, visual acceptance, FPS evidence or default promotion.
+
+```sh
+./gradlew :platform-opus:pipelineVerify -Pjava8Home=/path/to/java8/home -PminecraftJar=/path/to/1.8.9.jar -PoptifineJar=/path/to/OptiFine_1.8.9_HD_U_M5.jar
+```
+
 `ProviderPlan.prepare` maps trusted startup bindings to immutable exact-target
 registrations, retains core exclusion reasons, checks Loader priority/id ordering
 against dependencies/composition and verifies injected helper class identity.

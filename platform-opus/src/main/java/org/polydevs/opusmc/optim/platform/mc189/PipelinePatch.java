@@ -1,7 +1,7 @@
 package org.polydevs.opusmc.optim.platform.mc189;
 
 import java.security.*;
-import java.util.Objects;
+import java.util.*;
 import org.objectweb.asm.*;
 import org.polydevs.opusmc.bootstrap.ClassTransformer;
 import org.polydevs.opusmc.optim.core.render.*;
@@ -12,13 +12,17 @@ public final class PipelinePatch implements ClassTransformer {
     public enum ApplicationState { NOT_SEEN, APPLIED, UNSUPPORTED_INPUT }
     private static final String TABLE="o2$glyphIndex";
     private final PipelineOptimizations.Kind kind;
+    private final Set<String> targets;
     private volatile ApplicationState state=ApplicationState.NOT_SEEN;
-    public PipelinePatch(PipelineOptimizations.Kind kind) { this.kind=Objects.requireNonNull(kind, "kind"); }
+    public PipelinePatch(PipelineOptimizations.Kind kind) { this(kind,Collections.singleton(kind.target)); }
+    PipelinePatch(PipelineOptimizations.Kind kind,Collection<String> targets) {
+        this.kind=Objects.requireNonNull(kind,"kind");this.targets=Collections.unmodifiableSet(new HashSet<>(targets));
+    }
     @Override public String id() { return kind.id; }
     @Override public int priority() { return kind.priority; }
     public ApplicationState applicationState() { return state; }
     @Override public byte[] transform(String name, byte[] original) {
-        if (!kind.target.equals(name)) { return original; }
+        if (name==null||!targets.contains(name.replace('/','.'))) { return original; }
         if (original==null || !kind.digest.equals(sha256(original))) {
             state=ApplicationState.UNSUPPORTED_INPUT; return original;
         }
@@ -92,7 +96,7 @@ public final class PipelinePatch implements ClassTransformer {
                 super.visitEnd();
             }
         },0);
-        if (edits[0]!=(alphabet==null ? 1 : 4)) { throw new IllegalStateException("Pinned anchor count changed: "+edits[0]); }
+        if (edits[0]!=(alphabet==null ? 1 : 3)) { throw new IllegalStateException("Pinned anchor count changed: "+edits[0]); }
         return writer.toByteArray();
     }
     private void initialize(MethodVisitor out,String alphabet) {

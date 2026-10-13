@@ -10,7 +10,7 @@ OFF without explicit flags; managed installation and FPS acceptance are separate
 ## Actual source opportunities
 
 M5 already caches EnumFacing arrays and deduplicates many GlStateManager calls.
-Do not add duplicate optimizations there. Verified bytecode still performs four
+Do not add duplicate optimizations there. Verified bytecode still performs three
 linear glyph-alphabet searches in avn, drains chunk upload futures in bho.a(J)Z
 against the supplied deadline, and grows/copies bfd vertex buffers in approximately
 2 MiB increments. Preserve all unrelated rendering, simulation and network work.
@@ -19,13 +19,13 @@ against the supplied deadline, and grows/copies bfd vertex buffers in approximat
 
 `text.glyph_lookup`: pinned avn input
 bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e.
-Replace only its four glyph-alphabet String.indexOf(int) anchors with a private
+Replace only its three glyph-alphabet String.indexOf(int) anchors with a private
 static final short lookup table initialized once from the existing literal in
 the target bytecode. No vendor alphabet is copied into source. Keep first-index
 semantics for duplicate characters, missing/negative/supplementary inputs, Unicode
 and the NUL entries. The table has at most 65,536 shorts. Format-code lookups,
 font widths, style flags and pack-owned width arrays remain live and unchanged.
-Claims: a(CZ)F, a(Ljava/lang/String;Z)V, getCharWidthFloat(C)F, b(C)I plus <clinit>()V
+Claims: a(CZ)F, a(Ljava/lang/String;Z)V, getCharWidthFloat(C)F plus <clinit>()V
 and the private synthetic o2$glyphIndex field. Reject unknown input by identity.
 
 ## Graphics vertex-buffer allocation
@@ -45,6 +45,7 @@ direct allocations/copies; peak memory and copy counts must be reported together
 381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7.
 Clamp the positive remaining deadline on a(J)Z entry to 2,000,000 ns from the
 current clock. Keep zero's single-drain sentinel and already-expired deadlines.
+This is a per-drain-call cap, not a guarantee about a whole frame with multiple calls.
 Signed nanoTime wrap follows the original subtraction semantics. The original
 do/while still executes at least one task, leaves pending futures queued, retains
 FIFO and synchronization, and naturally progresses on subsequent calls. It never
@@ -59,6 +60,12 @@ binding and NOT_SEEN/APPLIED/UNSUPPORTED_INPUT state. Capabilities include the
 exact raw target and loader.asm5; priority 410/420/430. Each claim has independent
 selection/recovery/exclusion through the existing ProviderPlan. No registration
 or host approval happens automatically. Keep the retained handle after planning.
+The host may supply exact routing aliases with candidate(kind, aliases); these
+aliases describe the same pinned raw class, not remapped-bytecode support. This
+is needed for the current standalone GUI adapter, which routes raw avn as its
+mapped FontRenderer name. Claims and target filtering include both raw/declared
+alias identities; the digest and bytecode owner remain mandatory. Default raw
+factory bindings alone cannot prove this mapped host path is reached.
 
 Pure GlyphIndex, BufferGrowth and DeadlineBudget live in core with no game/GL
 dependencies. ASM and host calls remain in platform-opus, compile-only. No vendor,

@@ -11,7 +11,7 @@ public final class PipelineOptimizations {
     public enum Kind {
         GLYPH_LOOKUP("text.glyph_lookup", "avn", "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e", 410,
                 "mc189.font.optifine-m5.notch", GlyphIndex.class,
-                "a(CZ)F", "a(Ljava/lang/String;Z)V", "getCharWidthFloat(C)F", "b(C)I", "<clinit>()V", "o2$glyphIndex:[S"),
+                "a(CZ)F", "a(Ljava/lang/String;Z)V", "getCharWidthFloat(C)F", "<clinit>()V", "o2$glyphIndex:[S"),
         BUFFER_GROWTH("render.buffer_growth", "bfd", "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40", 420,
                 "mc189.worldrenderer.optifine-m5.notch", BufferGrowth.class, "b(I)V"),
         UPLOAD_BUDGET("world.fixed_budget", "bho", "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7", 430,
@@ -29,7 +29,11 @@ public final class PipelineOptimizations {
         public String targetSha256() { return digest; }
     }
     private PipelineOptimizations() { }
-    public static Candidate candidate(Kind kind) { return new Candidate(Objects.requireNonNull(kind, "kind")); }
+    public static Candidate candidate(Kind kind) { return candidate(kind,Collections.emptyList()); }
+    /** Host routing names for the same pinned raw bytes, not support for remapped bytecode. */
+    public static Candidate candidate(Kind kind,Collection<String> routingAliases) {
+        return new Candidate(Objects.requireNonNull(kind,"kind"),routingAliases);
+    }
     public static List<Candidate> candidates() {
         List<Candidate> all=new ArrayList<>();
         for (Kind kind:Kind.values()) { all.add(candidate(kind)); }
@@ -40,18 +44,27 @@ public final class PipelineOptimizations {
         private final OptimizationDescriptor descriptor;
         private final PipelinePatch patch;
         private final TransformerBinding binding;
-        private Candidate(Kind kind) {
+        private Candidate(Kind kind,Collection<String> routingAliases) {
             this.kind=kind;
+            Set<String> targets=new TreeSet<>();targets.add(kind.target);
+            for(String alias:Objects.requireNonNull(routingAliases,"routingAliases")) {
+                if(alias==null||!alias.replace('/','.').matches("[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*")) {
+                    throw new IllegalArgumentException("Invalid routing alias");
+                }
+                targets.add(alias.replace('/','.'));
+            }
             List<PatchClaim> claims=new ArrayList<>();
-            for (String method:kind.methods) { claims.add(new PatchClaim(kind.target, method, "method-body",
-                    PatchClaim.Effect.BEHAVIOR, "", kind.priority)); }
+            for(String target:targets) {
+                for (String method:kind.methods) { claims.add(new PatchClaim(target, method, "method-body",
+                        PatchClaim.Effect.BEHAVIOR, "", kind.priority)); }
+            }
             descriptor=OptimizationDescriptor.builder(kind.id, ActivationKind.STARTUP_PATCH)
                     .status(OptimizationStatus.EXPERIMENTAL)
                     .requiredCapabilities(Arrays.asList(kind.capability, "loader.asm5"))
                     .correctnessScope("Exact raw M5 SHA256 "+kind.digest+"; see PIPELINE_OPTIM_SPEC.md")
                     .benchmarkScenario("pipeline.kernel.local.v1; managed game pending")
                     .patchClaims(claims).build();
-            patch=new PipelinePatch(kind);
+            patch=new PipelinePatch(kind,targets);
             binding=new TransformerBinding(descriptor, patch, Collections.singleton(kind.helper));
         }
         public Kind kind() { return kind; }

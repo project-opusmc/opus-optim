@@ -29,27 +29,27 @@
 **Files:** core/.../render/GlyphIndex.java, BufferGrowth.java; core/.../workload/DeadlineBudget.java and corresponding tests.
 **Interfaces:** GlyphIndex.create(String):short[], lookup(short[],int):int; BufferGrowth.capacity(int required,int previous):int; DeadlineBudget.cap(long deadline,long now,long budget):long.
 
-- [ ] Add first-index/missing/invalid char and exhaustive BMP tests against owned alphabets; bounded memory and surrogate refusal.
-- [ ] Add literal allocation-capacity/overflow and deadline zero/past/wrap tests; observe missing kernels.
-- [ ] Implement those three kernels without game/Loader/GL references.
-- [ ] Run ./gradlew test check and commit passing deliverable.
+- [x] Add first-index/missing/invalid char and exhaustive BMP tests against owned alphabets; bounded memory and surrogate refusal.
+- [x] Add literal allocation-capacity/overflow and deadline zero/past/wrap tests; observe missing kernels.
+- [x] Implement those three kernels without game/Loader/GL references.
+- [x] Run ./gradlew test check and commit passing deliverable.
 
 ### Task 2: Pinned executable candidates
 
 **Files:** platform-opus/.../mc189/PipelineOptimizations.java, PipelinePatch.java and PipelinePatchTest.java.
 **Interfaces:** PipelineOptimizations.candidates():List<Candidate>; Candidate.descriptor(), binding(), applicationState(); consumes Task1 kernels.
 
-- [ ] Add real owned bytecode tests for transformed behavior plus exact public refusal, per-instance status and independent flags/capabilities; observe missing candidates.
-- [ ] Implement exact pins, four glyph replacements/table init, one bfd capacity-store modification and bho method-entry cap.
-- [ ] Verify counts/claims, fail closed on unknown input, no automatic installation. Run full suite/check/assemble and commit.
+- [x] Add real owned bytecode tests for transformed behavior plus exact public refusal, per-instance status and independent flags/capabilities; observe missing candidates.
+- [x] Implement exact pins, three glyph replacements/table init, one bfd capacity-store modification and bho method-entry cap.
+- [x] Verify counts/claims, fail closed on unknown input, no automatic installation. Run full suite/check/assemble and commit.
 
 ### Task 3: Real Java8 kernels and measurements
 
 **Files:** platform-opus smoke PipelineVerify.java, Java8 task; scripts/pipeline-microbench.py; README and evidence/2026-10-14-pipeline.
 **Interfaces:** consumes real local game/M5 jars, actual JVM8 and Task2 public factory. Verifies transformed real method bodies in owned kernel fixtures, no vendor output committed.
 
-- [ ] Run original/patched real font width for all 65,536 chars and both Unicode states; assert unchanged format and unmodified methods.
-- [ ] Verify buffer bytes/views/sprite prefix and measure grows/copied bytes/peak capacity across incremental workload.
-- [ ] Verify real upload FIFO/sentinel/progress/slow-task behavior with an owned future substitute and preserve raw task counts/durations.
-- [ ] Record independent warm font A/A and A/B forks/checksums, no game claims. Run clean full suite, both existing Java8 smokes and new verifier.
+- [x] Run original/patched real font width for all 65,536 chars and both Unicode states; assert unchanged format and unmodified methods.
+- [x] Verify buffer bytes/views/sprite prefix and measure grows/copied bytes/peak capacity across incremental workload.
+- [x] Verify real upload FIFO/sentinel/progress/slow-task behavior with an owned future substitute and preserve raw task counts/durations.
+- [x] Record independent warm font A/A and A/B forks/checksums, no game claims. Run clean full suite, both existing Java8 smokes and new verifier.
 - [ ] Commit code/evidence, one fresh whole-range review, one test-backed Important fix pass, fresh-clone artifact/license checks; retain all limits/rulings.

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+  "independentForks": 40,
+  "forksPerArmPerWorkload": 5,
+  "jvmArguments": [
+    "-Xms512m",
+    "-Xmx512m"
+  ],
+  "gameFpsMeasured": false,
+  "promotion": false,
+  "workloads": {
+    "ascii": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          16.297379970550537,
+          15.277644634246826,
+          15.65559720993042,
+          21.21718692779541,
+          16.49014139175415
+        ],
+        "medianNsPerQuery": 16.297379970550537
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          16.741117000579834,
+          16.007721424102783,
+          15.615582466125488,
+          16.663670539855957,
+          15.739500522613525
+        ],
+        "medianNsPerQuery": 16.007721424102783
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          15.324870586395264,
+          15.63107967376709,
+          15.748918056488037,
+          15.662113666534424,
+          17.155428886413574
+        ],
+        "medianNsPerQuery": 15.662113666534424
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          1.4855265617370605,
+          1.5588603019714355,
+          1.5089316368103027,
+          1.50477933883667,
+          1.5080971717834473
+        ],
+        "medianNsPerQuery": 1.5080971717834473
+      },
+      "queryCostReductionPercent": 90.3710495026873,
+      "aaMedianShiftPercent": -1.7773319820190032,
+      "interpretation": "OBSERVED_LOCAL_QUERY_REDUCTION_NO_GAME_ACCEPTANCE"
+    },
+    "unicode": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          45.98887777328491,
+          44.068058013916016,
+          44.09529733657837,
+          46.60067939758301,
+          44.11971569061279
+        ],
+        "medianNsPerQuery": 44.11971569061279
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          43.99909591674805,
+          44.03891181945801,
+          44.117252349853516,
+          44.32531213760376,
+          44.090370178222656
+        ],
+        "medianNsPerQuery": 44.090370178222656
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          44.00447988510132,
+          44.034759521484375,
+          44.03775930404663,
+          44.035136699676514,
+          51.953216552734375
+        ],
+        "medianNsPerQuery": 44.035136699676514
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          1.5253820419311523,
+          1.530686855316162,
+          1.477022647857666,
+          1.490830898284912,
+          2.0575718879699707
+        ],
+        "medianNsPerQuery": 1.5253820419311523
+      },
+      "queryCostReductionPercent": 96.53598885741087,
+      "aaMedianShiftPercent": -0.06651337600613884,
+      "interpretation": "OBSERVED_LOCAL_QUERY_REDUCTION_NO_GAME_ACCEPTANCE"
+    }
+  }
+}

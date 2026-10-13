@@ -10,6 +10,17 @@ import org.polydevs.opusmc.optim.platform.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PipelinePatchTest {
+    @Test void hostRoutingAliasIsDeclaredAndRefusalStillVisibleAtTheAlias() throws Exception {
+        String mapped="net.minecraft.client.gui.FontRenderer";
+        PipelineOptimizations.Candidate candidate=PipelineOptimizations.candidate(PipelineOptimizations.Kind.GLYPH_LOOKUP,
+                Collections.singleton(mapped));
+        ProviderPlan selected=plan(Collections.singletonMap(candidate.descriptor().id(),true),caps(),Collections.singleton(candidate));
+        assertEquals(new HashSet<>(Arrays.asList("avn",mapped)),selected.registrations().get(0).targetClasses());
+        byte[] wrong={1,2,3};
+        assertSame(wrong,selected.registrations().get(0).transformer().transform(mapped.replace('.','/'),wrong));
+        assertEquals(PipelinePatch.ApplicationState.UNSUPPORTED_INPUT,candidate.applicationState());
+        assertThrows(IllegalArgumentException.class,()->PipelineOptimizations.candidate(PipelineOptimizations.Kind.GLYPH_LOOKUP,Collections.singleton(" ")));
+    }
     @Test void publicFactoryReportsRefusedPinsIndependentlyAfterSelectedRegistration() throws Exception {
         for (PipelineOptimizations.Candidate c : PipelineOptimizations.candidates()) {
             PipelineOptimizations.Candidate other = PipelineOptimizations.candidate(c.kind());
@@ -41,7 +52,7 @@ class PipelinePatchTest {
         ClassWriter w = type("avn"); constructor(w);
         glyphMethod(w, "a", "(CZ)F", alphabet, Opcodes.FRETURN);
         glyphMethod(w, "getCharWidthFloat", "(C)F", alphabet, Opcodes.FRETURN);
-        glyphMethod(w, "b", "(C)I", alphabet, Opcodes.IRETURN);
+        glyphMethod(w, "b", "(C)I", "abc", Opcodes.IRETURN);
         MethodVisitor draw=w.visitMethod(Opcodes.ACC_PUBLIC,"a","(Ljava/lang/String;Z)V",null,null);
         draw.visitCode();draw.visitLdcInsn(alphabet);draw.visitInsn(Opcodes.ICONST_0);
         draw.visitMethodInsn(Opcodes.INVOKEVIRTUAL,"java/lang/String","indexOf","(I)I",false);draw.visitInsn(Opcodes.POP);
@@ -51,8 +62,9 @@ class PipelinePatchTest {
         format.visitMethodInsn(Opcodes.INVOKEVIRTUAL,"java/lang/String","indexOf","(I)I",false);
         format.visitInsn(Opcodes.IRETURN);format.visitMaxs(2,2);format.visitEnd();w.visitEnd();
         Class<?> t=define("avn",rewrite(PipelineOptimizations.Kind.GLYPH_LOOKUP,w.toByteArray()));Object o=t.getConstructor().newInstance();
-        Method index=t.getMethod("b",char.class);
-        for(int c=0;c<65536;c++){assertEquals(alphabet.indexOf(c),index.invoke(o,(char)c));}
+        Method index=t.getMethod("getCharWidthFloat",char.class);
+        for(int c=0;c<65536;c++){assertEquals((float)alphabet.indexOf(c),index.invoke(o,(char)c));}
+        assertEquals(1,t.getMethod("b",char.class).invoke(o,'b'));
         assertEquals(1,t.getMethod("format",int.class).invoke(o,(int)'b'));
     }
     @Test void bufferRewriteAppliesCapacityBeforeTheOriginalStore() throws Exception {
