@@ -14,6 +14,7 @@ val forbiddenSymbols = listOf(
 val allowedProjects = when (project.path) {
     ":api" -> setOf(":api")
     ":core" -> setOf(":core", ":api")
+    ":bench" -> setOf(":bench", ":api", ":core")
     else -> error("Optim boundary guard applied to unexpected project: ${project.path}")
 }
 
