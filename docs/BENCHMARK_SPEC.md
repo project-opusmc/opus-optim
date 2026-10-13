@@ -16,6 +16,7 @@ capture and returns an immutable run. Interrupted/incomplete runs remain visible
 
 Scope requires scenario, fixture, Minecraft, loader, client artifact, Java,
 OS, CPU, GPU, GL, resource-pack, settings, instrumentation and sampling identities.
+Identity strings must be well-formed Unicode before UTF-8 fingerprinting.
 All scope entries are compared; sampling is `frame.wall.nanos.v1`. Variant identity
 records id, source revision, Optim artifact SHA-256 (or explicit `absent`), and
 config SHA-256. Run and process-session ids identify independent replicates;
@@ -33,6 +34,9 @@ or trailing records is invalid. Writing uses CREATE_NEW and never overwrites.
 ## Exact distributions
 
 Percentiles use nearest rank over the entire raw run, not window summaries.
+The percentile argument uses the decimal value returned by `Double.toString`,
+so 0.07 over 100 frames has rank 7. Means are computed in sorted order with an
+overflow-safe floating sum, keeping permutations of the same distribution identical.
 1% low FPS = 1e9 / mean nanoseconds of the slowest ceil(N/100) frames, requiring
 at least 100 frames. 0.1% low uses ceil(N/1000), requiring 1,000 frames. Unsupported
 lows are absent. Positive long durations are averaged without integer sum overflow.
@@ -59,6 +63,11 @@ A/B effect and interval are normalized by the observed A/B control mean; this is
 an interval for the absolute mean difference in control-mean units, not an exact
 confidence interval for a ratio. Mean improvement's lower bound must exceed A/A
 noise. Tail regressions beyond A/A noise reject; uncertain tails stay inconclusive.
+The percentage noise gate assumes relative A/A noise transfers to the A/B phase
+and the baseline remains comparable/stationary. This engine does not verify
+chronological interleaving, stationarity or that a source-revision-only delta
+changes executed code. A controlled runner and receipt review must establish those
+facts before using a signal as optimization evidence.
 
 Evidence references bind scope, control and treatment fingerprints and declare
 parity, measured mechanism and compatibility PASS/FAIL/MISSING with SHA-256 receipts.

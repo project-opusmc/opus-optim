@@ -36,4 +36,12 @@ class FrameStatisticsTest {
             assertThrows(IllegalArgumentException.class, () -> stats.percentileNanos(p));
         }
     }
+    @Test void decimalPercentileBoundariesDoNotRoundIntoTheNextRank() {
+        long[] frames = new long[100];
+        for (int i = 0; i < 100; i++) { frames[i] = i + 1; }
+        FrameStatistics stats = FrameStatistics.of(frames);
+        assertEquals(7, stats.percentileNanos(.07));
+        assertEquals(14, stats.percentileNanos(.14));
+        assertEquals(28, stats.percentileNanos(.28));
+    }
 }

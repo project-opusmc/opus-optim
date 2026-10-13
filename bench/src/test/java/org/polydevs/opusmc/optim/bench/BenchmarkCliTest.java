@@ -3,6 +3,7 @@ package org.polydevs.opusmc.optim.bench;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -60,6 +61,14 @@ class BenchmarkCliTest {
             Files.write(file, invalid.getBytes(StandardCharsets.UTF_8));
             assertThrows(IOException.class, () -> ExperimentEvidence.read(file));
         }
+    }
+    @Test void evidenceByteLimitIsEnforcedOnTheStreamRatherThanOnlyFileMetadata() throws IOException {
+        byte[] content = evidenceJson("PASS").getBytes(StandardCharsets.UTF_8);
+        byte[] limit = new byte[16_384], overflow = new byte[16_385];
+        java.util.Arrays.fill(limit, (byte) ' '); java.util.Arrays.fill(overflow, (byte) ' ');
+        System.arraycopy(content, 0, limit, 0, content.length); System.arraycopy(content, 0, overflow, 0, content.length);
+        assertEquals(EvidenceReceipt.Status.PASS, ExperimentEvidence.read(new ByteArrayInputStream(limit)).parity().status());
+        assertThrows(IOException.class, () -> ExperimentEvidence.read(new ByteArrayInputStream(overflow)));
     }
     private String[] comparisonFiles() throws IOException {
         String[] args = new String[6]; args[0] = "compare";

@@ -132,6 +132,19 @@ class BenchmarkComparatorTest {
         result = compare(Collections.nCopies(1001, run), six, six, six, evidence(EvidenceReceipt.Status.PASS));
         assertTrue(result.reasons().contains("RUN_LIMIT"));
     }
+    @Test void aPermutationOfIdenticalFramesCannotBecomeAPerformanceSignal() {
+        long[] first = Fixtures.frames(1000, 2), last = Fixtures.frames(1000, 2);
+        first[0] = Long.MAX_VALUE; last[999] = Long.MAX_VALUE;
+        List<BenchmarkRun> aa1 = new ArrayList<>(), aa2 = new ArrayList<>(), a = new ArrayList<>(), b = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            aa1.add(Fixtures.run("aa1" + i, Fixtures.CONTROL, first)); aa2.add(Fixtures.run("aa2" + i, Fixtures.CONTROL, first));
+            a.add(Fixtures.run("a" + i, Fixtures.CONTROL, first)); b.add(Fixtures.run("b" + i, Fixtures.TREATMENT, last));
+        }
+        ComparisonResult result = compare(aa1, aa2, a, b, evidence(EvidenceReceipt.Status.PASS));
+        assertEquals(ComparisonResult.Verdict.INCONCLUSIVE, result.verdict());
+        assertEquals(0, result.estimates().get("meanFrameNanos").effectPercent());
+        assertEquals(FrameStatistics.of(first).meanNanos(), FrameStatistics.of(last).meanNanos());
+    }
     private ComparisonResult standard(ExperimentEvidence evidence) {
         return compare(arm("aa1", Fixtures.CONTROL, 10), arm("aa2", Fixtures.CONTROL, 10),
                 arm("a", Fixtures.CONTROL, 10), arm("b", Fixtures.TREATMENT, 8), evidence);

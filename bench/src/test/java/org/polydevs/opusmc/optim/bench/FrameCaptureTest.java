@@ -60,6 +60,15 @@ class FrameCaptureTest {
         assertThrows(IllegalArgumentException.class, () -> new BenchmarkVariant("x", Fixtures.REV,
                 "unknown", Fixtures.HASH_A));
     }
+    @Test void refusesMalformedUnicodeBeforeItCanCollideWithAReplacementIdentity() {
+        Map<String, String> fields = Fixtures.scopeFields(); fields.put("cpu", "?");
+        BenchmarkScope question = new BenchmarkScope(fields);
+        fields.put("cpu", "\ud800");
+        assertThrows(IllegalArgumentException.class, () -> new BenchmarkScope(fields));
+        assertThrows(IllegalArgumentException.class, () -> new BenchmarkVariant("control", "\udc00", Fixtures.HASH_A, Fixtures.HASH_A));
+        fields.put("cpu", "\ud83d\ude80");
+        assertNotEquals(question.fingerprint(), new BenchmarkScope(fields).fingerprint());
+    }
     private FrameCapture capture(int warmup, int capacity) {
         return new FrameCapture(new RunIdentity("run", "session", Fixtures.CONTROL,
                 RunIdentity.Origin.SYNTHETIC), Fixtures.scope(), warmup, capacity);

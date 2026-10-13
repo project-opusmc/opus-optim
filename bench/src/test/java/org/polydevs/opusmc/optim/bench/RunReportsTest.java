@@ -71,6 +71,14 @@ class RunReportsTest {
                 StandardCharsets.UTF_8);
         assertThrows(IOException.class, () -> RunReports.read(file));
     }
+    @Test void rejectsEscapedLoneSurrogatesInScopeAndVariantIdentities() throws IOException {
+        String good = new String(Files.readAllBytes(valid()), StandardCharsets.UTF_8);
+        for (String bad : new String[]{good.replace("fixture-cpu", "\\ud800"), good.replace(Fixtures.REV, "\\udc00")}) {
+            Path file = directory.resolve("unicode.jsonl");
+            Files.write(file, bad.getBytes(StandardCharsets.UTF_8));
+            assertThrows(IOException.class, () -> RunReports.read(file));
+        }
+    }
     private Path valid() throws IOException {
         Path file = directory.resolve("valid.jsonl");
         RunReports.writeNew(file, Fixtures.run("run", Fixtures.CONTROL, new long[]{10, 20}));

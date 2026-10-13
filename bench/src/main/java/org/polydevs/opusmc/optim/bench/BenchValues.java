@@ -11,6 +11,17 @@ final class BenchValues {
         if (value == null || value.trim().isEmpty() || value.length() > 256) {
             throw new IllegalArgumentException("Benchmark identity must contain 1..256 characters");
         }
+        for (int i = 0; i < value.length(); i++) {
+            char character = value.charAt(i);
+            if (Character.isHighSurrogate(character)) {
+                if (i + 1 == value.length() || !Character.isLowSurrogate(value.charAt(i + 1))) {
+                    throw new IllegalArgumentException("Malformed Unicode benchmark identity");
+                }
+                i++;
+            } else if (Character.isLowSurrogate(character)) {
+                throw new IllegalArgumentException("Malformed Unicode benchmark identity");
+            }
+        }
         return value;
     }
     static String hash(String value) {

@@ -24,23 +24,23 @@
 ### Task 1: Capture and exact statistics
 **Files:** settings/build boundary; bench/build.gradle.kts; bench/src/{main,test}/java/org/polydevs/opusmc/optim/bench/{BenchmarkScope,BenchmarkVariant,RunIdentity,BenchmarkRun,FrameCapture,FrameStatistics}.
 **Interfaces:** FrameCapture(RunIdentity, BenchmarkScope, int warmupFrames, int capacity); record(long nanos); finish(BenchmarkRun.Termination, Metrics) -> BenchmarkRun. FrameStatistics.of(long[]) -> exact nearest-rank percentiles and OptionalDouble lows.
-- [ ] Write tests for warmup, overflow, sealed/immutable captures, invalid durations, exact percentiles/lows and long-sum overflow; run `./gradlew :bench:test --write-locks`; Expected RED: missing classes.
-- [ ] Implement the validated capture and identity/statistics contract, with no per-frame allocations.
-- [ ] Run `./gradlew test :bench:check`; Expected BUILD SUCCESSFUL.
-- [ ] Commit `feat(bench): capture bounded raw frame distributions`.
+- [x] Write tests for warmup, overflow, sealed/immutable captures, invalid durations, exact percentiles/lows and long-sum overflow; run `./gradlew :bench:test --write-locks`; Expected RED: missing classes.
+- [x] Implement the validated capture and identity/statistics contract, with no per-frame allocations.
+- [x] Run `./gradlew test :bench:check`; Expected BUILD SUCCESSFUL.
+- [x] Commit `feat(bench): capture bounded raw frame distributions`.
 
 ### Task 2: Strict local report I/O
 **Files:** bench/.../{JsonSupport,RunReports,BenchmarkCli}.java; corresponding Report/CLI tests.
 **Interfaces:** RunReports.writeNew(Path, BenchmarkRun); RunReports.read(Path) -> BenchmarkRun; BenchmarkCli.run(String[], PrintStream out, PrintStream err) -> exit code.
-- [ ] Write roundtrip and invalid/truncated/duplicate/version/count/type/overwrite tests; run `./gradlew :bench:test`; Expected RED: missing report classes.
-- [ ] Implement bounded strict JSONL and stats CLI, retaining missing metrics as absent.
-- [ ] Run `./gradlew test :bench:check`; Expected BUILD SUCCESSFUL.
-- [ ] Commit `feat(bench): persist strict local run reports`.
+- [x] Write roundtrip and invalid/truncated/duplicate/version/count/type/overwrite tests; run `./gradlew :bench:test`; Expected RED: missing report classes.
+- [x] Implement bounded strict JSONL and stats CLI, retaining missing metrics as absent.
+- [x] Run `./gradlew test :bench:check`; Expected BUILD SUCCESSFUL.
+- [x] Commit `feat(bench): persist strict local run reports`.
 
 ### Task 3: A/A–A/B comparison and handoff
 **Files:** bench/.../{EvidenceReceipt,ExperimentEvidence,ComparisonEstimate,ComparisonResult,BenchmarkComparator}.java; comparator tests; CLI compare; README; docs.
 **Interfaces:** BenchmarkComparator.compare(List<BenchmarkRun> aaControl, List<BenchmarkRun> aaRepeat, List<BenchmarkRun> control, List<BenchmarkRun> treatment, ExperimentEvidence) -> ComparisonResult.
-- [ ] Write tests for true/noise-level effects, independent sessions, raw counts, scope/variant mismatch, evidence binding, synthetic input, tails, unequal lengths and uncertainty; run `./gradlew :bench:test`; Expected RED: missing comparator.
-- [ ] Implement conservative independent-run estimates and fail-closed gates; add compare CLI and document exact assumptions/exit codes.
-- [ ] Run `./gradlew clean test check assemble`; verify Java major 52 and exact LICENSE; Expected BUILD SUCCESSFUL.
-- [ ] Commit `feat(bench): gate comparisons on independent run evidence` and request one fresh review of the whole change.
+- [x] Write tests for true/noise-level effects, independent sessions, raw counts, scope/variant mismatch, evidence binding, synthetic input, tails, unequal lengths and uncertainty; run `./gradlew :bench:test`; Expected RED: missing comparator.
+- [x] Implement conservative independent-run estimates and fail-closed gates; add compare CLI and document exact assumptions/exit codes.
+- [x] Run `./gradlew clean test check assemble`; verify Java major 52 and exact LICENSE; Expected BUILD SUCCESSFUL.
+- [x] Commit `feat(bench): gate comparisons on independent run evidence` and request one fresh review of the whole change.

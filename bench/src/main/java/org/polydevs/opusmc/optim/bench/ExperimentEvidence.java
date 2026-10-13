@@ -2,7 +2,11 @@ package org.polydevs.opusmc.optim.bench;
 
 import com.google.gson.JsonObject;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.charset.CodingErrorAction;
+import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
@@ -29,8 +33,19 @@ public final class ExperimentEvidence {
     public EvidenceReceipt compatibility() { return compatibility; }
     public static ExperimentEvidence read(Path path) throws IOException {
         if (Files.size(path) > RunReports.MAX_RECORD) { throw new IOException("Evidence size limit exceeded"); }
+        try (InputStream input = Files.newInputStream(path)) { return read(input); }
+    }
+    static ExperimentEvidence read(InputStream input) throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        byte[] chunk = new byte[4096]; int count;
+        while ((count = input.read(chunk, 0, Math.min(chunk.length, RunReports.MAX_RECORD + 1 - bytes.size()))) != -1) {
+            if (bytes.size() + count > RunReports.MAX_RECORD) { throw new IOException("Evidence size limit exceeded"); }
+            bytes.write(chunk, 0, count);
+        }
         try {
-            JsonObject object = JsonSupport.parse(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
+            String encoded = StandardCharsets.UTF_8.newDecoder().onMalformedInput(CodingErrorAction.REPORT)
+                    .onUnmappableCharacter(CodingErrorAction.REPORT).decode(ByteBuffer.wrap(bytes.toByteArray())).toString();
+            JsonObject object = JsonSupport.parse(encoded);
             JsonSupport.fields(object, "schemaVersion", "featureId", "scopeFingerprint", "controlVariantFingerprint",
                     "treatmentVariantFingerprint", "parity", "mechanism", "compatibility");
             if (JsonSupport.integer(object, "schemaVersion") != 1) { throw new IOException("Unsupported evidence schema"); }
