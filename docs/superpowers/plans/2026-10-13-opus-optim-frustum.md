@@ -38,11 +38,11 @@
 **Files:** `mc189/{FrustumPatch,FrustumOptimization}.java`, candidate tests, platform Gradle compile-only ASM and guard allowance.
 **Interfaces:** `FrustumPatch.matchesTarget(byte[]): boolean`, ClassTransformer implementation with application state; `FrustumOptimization.binding(): TransformerBinding` consumes Task 1 helper.
 
-- [ ] Write negative pin/non-target tests, synthetic bytecode execution test, flag/capability/OFF/recovery tests and unchanged disabled/full-predicate tests.
-- [ ] Run platform tests; observe missing transformer/binding before implementation.
-- [ ] Implement exact hash gate, one-method rewrite, observable unsupported input, EXPERIMENTAL descriptor and helper binding.
-- [ ] Run `./gradlew test check assemble --write-locks`; expect all tests and packaging guards pass.
-- [ ] Commit `feat: bind pinned frustum patch behind explicit O2 flag`.
+- [x] Write negative pin/non-target tests, synthetic bytecode execution test, flag/capability/OFF/recovery tests and unchanged disabled/full-predicate tests.
+- [x] Run platform tests; observe missing transformer/binding before implementation.
+- [x] Implement exact hash gate, one-method rewrite, observable unsupported input, EXPERIMENTAL descriptor and helper binding.
+- [x] Run `./gradlew test check assemble --write-locks`; expect all tests and packaging guards pass.
+- [x] Commit `feat: bind pinned frustum patch behind explicit O2 flag`.
 
 ### Task 3: Real bytecode verification and controlled microbenchmark
 

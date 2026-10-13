@@ -11,6 +11,7 @@ dependencies {
     api(project(":core"))
     api(project(":bench"))
     compileOnly(files(loaderContract.output))
+    compileOnly("org.ow2.asm:asm:5.0.3")
     testImplementation(files(loaderContract.output))
     testImplementation("org.ow2.asm:asm:5.0.3")
     testImplementation(platform("org.junit:junit-bom:5.13.4"))
@@ -44,7 +45,7 @@ val verifyPlatformArtifact = tasks.register("verifyPlatformArtifact") {
         val prefix = "org/polydevs/opusmc/optim/platform/"
         val service = "META-INF/services/org.polydevs.opusmc.bootstrap.ClassTransformerProvider"
         val forbidden = listOf("net/minecraft/", "net/minecraftforge/", "org/lwjgl/", "org/cef/",
-            "com/jogamp/", "org/objectweb/asm/", "org/polydevs/opusmc/client/",
+            "com/jogamp/", "org/polydevs/opusmc/client/",
             "org/polydevs/opusmc/nativeui/", "org/polydevs/opusmc/injector/", "cc/polyfrost/")
             .flatMap { listOf(it, it.replace('/', '.')) }
         ZipFile(platformJar.get().archiveFile.get().asFile).use { zip ->
@@ -70,14 +71,16 @@ tasks.named("check") { dependsOn(verifyPlatformArtifact) }
 tasks.named("assemble") { dependsOn(verifyPlatformArtifact) }
 
 val smoke = sourceSets.create("smoke") {
-    compileClasspath += sourceSets.main.get().output + configurations.getByName("runtimeClasspath") + loaderContract.output
+    compileClasspath += sourceSets.main.get().output + configurations.getByName("runtimeClasspath") +
+        configurations.getByName("compileClasspath") + loaderContract.output
 }
 val artifactJars = listOf(":api", ":core", ":bench", ":platform-opus").map {
     project(it).tasks.named<Jar>("jar")
 }
 val smokeRuntime = files(smoke.output, loaderContract.output,
     artifactJars.map { it.flatMap { jar -> jar.archiveFile } },
-    configurations.getByName("runtimeClasspath").filter { it.name.startsWith("gson-") })
+    configurations.getByName("runtimeClasspath").filter { it.name.startsWith("gson-") },
+    configurations.getByName("compileClasspath").filter { it.name.startsWith("asm-") })
 tasks.register<Exec>("java8Smoke") {
     group = "verification"
     description = "Runs synthetic bridge checks on Java 8 using built O2 JARs and the separate draft API fixture"

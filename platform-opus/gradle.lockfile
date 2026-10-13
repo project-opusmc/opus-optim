@@ -14,5 +14,5 @@ org.junit.platform:junit-platform-engine:1.13.4=testRuntimeClasspath
 org.junit.platform:junit-platform-launcher:1.13.4=testRuntimeClasspath
 org.junit:junit-bom:5.13.4=testCompileClasspath,testRuntimeClasspath
 org.opentest4j:opentest4j:1.3.0=testCompileClasspath,testRuntimeClasspath
-org.ow2.asm:asm:5.0.3=testCompileClasspath,testRuntimeClasspath
-empty=annotationProcessor,compileClasspath,loaderContractAnnotationProcessor,loaderContractCompileClasspath,smokeAnnotationProcessor,smokeCompileClasspath,testAnnotationProcessor
+org.ow2.asm:asm:5.0.3=compileClasspath,testCompileClasspath,testRuntimeClasspath
+empty=annotationProcessor,loaderContractAnnotationProcessor,loaderContractCompileClasspath,smokeAnnotationProcessor,smokeCompileClasspath,testAnnotationProcessor
