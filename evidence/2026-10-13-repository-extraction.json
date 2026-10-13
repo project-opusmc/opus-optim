@@ -1,0 +1,39 @@
+{
+  "source_commit": "8de907d003294356a4dad76026c3a71ef7247a10",
+  "subtree_split_commit": "30fd4047951e0a7f7943692b5d64b6b54ed72728",
+  "repository_commit": "ebc2dd80e5b7fa32594358c2ea5ed69fa6fc5f58",
+  "verified_commit": "ebc2dd80e5b7fa32594358c2ea5ed69fa6fc5f58",
+  "verified_at_utc": "2026-10-13 08:45:43 UTC",
+  "repository_url": "https://github.com/project-opusmc/opus-optim",
+  "branch": "opus-optim",
+  "license_sha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a",
+  "verification": {
+    "command": "./gradlew test :api:check :core:check :api:jar :core:jar",
+    "exit_code": 0,
+    "tests": {
+      "total": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "production_class_count": 25,
+    "java_class_major_versions": [
+      52
+    ],
+    "artifacts_sha256": {
+      "api": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f",
+      "core": "e67775542c888639f6f57adc5fa90eb7b76924ed38d400172afaf952d917163f"
+    },
+    "boundary_guard": {
+      "api": "passed",
+      "core": "passed",
+      "task_project_deprecation": "not emitted"
+    }
+  },
+  "claims": {
+    "game_integration": false,
+    "launcher_staging": false,
+    "measured_performance_gain": false,
+    "physical_acceptance": false
+  }
+}
