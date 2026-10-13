@@ -58,8 +58,8 @@
 
 **Interfaces:** Consumes Task 1 SPI JAR, Task 2 callback. Produces a build-verifiable artifact boundary, provenance and exact host integration/baseline prerequisites.
 
-- [ ] Inject a throwaway Loader class into JAR inputs; run artifact verification and observe rejection; remove fixture.
-- [ ] Implement artifact boundary guard and wire check/assemble; no bundled Loader/ASM/game classes, exact SPI provider.
-- [ ] Write handoff for empty-provider fix, managed approval/classpath/predefinition install, telemetry callback and controlled OFF/A/A baseline protocol.
-- [ ] Run `./gradlew clean test check assemble`, Java 8 executable smoke, JAR/class-major/license checks, and fresh-clone build.
-- [ ] Commit verification/handoff, then one fresh whole-change review; fix Important findings with RED-to-GREEN regressions and full suite. Preserve findings/rulings in evidence.
+- [x] Inject a throwaway Loader class into JAR inputs; run artifact verification and observe rejection; remove fixture.
+- [x] Implement artifact boundary guard and wire check/assemble; no bundled Loader/ASM/game classes, exact SPI provider.
+- [x] Write handoff for empty-provider fix, managed approval/classpath/predefinition install, telemetry callback and controlled OFF/A/A baseline protocol.
+- [x] Run `./gradlew clean test check assemble`, Java 8 executable smoke, JAR/class-major/license checks, and fresh-clone build.
+- [x] Commit verification/handoff, then one fresh whole-change review; fix Important findings with RED-to-GREEN regressions and full suite. Preserve findings/rulings in evidence.

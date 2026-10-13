@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "scope": "O2 local provider bridge and raw telemetry callback against archived Loader draft",
+  "implementationCommit": "3b83891ca77645d518b1a1c625dc4b6736bac1b8",
+  "sourceBaselineCommit": "716caef0c19f7d85574418ba6a0a2670649d5ebb",
+  "branch": "opus-optim",
+  "modules": {
+    "api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 11,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+    },
+    "core": {
+      "tests": 29,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 14,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "e67775542c888639f6f57adc5fa90eb7b76924ed38d400172afaf952d917163f"
+    },
+    "bench": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 21,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+    },
+    "platform-opus": {
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 8,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "58919a38a4fc208bf5e1add0e68cbc9e0bdd12768da60eadbd97756d2e7809bb"
+    }
+  },
+  "totalTests": 89,
+  "verificationCommand": "./gradlew clean test check assemble :platform-opus:java8Smoke -Pjava8Home=<actual Java 8 home>",
+  "java8ArtifactSmoke": {
+    "version": "1.8.0_502",
+    "passed": true,
+    "origin": "SYNTHETIC",
+    "builtO2JarsUsed": true,
+    "separateLoaderDraftFixtureUsed": true
+  },
+  "freshCloneVerification": {
+    "commit": "3b83891ca77645d518b1a1c625dc4b6736bac1b8",
+    "buildTestCheckAssembleAndJava8SmokePassed": true,
+    "allFourJarHashesMatch": true
+  },
+  "artifactBoundaryProbe": {
+    "normalTestTaskRejectedBundledLoaderClass": true,
+    "probeRemoved": true
+  },
+  "loaderSnapshot": {
+    "publishedRuntimeBase": "34714870c4ccdc6e00025a0e3176e92027f1d3cc",
+    "providerContractPublished": false,
+    "fixtureSourceHashes": "platform-opus/loader-contract-sha256.json",
+    "fixtureClassesBundled": false,
+    "approvedEmptyProviderRejectedByDraft": true,
+    "defaultAdaptersApproveO2": false
+  },
+  "managedGameIntegration": false,
+  "actualAdapterIntegration": false,
+  "rawHostTelemetryObserverWired": false,
+  "controlledGameBaseline": false,
+  "instrumentationOverheadMeasured": false,
+  "measuredGamePerformanceGain": false,
+  "featurePromotion": false,
+  "managedArtifactStagingChanged": false,
+  "licenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a"
+}
