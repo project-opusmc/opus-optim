@@ -1,8 +1,9 @@
-# Opus Optim (O2) — M1
+# Opus Optim (O2)
 
-This is the Java 8 API/core foundation for the managed Minecraft 1.8.9 optimizer.
-It does not install game patches, stage an Optim artifact, or establish a measured
-performance gain. The platform provider and benchmark runner are later milestones.
+This is the Java 8 optimizer foundation for managed Minecraft 1.8.9, with a
+host-neutral API/core and a local benchmark report/comparison engine. Managed
+game capture, provider integration and controlled scenario runners remain pending;
+no installed game optimization or measured game performance gain is claimed.
 
 ## Modules and verification
 
@@ -10,18 +11,19 @@ performance gain. The platform provider and benchmark runner are later milestone
   activation/evidence enums, and measured-counter snapshots.
 - `:core`: registry, configuration store, compatibility/planning decisions,
   and incomplete-launch recovery.
+- `:bench`: bounded raw frame capture, strict JSONL run reports, exact percentiles/
+  slowest-frame lows, independent-run A/A–A/B comparison and offline CLI.
 
 From this repository root:
 
 ```sh
-./gradlew :api:test :core:test
-./gradlew test :api:check :core:check :api:jar :core:jar
+./gradlew clean test check assemble
 ```
 
-Both module `test` and `check` tasks run `verifyOptimBoundary`. It checks production
+Every module's `test` and `check` tasks run `verifyOptimBoundary`. It checks production
 dependencies, Java source, and compiled symbols for forbidden game, Loader, UI,
-and GL references. The root retains its current five artifact roles; the two
-ordinary Gradle JARs are not added to Launcher staging.
+and GL references. Opus Runtime retains its current five artifact roles; the
+ordinary O2 Gradle JARs are not added to Launcher staging.
 
 ## Configuration
 
@@ -90,7 +92,52 @@ No first-frame or client-ready callback is treated as clean shutdown here.
 completed platform probe. `Metrics` contains only provided nonnegative measured
 counters and returns absence for unsupported/unmeasured values. Unit fixtures
 use synthetic identities/counters; there are no real game samples, percentile
-comparisons, visual parity receipts, or VALIDATED/DEFAULT promotions in M1.
+visual parity receipts, or VALIDATED/DEFAULT promotions in M1.
+
+## Benchmark engine
+
+`FrameCapture` is a single-writer, preallocated diagnostic sampler. Call `record`
+with actual positive frame wall-duration nanoseconds, then `finish` with COMPLETE
+or INTERRUPTED termination and only counters the caller has measured. It discards
+declared warmup frames and counts overflow as dropped; it does not allocate or do
+I/O per frame. `RunReports.writeNew` writes a new local JSONL file; an existing
+file is never overwritten. A truncated or inconsistent report fails to load.
+
+Inspect a report or compare four directories of independent session reports:
+
+```sh
+./gradlew :bench:run --args='stats /absolute/path/run.jsonl'
+./gradlew :bench:run --args='compare /path/aa-control /path/aa-repeat /path/control /path/treatment /path/evidence.json'
+```
+
+`stats` prints scope/variant fingerprints, mean and nearest-rank p50/p95/p99,
+plus exact 1%/0.1% lows when sufficient raw samples exist. Missing lows are null.
+These are wall durations, not CPU-only cost, GPU time or allocation measurements.
+
+`compare` requires at least five distinct process-session reports per arm and
+1,000 complete, undropped frames/run. A/A and A/B control variants must match;
+scope, sampling and warmup policy must match throughout. Every run has equal
+weight, regardless of its duration. The comparator reports effect, A/A noise and
+nominal uncertainty for run means and run-level p95/p99 aggregates. It rejects
+proven tail regressions and refuses inconclusive/missing evidence. See the
+[precise statistical assumptions and bounds](docs/BENCHMARK_SPEC.md).
+
+Evidence JSON v1 contains `featureId`, `scopeFingerprint`,
+`controlVariantFingerprint`, `treatmentVariantFingerprint`, plus `parity`,
+`mechanism` and `compatibility` objects. Each object has `status` PASS/FAIL/MISSING
+and `sha256` (null for MISSING; receipt hash otherwise). For example, a missing
+parity receipt is `{"status":"MISSING","sha256":null}`. Receipt binding and
+completeness are checked; receipt contents and session independence are supplied
+declarations requiring an external review. Neither metadata nor unit fixtures
+authenticate real game measurements.
+
+Exit codes: 0 stats/PERFORMANCE_SIGNAL, 2 invalid input, 3 INCONCLUSIVE, 4 REJECTED.
+Gradle forwards nonzero CLI exits as a failed JavaExec task; read the JSON verdict.
+PERFORMANCE_SIGNAL is a screening result and never mutates the optimization
+registry, enables a feature or assigns VALIDATED/DEFAULT. Synthetic-origin reports
+remain INCONCLUSIVE even with a large computed effect. Actual game measurement,
+instrumentation A/A overhead, controlled lobby/chunk fixtures and Loader integration
+are the next work; this engine is not completion of those milestones.
 
 ## Loader handoff
 

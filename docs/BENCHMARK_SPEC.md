@@ -23,7 +23,8 @@ these are declarations, not proof of independence. Origin distinguishes recorded
 data from synthetic fixtures. No account/server/input contents belong in reports.
 
 Limits: 1,000,000 samples/run, 32 scope fields with values up to 256 characters,
-64 counters, 64 MiB/report and 16,384 characters/JSONL record. Reports are local.
+64 counters, 64 MiB/report and 16,384 characters/JSONL record. A comparison is
+bounded to 1,000 runs/arm and 20,000,000 total samples. Reports are local.
 JSONL v1 has one run header, frame records, then one end record with sample,
 observed/dropped counts, termination and supplied measured counters. A missing
 footer, duplicate JSON keys, unsupported version, wrong types, inconsistent count
