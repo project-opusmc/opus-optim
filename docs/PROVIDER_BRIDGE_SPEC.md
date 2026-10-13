@@ -20,12 +20,17 @@ nonempty and name exact raw target classes/methods/anchors supplied by the host.
 No guessed mappings, optimization candidate, renderer or GL probe is added.
 
 `ProviderPlan.prepare(config, capabilities, recovery, candidates, baseline,
-gameLoader)` plans the candidate catalogue using existing core eligibility and
-baseline claim compatibility. Missing/disabled/SAFE config and recovery retain
+gameLoader)` plans the candidate catalogue using existing core eligibility,
+baseline claims and explicit conflicts declared in either descriptor direction.
+Baseline conflicts exclude candidates and propagate to their dependents while
+preserving host-owned baseline transforms. Missing/disabled/SAFE config and recovery retain
 their exclusion reasons. Only selected candidates become registrations for
 provider `opus.optim`. OFF contributes zero registrations and checks no helpers.
 Runtime policies/backends are rejected as unsupported bindings rather than
 reported as installed but inactive.
+The candidate-only registry does not treat baseline-only ids as optimization
+dependencies: such requirements fail closed with DEPENDENCY_MISSING until an
+explicit cross-baseline dependency contract exists.
 
 Before installation, verify selected order against Loader's actual priority/id
 sort; verify composed baseline/candidate claim order against that same sort;
@@ -52,7 +57,8 @@ it does not add another transformer, clock read, game reference, GL call or I/O.
 With no capture attached it is a no-op. Benchmark instrumentation is separate
 from optimizer enablement so an optimizer-OFF baseline can still be measured.
 
-The callback and session finish synchronize to protect the single-writer sampler.
+Callback admission/validation/recording and session finish use one lifecycle
+monitor so sealing cannot overtake an already admitted callback.
 The first callback owns the session's writer thread. Nonpositive samples or a
 different writer invalidate the session: callbacks cease recording, game callers
 do not receive a diagnostic validation exception, and requested COMPLETE is

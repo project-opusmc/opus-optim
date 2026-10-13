@@ -1,5 +1,6 @@
 package org.polydevs.opusmc.optim.platform;
 
+import org.polydevs.opusmc.optim.api.Metrics;
 import org.polydevs.opusmc.optim.bench.*;
 
 /** Optional diagnostic callback. The host supplies its already measured wall-frame interval. */
@@ -21,14 +22,16 @@ public final class FrameTimingBridge {
 
     /** No clock read, allocation, GL call, game-class load or file I/O on a valid frame. */
     public static void frameCompleted(long durationNanos) {
-        CaptureSession session;
-        synchronized (LOCK) { session = active; }
-        if (session != null) { session.record(durationNanos); }
+        synchronized (LOCK) {
+            if (active != null) { active.record(durationNanos); }
+        }
     }
 
-    static void detach(CaptureSession session) {
+    static BenchmarkRun finish(CaptureSession session, BenchmarkRun.Termination termination, Metrics counters) {
         synchronized (LOCK) {
+            BenchmarkRun run = session.seal(termination, counters);
             if (active == session) { active = null; }
+            return run;
         }
     }
 }

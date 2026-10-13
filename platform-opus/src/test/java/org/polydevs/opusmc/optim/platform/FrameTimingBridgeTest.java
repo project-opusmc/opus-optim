@@ -1,6 +1,7 @@
 package org.polydevs.opusmc.optim.platform;
 
 import java.nio.file.Path;
+import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
@@ -87,6 +88,39 @@ class FrameTimingBridgeTest {
         CaptureSession second = start(0, 2);
         FrameTimingBridge.frameCompleted(20);
         assertArrayEquals(new long[]{20}, second.finish(BenchmarkRun.Termination.COMPLETE, noCounters).frameNanos());
+    }
+    @Test void finishCannotDiscardAnAdmittedInvalidDurationCallback() {
+        finishRacingBadCallback(0, "INVALID_FRAME_DURATION");
+    }
+    @Test void finishCannotDiscardAnAdmittedForeignWriterCallback() {
+        finishRacingBadCallback(20, "MULTIPLE_FRAME_THREADS");
+    }
+    private void finishRacingBadCallback(long duration, String reason) {
+        assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+            CaptureSession session = start(0, 2);
+            FrameTimingBridge.frameCompleted(10);
+            AtomicReference<Throwable> failure = new AtomicReference<>();
+            Thread callback = new Thread(() -> {
+                try { FrameTimingBridge.frameCompleted(duration); } catch (Throwable thrown) { failure.set(thrown); }
+            });
+            callback.setDaemon(true);
+            BenchmarkRun run;
+            synchronized (session) {
+                callback.start();
+                // Old code admits the callback then waits on this public session monitor.
+                // A unified lifecycle protocol is free to finish validation without that monitor.
+                long deadline = System.nanoTime() + 5_000_000_000L;
+                while (callback.getState() != Thread.State.BLOCKED && callback.getState() != Thread.State.TERMINATED
+                        && System.nanoTime() < deadline) { Thread.yield(); }
+                assertTrue(callback.getState() == Thread.State.BLOCKED || callback.getState() == Thread.State.TERMINATED);
+                run = session.finish(BenchmarkRun.Termination.COMPLETE, noCounters);
+            }
+            callback.join(5000);
+            assertFalse(callback.isAlive()); assertNull(failure.get());
+            assertArrayEquals(new long[]{10}, run.frameNanos());
+            assertEquals(BenchmarkRun.Termination.INTERRUPTED, run.termination());
+            assertEquals(Optional.of(reason), session.failureReason());
+        });
     }
     @Test void helpersMustBeVisibleAsTheExactSameClassesBeforeAttaching() throws Exception {
         assertThrows(IllegalArgumentException.class, () -> FrameTimingBridge.start(identity(), scope(), 0, 2,

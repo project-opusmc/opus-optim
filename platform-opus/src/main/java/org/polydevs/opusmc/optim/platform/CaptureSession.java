@@ -8,12 +8,13 @@ import org.polydevs.opusmc.optim.bench.*;
 public final class CaptureSession {
     private final FrameCapture capture;
     private Thread writer;
-    private String failure;
+    private volatile String failure;
     private boolean finished;
 
     CaptureSession(FrameCapture capture) { this.capture = capture; }
 
-    synchronized void record(long durationNanos) {
+    // record/seal are called only under the bridge's single lifecycle monitor.
+    void record(long durationNanos) {
         if (finished || failure != null) { return; }
         if (durationNanos <= 0) { failure = "INVALID_FRAME_DURATION"; return; }
         Thread current = Thread.currentThread();
@@ -22,15 +23,18 @@ public final class CaptureSession {
         capture.record(durationNanos);
     }
 
-    public synchronized BenchmarkRun finish(BenchmarkRun.Termination termination, Metrics counters) {
+    public BenchmarkRun finish(BenchmarkRun.Termination termination, Metrics counters) {
+        return FrameTimingBridge.finish(this, termination, counters);
+    }
+
+    BenchmarkRun seal(BenchmarkRun.Termination termination, Metrics counters) {
         if (finished) { throw new IllegalStateException("O2 capture is already sealed"); }
         Objects.requireNonNull(termination, "termination");
         BenchmarkRun run = capture.finish(failure == null ? termination : BenchmarkRun.Termination.INTERRUPTED, counters);
         finished = true;
         writer = null;
-        FrameTimingBridge.detach(this);
         return run;
     }
 
-    public synchronized Optional<String> failureReason() { return Optional.ofNullable(failure); }
+    public Optional<String> failureReason() { return Optional.ofNullable(failure); }
 }

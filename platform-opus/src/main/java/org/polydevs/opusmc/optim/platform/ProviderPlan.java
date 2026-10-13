@@ -25,9 +25,10 @@ public final class ProviderPlan {
         }
         List<OptimizationDescriptor> catalogue = new ArrayList<>();
         for (TransformerBinding binding : bound.values()) { catalogue.add(binding.descriptor); }
-        List<PatchClaim> baseClaims = new ArrayList<>();
-        for (TransformerBinding binding : base.values()) { baseClaims.addAll(binding.descriptor.patchClaims()); }
-        PatchPlan plan = new PatchPlanner(new OptimizationRegistry(catalogue), new CompatibilityResolver(baseClaims))
+        List<OptimizationDescriptor> baselineDescriptors = new ArrayList<>();
+        for (TransformerBinding binding : base.values()) { baselineDescriptors.add(binding.descriptor); }
+        PatchPlan plan = new PatchPlanner(new OptimizationRegistry(catalogue),
+                CompatibilityResolver.withBaselineDescriptors(baselineDescriptors))
                 .plan(config, capabilities, recovery);
 
         List<TransformerBinding> selected = new ArrayList<>();

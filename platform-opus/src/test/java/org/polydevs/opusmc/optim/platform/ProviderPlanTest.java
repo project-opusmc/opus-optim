@@ -113,6 +113,32 @@ class ProviderPlanTest {
         assertThrows(IllegalArgumentException.class, () -> prepare(on("o2.probe"), CrashMarker.Recovery.clean(),
                 Collections.singleton(probe), Collections.singleton(probe), gameLoader));
     }
+    @Test void candidateBaselineConflictExcludesItsDependentsAndPreservesTheBaseline() {
+        OptimizationDescriptor incompatible = OptimizationDescriptor.builder("o2.probe", ActivationKind.STARTUP_PATCH)
+                .conflicts(Collections.singleton("opus.base")).correctnessScope("fixture").benchmarkScenario("fixture")
+                .patchClaims(Collections.singleton(claim("fixture.Candidate", 0, ""))).build();
+        OptimizationDescriptor dependent = OptimizationDescriptor.builder("o2.dependent", ActivationKind.STARTUP_PATCH)
+                .requires(Collections.singleton("o2.probe")).correctnessScope("fixture").benchmarkScenario("fixture")
+                .patchClaims(Collections.singleton(claim("fixture.Dependent", 0, ""))).build();
+        TransformerBinding base = binding(descriptor("opus.base", "fixture.Base", 0, ""), 100, Collections.emptyList());
+        ProviderPlan plan = prepare(on("o2.probe", "o2.dependent"), CrashMarker.Recovery.clean(), Arrays.asList(
+                binding(incompatible, 200, Collections.emptyList()), binding(dependent, 300, Collections.emptyList())),
+                Collections.singleton(base), gameLoader);
+        assertTrue(plan.registrations().isEmpty());
+        assertEquals(ExclusionReason.CONFLICT, plan.patchPlan().excluded().get("o2.probe").code());
+        assertTrue(plan.patchPlan().excluded().get("o2.probe").detail().contains("opus.base"));
+        assertEquals(ExclusionReason.DEPENDENCY_DISABLED, plan.patchPlan().excluded().get("o2.dependent").code());
+    }
+    @Test void baselineCanDeclareTheConflictInTheOtherDirection() {
+        OptimizationDescriptor baseline = OptimizationDescriptor.builder("opus.base", ActivationKind.STARTUP_PATCH)
+                .conflicts(Collections.singleton("o2.probe")).correctnessScope("fixture").benchmarkScenario("fixture")
+                .patchClaims(Collections.singleton(claim("fixture.Base", 0, ""))).build();
+        ProviderPlan plan = prepare(on("o2.probe"), CrashMarker.Recovery.clean(), Collections.singleton(
+                binding(descriptor("o2.probe", "fixture.Candidate", 0, ""), 200, Collections.emptyList())),
+                Collections.singleton(binding(baseline, 100, Collections.emptyList())), gameLoader);
+        assertTrue(plan.registrations().isEmpty());
+        assertEquals(ExclusionReason.CONFLICT, plan.patchPlan().excluded().get("o2.probe").code());
+    }
     @Test void refusesInvisibleAndDuplicateHelpersWithoutInitializingThem() throws Exception {
         Fixtures.initialized = false;
         TransformerBinding candidate = binding(descriptor("o2.probe", "fixture.Other", 0, ""), 200,

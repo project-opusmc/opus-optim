@@ -5,15 +5,31 @@ import org.polydevs.opusmc.optim.api.*;
 
 public final class CompatibilityResolver {
     private final List<PatchClaim> baselineClaims;
+    private final List<OptimizationDescriptor> baselineDescriptors;
 
     public CompatibilityResolver() { this(Collections.emptyList()); }
     public CompatibilityResolver(Collection<PatchClaim> baselineClaims) {
+        this(baselineClaims, Collections.emptyList());
+    }
+    private CompatibilityResolver(Collection<PatchClaim> baselineClaims, Collection<OptimizationDescriptor> baselineDescriptors) {
         ArrayList<PatchClaim> copy = new ArrayList<>();
         for (PatchClaim claim : baselineClaims) { copy.add(Objects.requireNonNull(claim)); }
         this.baselineClaims = Collections.unmodifiableList(copy);
+        ArrayList<OptimizationDescriptor> descriptors = new ArrayList<>();
+        for (OptimizationDescriptor descriptor : baselineDescriptors) { descriptors.add(Objects.requireNonNull(descriptor)); }
+        this.baselineDescriptors = Collections.unmodifiableList(descriptors);
+    }
+
+    /** Active host baseline metadata; declarations and claims both constrain candidates. */
+    public static CompatibilityResolver withBaselineDescriptors(Collection<OptimizationDescriptor> baseline) {
+        return new CompatibilityResolver(Collections.emptyList(), baseline);
     }
 
     public Optional<String> baselineConflict(OptimizationDescriptor descriptor) {
+        for (OptimizationDescriptor baseline : baselineDescriptors) {
+            Optional<String> conflict = conflict(descriptor, baseline);
+            if (conflict.isPresent()) { return conflict; }
+        }
         return claimConflict(descriptor.patchClaims(), baselineClaims);
     }
 
