@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "scope": "host-neutral benchmark engine",
+  "implementationCommit": "43cfac2abb13c8885a9a213cb84b7eb948d8015a",
+  "sourceBaselineCommit": "ddae1243c17f900599054e67bc8d133633862856",
+  "verificationCommand": "./gradlew clean test check assemble",
+  "modules": {
+    "api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 11,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+    },
+    "core": {
+      "tests": 29,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 14,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "e67775542c888639f6f57adc5fa90eb7b76924ed38d400172afaf952d917163f"
+    },
+    "bench": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "productionClasses": 21,
+      "classMajors": [
+        52
+      ],
+      "jarSha256": "54f251bf3d408318872c43dc8670ac757250ec0984fcf055201a460b72ac392d"
+    }
+  },
+  "totalTests": 64,
+  "java8ArtifactSmoke": {
+    "version": "1.8.0_502",
+    "passed": true,
+    "origin": "SYNTHETIC"
+  },
+  "boundaryProbe": {
+    "normalTestTaskRejected": true,
+    "sourceRejected": true,
+    "compiledSymbolRejected": true,
+    "fixtureRemoved": true
+  },
+  "gameIntegration": false,
+  "controlledGameRuns": false,
+  "measuredGamePerformanceGain": false,
+  "featurePromotion": false,
+  "managedArtifactStagingChanged": false,
+  "licenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a"
+}
