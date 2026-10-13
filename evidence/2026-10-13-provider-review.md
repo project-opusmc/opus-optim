@@ -51,3 +51,12 @@ None. Host wiring, live adapter/game sessions, baseline/overhead/parity and gain
 remain unimplemented integration work, not a deferred minor or a claimed PASS.
 The five existing managed artifact roles and published superproject gitlink are
 unchanged; all new work remains local on `opus-optim`.
+
+## Archived source formatting
+
+The full-range git diff whitespace check reports original blank lines at EOF in
+archived ClassTransformer.java and TransformerChain.java. Those published Loader
+bytes are deliberately preserved under the existing hash-checked snapshot
+ruling. The authored diff excluding this separate source archive passes
+`git diff --check`; this is an archive formatting diagnostic, not a failed test
+or a claim that the archive was reformatted.
