@@ -46,11 +46,11 @@
 
 **Interfaces:** Consumes Task 1 helper visibility and bench FrameCapture/RunReports. Produces `FrameTimingBridge.start(RunIdentity,BenchmarkScope,int,int,ClassLoader): CaptureSession`, `frameCompleted(long)`, `CaptureSession.finish(Termination,Metrics): BenchmarkRun` and `failureReason(): Optional<String>`.
 
-- [ ] Write tests for no attached session, one active capture, warmup/overflow, nonpositive/foreign writer invalidation, finish races, immutable seal, helper duplication and JSONL roundtrip with SYNTHETIC origin.
-- [ ] Run `./gradlew :platform-opus:test`; observe missing callback behavior.
-- [ ] Implement synchronized lifecycle and INTERRUPTED downgrade; no new timer/transform/I/O in callback.
-- [ ] Run `./gradlew test check`; expect all tests pass.
-- [ ] Commit `feat: bridge frame telemetry into O2 capture sessions`.
+- [x] Write tests for no attached session, one active capture, warmup/overflow, nonpositive/foreign writer invalidation, finish races, immutable seal, helper duplication and JSONL roundtrip with SYNTHETIC origin.
+- [x] Run `./gradlew :platform-opus:test`; observe missing callback behavior.
+- [x] Implement synchronized lifecycle and INTERRUPTED downgrade; no new timer/transform/I/O in callback.
+- [x] Run `./gradlew test check`; expect all tests pass.
+- [x] Commit `feat: bridge frame telemetry into O2 capture sessions`.
 
 ### Task 3: Artifact verification and concrete Loader handoff
 
