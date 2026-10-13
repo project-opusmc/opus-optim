@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "scope": "LOCAL_QUERY_MICROBENCHMARK_NOT_GAME",
+  "sessionId": "7f2b504c-954c-4e57-a3d8-4c8396f0c422",
+  "java": "1.8.0_502",
+  "vm": "OpenJDK 64-Bit Server VM",
+  "os": "Mac OS X 26.6",
+  "arch": "x86_64",
+  "targetSha256": "85b5a3893dfa826880a9e6e5a1221ac4443c1d778e38c384ef715911ababa7c4",
+  "minecraftJarSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+  "optifineJarSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+  "helperSha256": "ceec3f3d9d778f203ed9ee8a1ef33b40b8ebf242f919e2a9245020f30b6fc83a",
+  "arm": "treatment",
+  "workload": "outside",
+  "fixtureSha256": "780c1b407d318ee47b6ae4b48b59641c3a1b254edcf9730671b101104d763abd",
+  "queriesPerSample": 1048576,
+  "warmupQueries": 10485760,
+  "sampleNanos": [
+    5877625,
+    5836333,
+    5889375,
+    5890875,
+    5874583,
+    6021583,
+    5996375,
+    6015041,
+    6015917,
+    6044291
+  ],
+  "visibleChecksums": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "blackhole": 0,
+  "role": "ab-treatment",
+  "forkIndex": 0,
+  "jvmArguments": [
+    "-Xms512m",
+    "-Xmx512m",
+    "-Xbatch"
+  ]
+}

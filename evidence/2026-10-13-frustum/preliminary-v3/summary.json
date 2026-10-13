@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "scope": "LOCAL_QUERY_MICROBENCHMARK_NOT_GAME",
+  "independentForks": 12,
+  "forksPerArmPerWorkload": 1,
+  "gameFpsMeasured": false,
+  "promotion": false,
+  "workloads": {
+    "inside": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          6.1269001960754395
+        ],
+        "medianNsPerQuery": 6.1269001960754395,
+        "min": 6.1269001960754395,
+        "max": 6.1269001960754395
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          5.822062969207764
+        ],
+        "medianNsPerQuery": 5.822062969207764,
+        "min": 5.822062969207764,
+        "max": 5.822062969207764
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          5.884964942932129
+        ],
+        "medianNsPerQuery": 5.884964942932129,
+        "min": 5.884964942932129,
+        "max": 5.884964942932129
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          5.864123821258545
+        ],
+        "medianNsPerQuery": 5.864123821258545,
+        "min": 5.864123821258545,
+        "max": 5.864123821258545
+      },
+      "queryCostReductionPercent": 0.35414181521360244,
+      "aaMedianShiftPercent": -4.9753907704084686
+    },
+    "mixed-chunks": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          6.366352081298828
+        ],
+        "medianNsPerQuery": 6.366352081298828,
+        "min": 6.366352081298828,
+        "max": 6.366352081298828
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          6.321708679199219
+        ],
+        "medianNsPerQuery": 6.321708679199219,
+        "min": 6.321708679199219,
+        "max": 6.321708679199219
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          6.458242893218994
+        ],
+        "medianNsPerQuery": 6.458242893218994,
+        "min": 6.458242893218994,
+        "max": 6.458242893218994
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          5.882421970367432
+        ],
+        "medianNsPerQuery": 5.882421970367432,
+        "min": 5.882421970367432,
+        "max": 5.882421970367432
+      },
+      "queryCostReductionPercent": 8.916061727194577,
+      "aaMedianShiftPercent": -0.7012399177662426
+    },
+    "outside": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          6.392319679260254
+        ],
+        "medianNsPerQuery": 6.392319679260254,
+        "min": 6.392319679260254,
+        "max": 6.392319679260254
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          6.153066635131836
+        ],
+        "medianNsPerQuery": 6.153066635131836,
+        "min": 6.153066635131836,
+        "max": 6.153066635131836
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          6.123523235321045
+        ],
+        "medianNsPerQuery": 6.123523235321045,
+        "min": 6.123523235321045,
+        "max": 6.123523235321045
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          6.151199817657471
+        ],
+        "medianNsPerQuery": 6.151199817657471,
+        "min": 6.151199817657471,
+        "max": 6.151199817657471
+      },
+      "queryCostReductionPercent": -0.4519715411021013,
+      "aaMedianShiftPercent": -3.742820386544018
+    }
+  }
+}

@@ -29,7 +29,7 @@
 
 - [x] Write tests for touching plane, coefficient signs, rounding, random normalized/bit-pattern planes, nonfinite/large/reversed bounds and malformed matrices against an independent eight-corner oracle.
 - [x] Run `./gradlew :platform-opus:test`; observe missing math implementation.
-- [x] Implement bounded positive vertex and exact float fallback.
+- [x] Implement positive-vertex math and exact float fallback; final measured revision uses adaptive first/supporting tests and ordered rejection per the spec/ruling.
 - [x] Run `./gradlew test check`; expect parity and full suite pass.
 - [x] Commit `feat: optimize OptiFine frustum corner evaluation`.
 
@@ -49,8 +49,8 @@
 **Files:** smoke `FrustumVerify.java`, direct adapter/harness, Gradle task, README, evidence receipt and raw fork reports.
 **Interfaces:** consumes Task 2 public transformer, local game/M5 JAR inputs, Java8 home. No vendor bytes committed.
 
-- [ ] Build Java8 harness to extract exact local M5 target, execute original/patched classes and verify at least 100,000 seeded cases plus edge/disabled/full cases; do not reflect inside timed loops.
-- [ ] Run parity task with actual local JARs and JVM8; require zero mismatch and pin rejection.
-- [ ] Run warmup and independent A/A, interleaved A/B forks for inside/mixed/outside; preserve checksums, raw timings, scope, version/hash identity and regressions.
-- [ ] Run full clean test/check/assemble, existing Java8 bridge smoke, candidate Java8 verification, license/class/JAR checks; commit code and evidence.
-- [ ] One fresh whole-change review; fix Important findings through RED-to-GREEN and full suite; preserve all findings/rulings and limits, no promotion.
+- [x] Build Java8 harness to extract exact local M5 target, execute original/patched classes and verify at least 100,000 seeded cases plus edge/disabled/full cases; do not reflect inside timed loops.
+- [x] Run parity task with actual local JARs and JVM8; require zero mismatch and pin rejection.
+- [x] Run warmup and independent A/A, interleaved A/B forks for inside/mixed/outside; preserve checksums, raw timings, scope, version/hash identity and regressions.
+- [x] Run full clean test/check/assemble, existing Java8 bridge smoke, candidate Java8 verification, license/class/JAR checks; commit code and evidence.
+- [x] One fresh whole-change review; fix Important findings through RED-to-GREEN and full suite; preserve all findings/rulings and limits, no promotion.

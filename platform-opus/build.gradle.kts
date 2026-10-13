@@ -93,3 +93,22 @@ tasks.register<Exec>("java8Smoke") {
             "org.polydevs.opusmc.optim.smoke.BridgeSmoke", output.absolutePath)
     }
 }
+
+tasks.register("writeFrustumHarnessClasspath") {
+    dependsOn(artifactJars, smoke.classesTaskName, verifyPlatformArtifact)
+    doLast {
+        val output = layout.buildDirectory.file("frustum-classpath.txt").get().asFile
+        output.parentFile.mkdirs(); output.writeText(smokeRuntime.asPath)
+    }
+}
+tasks.register<Exec>("frustumVerify") {
+    group = "verification"
+    dependsOn(artifactJars, smoke.classesTaskName, verifyPlatformArtifact)
+    doFirst {
+        val java8 = providers.gradleProperty("java8Home").orNull ?: error("Supply java8Home")
+        val minecraft = providers.gradleProperty("minecraftJar").orNull ?: error("Supply minecraftJar")
+        val optifine = providers.gradleProperty("optifineJar").orNull ?: error("Supply optifineJar")
+        commandLine(file("$java8/bin/java").absolutePath, "-cp", smokeRuntime.asPath,
+            "org.polydevs.opusmc.optim.smoke.FrustumVerify", "verify", minecraft, optifine)
+    }
+}

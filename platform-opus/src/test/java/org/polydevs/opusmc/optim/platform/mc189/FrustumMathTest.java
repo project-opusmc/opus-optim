@@ -66,6 +66,25 @@ class FrustumMathTest {
             compare(planes, box[0], box[1], box[2], box[3], box[4], box[5]);
         }
     }
+    @Test void biasedOrderedIeeeInputsDoNotHideANanSuccessAtAnUnchosenCorner() {
+        Random random = new Random(20261013);
+        float[] edge = {0, -0f, 1, -1, 2, -2, Float.MIN_VALUE, -Float.MIN_VALUE, Float.MAX_VALUE,
+                -Float.MAX_VALUE, Float.POSITIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NaN};
+        for (int trial = 0; trial < 300_000; trial++) {
+            float[][] planes = acceptingPlanes();
+            for (int j = 0; j < 4; j++) {
+                planes[0][j] = trial < 150_000 ? edge[random.nextInt(edge.length)] : Float.intBitsToFloat(random.nextInt());
+            }
+            float[] b = new float[6];
+            for (int j = 0; j < 6; j++) { b[j] = trial < 150_000 ? edge[random.nextInt(edge.length)] : Float.intBitsToFloat(random.nextInt()); }
+            if ((trial & 1) == 0) {
+                for (int j = 0; j < 3; j++) {
+                    float lo = Math.min(b[j], b[j + 3]), hi = Math.max(b[j], b[j + 3]); b[j] = lo; b[j + 3] = hi;
+                }
+            }
+            compare(planes, b[0], b[1], b[2], b[3], b[4], b[5]);
+        }
+    }
     @Test void malformedMatricesKeepSequentialAccessAndEarlyReturn() {
         assertThrows(NullPointerException.class, () -> FrustumMath.visible(null, 0, 0, 0, 1, 1, 1));
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> FrustumMath.visible(new float[0][], 0, 0, 0, 1, 1, 1));

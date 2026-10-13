@@ -3,7 +3,9 @@
 This is the Java 8 optimizer foundation for managed Minecraft 1.8.9, with a
 host-neutral API/core, a local benchmark engine and a platform provider/callback
 bridge checked against an archived Loader draft. Managed game wiring, installation
-and controlled scenario runners remain pending;
+and controlled scenario runners remain pending. The first explicit experimental
+candidate implements adaptive frustum corner tests for one pinned OptiFine M5
+raw class;
 no installed game optimization or measured game performance gain is claimed.
 
 ## Modules and verification
@@ -150,7 +152,31 @@ are the next work; this engine is not completion of those milestones.
 registrations, retains core exclusion reasons, checks Loader priority/id ordering
 against dependencies/composition and verifies injected helper class identity.
 `OptimBootstrap.install` is once-only before approved SPI discovery; discovery
-seals even an unconfigured OFF snapshot. No optimizer candidate is shipped yet.
+seals even an unconfigured OFF snapshot.
+
+`FrustumOptimization.binding()` supplies the first actual candidate:
+`render.frustum.positive-vertex`, EXPERIMENTAL and OFF without an explicit flag.
+It preserves OptiFine M5 float behavior, first-corner success, disabled bypass and
+full containment, then skips remaining corner tests when the supporting corner
+settles an ordered box. Raw target SHA/capabilities/helper identity are required;
+unknown or remapped input stays unchanged with an observable unsupported state.
+There is no VALIDATED/DEFAULT promotion or managed game installation.
+The [current query results](evidence/2026-10-13-frustum/RESULTS.md) include both
+reductions on mixed/outside workloads and an inside-workload regression under
+controlled JIT scheduling; promotion is refused. These are local query costs.
+
+The [candidate spec](docs/FRUSTUM_CANDIDATE_SPEC.md) defines its exact scope.
+Run real local-bytecode parity on Java 8, without committing vendor classes:
+
+```sh
+./gradlew :platform-opus:frustumVerify :platform-opus:writeFrustumHarnessClasspath -Pjava8Home=/path/to/java8/home -PminecraftJar=/path/to/1.8.9.jar -PoptifineJar=/path/to/OptiFine_1.8.9_HD_U_M5.jar
+python3 scripts/frustum-microbench.py --java8-home /path/to/java8/home --minecraft-jar /path/to/1.8.9.jar --optifine-jar /path/to/OptiFine_1.8.9_HD_U_M5.jar --classpath-file platform-opus/build/frustum-classpath.txt --output /new/local/report-directory
+```
+
+The harness uses generated direct-call adapters, warmup, observable checksums,
+and independent A/A/A/B JVM forks. Query-wall timings are local microbenchmarks,
+not game-frame data or FPS. ASM 5.0.3 is compile-only and host-owned; it is never
+bundled in O2. The host must include the compatible API before candidate creation.
 
 `FrameTimingBridge.start` explicitly attaches one bounded diagnostic session.
 The future host telemetry observer calls `frameCompleted` with its existing wall

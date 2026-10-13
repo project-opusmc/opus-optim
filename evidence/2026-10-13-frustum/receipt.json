@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "featureId": "render.frustum.positive-vertex",
+  "status": "EXPERIMENTAL",
+  "defaultEnabled": false,
+  "gameIntegration": false,
+  "gameFpsMeasured": false,
+  "featurePromotion": false,
+  "targetSha256": "85b5a3893dfa826880a9e6e5a1221ac4443c1d778e38c384ef715911ababa7c4",
+  "javaVersion": "1.8.0_502",
+  "realBytecodeParity": {
+    "cases": 121211,
+    "mismatches": 0,
+    "disabledBypass": true,
+    "fullyPredicate": true,
+    "unknownPinsRetained": true
+  },
+  "defaultJvm": {
+    "independentForks": 60,
+    "summary": "microbench/summary.json",
+    "interpretation": {
+      "inside": "effect within A/A variation",
+      "mixed-chunks": "INCONCLUSIVE: A/A median shift -32.52% exceeds observed A/B reduction 8.54%",
+      "outside": "observed median query-wall cost reduction 9.84%; A/A shift -5.35%; no game conclusion"
+    }
+  },
+  "controlledCompilationJvm": {
+    "independentForks": 60,
+    "jvmArguments": [
+      "-Xms512m",
+      "-Xmx512m",
+      "-Xbatch"
+    ],
+    "summary": "microbench-xbatch/summary.json",
+    "interpretation": {
+      "inside": "REGRESSION: median query-wall cost increased 3.48%; A/A shift 0.15%",
+      "mixed-chunks": "observed median query-wall cost reduction 6.92%; A/A shift 0.20%",
+      "outside": "observed median query-wall cost reduction 10.09%; A/A shift -0.04%"
+    }
+  },
+  "promotionDecision": "REFUSED: inside-workload regression and missing managed game scope/parity/performance evidence",
+  "instrumentationOverheadGameMeasured": false,
+  "mechanismPricing": {
+    "scope": "actual M5 bytecode, 4096 boxes/workload, untimed counters",
+    "originalDotsPerQuery": {
+      "inside": 6.0,
+      "mixed-chunks": 9.875,
+      "outside": 9.0
+    },
+    "originalPlanesPerQuery": {
+      "inside": 6.0,
+      "mixed-chunks": 3.934,
+      "outside": 2.0
+    },
+    "note": "supporting-corner lower bound is an opportunity model; final adaptive algorithm may evaluate two corners per plane"
+  },
+  "rawReportsPreserved": true,
+  "earlierPrototypes": "preliminary-v1/preliminary-v2/preliminary-v3; unfavorable results retained"
+}

@@ -15,7 +15,7 @@ public final class FrustumOptimization {
         return OptimizationDescriptor.builder(ID, ActivationKind.STARTUP_PATCH)
                 .status(OptimizationStatus.EXPERIMENTAL)
                 .requiredCapabilities(Arrays.asList(TARGET_CAPABILITY, ASM_CAPABILITY))
-                .correctnessScope("Exact raw M5 input SHA256 " + FrustumPatch.TARGET_SHA256 + "; stable render-thread plane rows")
+                .correctnessScope("Exact raw M5 input SHA256 " + FrustumPatch.TARGET_SHA256 + "; stable render-thread matrix reference and rows")
                 .benchmarkScenario("frustum.query.local.v1; controlled game chunk-flight pending")
                 .patchClaims(Collections.singleton(new PatchClaim("bid", "b(DDDDDD)Z", "method-body",
                         PatchClaim.Effect.BEHAVIOR, "", 400))).build();
