@@ -1,4 +1,4 @@
-# Opus Optim M1
+# Opus Optim (O2) — M1
 
 This is the Java 8 API/core foundation for the managed Minecraft 1.8.9 optimizer.
 It does not install game patches, stage an Optim artifact, or establish a measured
@@ -6,16 +6,16 @@ performance gain. The platform provider and benchmark runner are later milestone
 
 ## Modules and verification
 
-- `:optim:api`: immutable descriptors, patch claims, capability/environment identity,
+- `:api`: immutable descriptors, patch claims, capability/environment identity,
   activation/evidence enums, and measured-counter snapshots.
-- `:optim:core`: registry, configuration store, compatibility/planning decisions,
+- `:core`: registry, configuration store, compatibility/planning decisions,
   and incomplete-launch recovery.
 
-From the Runtime root:
+From this repository root:
 
 ```sh
-./gradlew :optim:api:test :optim:core:test
-./gradlew test
+./gradlew :api:test :core:test
+./gradlew test :api:check :core:check :api:jar :core:jar
 ```
 
 Both module `test` and `check` tasks run `verifyOptimBoundary`. It checks production

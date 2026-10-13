@@ -11,14 +11,18 @@ val forbiddenSymbols = listOf(
     "org/polydevs/opusmc/client/", "org/polydevs/opusmc/nativeui/", "cc/polyfrost/",
 ).flatMap { listOf(it, it.replace('/', '.')) }
 
+val allowedProjects = when (project.path) {
+    ":api" -> setOf(":api")
+    ":core" -> setOf(":core", ":api")
+    else -> error("Optim boundary guard applied to unexpected project: ${project.path}")
+}
+
 val verifyOptimBoundary = tasks.register("verifyOptimBoundary") {
     group = "verification"
     description = "Rejects game, Loader, UI and GL dependencies/symbols in pure Optim contracts/core."
     dependsOn(tasks.named("classes"))
     inputs.files(mainSources.allJava, mainSources.output.classesDirs, productionClasspath)
     doLast {
-        val allowedProjects = if (project.path == ":optim:api") setOf(project.path)
-            else setOf(project.path, ":optim:api")
         val forbiddenGroups = listOf("net.minecraft", "net.minecraftforge", "org.lwjgl", "org.ow2.asm",
             "org.spongepowered", "cc.polyfrost", "org.jogamp", "me.friwi")
         val invalidDependencies = productionClasspath.incoming.resolutionResult.allComponents.mapNotNull {

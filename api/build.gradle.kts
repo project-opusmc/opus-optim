@@ -6,4 +6,4 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-apply(from = rootProject.file("optim/verify-boundary.gradle.kts"))
+apply(from = rootProject.file("verify-boundary.gradle.kts"))
