@@ -1,0 +1,68 @@
+> Task :clean UP-TO-DATE
+> Task :api:clean UP-TO-DATE
+> Task :bench:clean UP-TO-DATE
+> Task :core:clean UP-TO-DATE
+> Task :platform-opus:clean UP-TO-DATE
+> Task :api:compileJava
+> Task :api:processResources NO-SOURCE
+> Task :api:classes
+> Task :api:jar
+> Task :api:compileTestJava
+> Task :api:processTestResources NO-SOURCE
+> Task :api:testClasses
+> Task :api:verifyOptimBoundary
+> Task :api:test
+> Task :bench:compileJava
+> Task :bench:processResources NO-SOURCE
+> Task :bench:classes
+> Task :bench:jar
+> Task :bench:compileTestJava
+> Task :bench:processTestResources NO-SOURCE
+> Task :bench:testClasses
+> Task :bench:verifyOptimBoundary
+> Task :bench:test
+> Task :core:compileJava
+> Task :core:processResources NO-SOURCE
+> Task :core:classes
+> Task :core:jar
+> Task :core:compileTestJava
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses
+> Task :core:verifyOptimBoundary
+> Task :core:test
+> Task :platform-opus:verifyLoaderContract
+> Task :platform-opus:compileLoaderContractJava
+> Task :platform-opus:processLoaderContractResources NO-SOURCE
+> Task :platform-opus:loaderContractClasses
+> Task :platform-opus:compileJava
+> Task :platform-opus:processResources
+> Task :platform-opus:classes
+> Task :platform-opus:jar
+> Task :platform-opus:compileTestJava
+> Task :platform-opus:processTestResources NO-SOURCE
+> Task :platform-opus:testClasses
+> Task :platform-opus:verifyPlatformArtifact
+> Task :platform-opus:test
+> Task :check UP-TO-DATE
+> Task :api:check
+> Task :bench:check
+> Task :core:check
+> Task :platform-opus:check
+> Task :assemble UP-TO-DATE
+> Task :api:assemble
+> Task :bench:assemble
+> Task :core:assemble
+> Task :platform-opus:assemble
+> Task :platform-opus:compileSmokeJava
+> Task :platform-opus:processSmokeResources NO-SOURCE
+> Task :platform-opus:smokeClasses
+
+> Task :platform-opus:java8Smoke
+O2_JAVA8_BRIDGE_SMOKE_PASS java=1.8.0_502 origin=SYNTHETIC
+
+> Task :platform-opus:frustumVerify
+{"schemaVersion":1,"scope":"LOCAL_QUERY_MICROBENCHMARK_NOT_GAME","sessionId":"090a02f8-8655-4624-9937-48874bd6552a","java":"1.8.0_502","vm":"OpenJDK 64-Bit Server VM","os":"Mac OS X 26.6","arch":"x86_64","targetSha256":"85b5a3893dfa826880a9e6e5a1221ac4443c1d778e38c384ef715911ababa7c4","minecraftJarSha256":"14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298","optifineJarSha256":"2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4","helperSha256":"ceec3f3d9d778f203ed9ee8a1ef33b40b8ebf242f919e2a9245020f30b6fc83a","cases":121211,"mismatches":0,"unknownPinsRetained":true,"disabledAndFullyVerified":true,"factoryStatusVerified":true,"transformedTargetSha256":"fc562740e913f3760547428f703a2d98bcc4a95a2909fd48465a719a0b421ef9"}
+
+BUILD SUCCESSFUL in 4s
+31 actionable tasks: 26 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html

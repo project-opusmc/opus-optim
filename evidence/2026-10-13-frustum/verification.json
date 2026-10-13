@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-14",
+  "implementationRevision": "425ed12e3c0903204b11406ffe089c38560ff0cc",
+  "branch": "opus-optim",
+  "scope": "CLEAN_LOCAL_CLONE_AND_REAL_BYTECODE_NOT_MANAGED_GAME",
+  "buildCommand": "./gradlew clean test check assemble :platform-opus:java8Smoke :platform-opus:frustumVerify -Pjava8Home=<Java8> -PminecraftJar=<1.8.9> -PoptifineJar=<M5>",
+  "buildExitCode": 0,
+  "buildLog": "final-build.log",
+  "buildLogSha256": "39aea79cd48fa32c14fe8b43d78a00a93449ef207c3b5bcc631760f3e015e11d",
+  "tests": {
+    "api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core": {
+      "tests": 29,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "bench": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform-opus": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "artifacts": {
+    "api": {
+      "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f",
+      "matchesOriginalBuild": true,
+      "classCount": 11,
+      "classMajors": [
+        52
+      ],
+      "noBundledForeignClasses": true
+    },
+    "core": {
+      "sha256": "44593994288868548960407a1c9aa8f5415d1d2d8ad6ae3aa564a4c37ca27a18",
+      "matchesOriginalBuild": true,
+      "classCount": 14,
+      "classMajors": [
+        52
+      ],
+      "noBundledForeignClasses": true
+    },
+    "bench": {
+      "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766",
+      "matchesOriginalBuild": true,
+      "classCount": 21,
+      "classMajors": [
+        52
+      ],
+      "noBundledForeignClasses": true
+    },
+    "platform-opus": {
+      "sha256": "967cda265aaf1d798cede31d765160f1e45330a73818c800339b129d21090cdc",
+      "matchesOriginalBuild": true,
+      "classCount": 15,
+      "classMajors": [
+        52
+      ],
+      "noBundledForeignClasses": true
+    }
+  },
+  "realBytecodeVerification": {
+    "schemaVersion": 1,
+    "scope": "LOCAL_QUERY_MICROBENCHMARK_NOT_GAME",
+    "sessionId": "090a02f8-8655-4624-9937-48874bd6552a",
+    "java": "1.8.0_502",
+    "vm": "OpenJDK 64-Bit Server VM",
+    "os": "Mac OS X 26.6",
+    "arch": "x86_64",
+    "targetSha256": "85b5a3893dfa826880a9e6e5a1221ac4443c1d778e38c384ef715911ababa7c4",
+    "minecraftJarSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+    "optifineJarSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+    "helperSha256": "ceec3f3d9d778f203ed9ee8a1ef33b40b8ebf242f919e2a9245020f30b6fc83a",
+    "cases": 121211,
+    "mismatches": 0,
+    "unknownPinsRetained": true,
+    "disabledAndFullyVerified": true,
+    "factoryStatusVerified": true,
+    "transformedTargetSha256": "fc562740e913f3760547428f703a2d98bcc4a95a2909fd48465a719a0b421ef9"
+  },
+  "preservedPreFixVerification": {
+    "checkout": "2e2a29cf2eb70127e95544450ef1bce2c52da58b",
+    "tests": {
+      "api": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "core": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "bench": {
+        "tests": 36,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "platform-opus": {
+        "tests": 34,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "artifacts": {
+      "api": {
+        "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f",
+        "matchesOriginal": true,
+        "classCount": 11,
+        "classMajors": [
+          52
+        ]
+      },
+      "core": {
+        "sha256": "44593994288868548960407a1c9aa8f5415d1d2d8ad6ae3aa564a4c37ca27a18",
+        "matchesOriginal": true,
+        "classCount": 14,
+        "classMajors": [
+          52
+        ]
+      },
+      "bench": {
+        "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766",
+        "matchesOriginal": true,
+        "classCount": 21,
+        "classMajors": [
+          52
+        ]
+      },
+      "platform-opus": {
+        "sha256": "5c73427930c96c579baf8415e18016768657759695f163e63515321f94a052f3",
+        "matchesOriginal": true,
+        "classCount": 13,
+        "classMajors": [
+          52
+        ]
+      }
+    },
+    "licenseMatchesOpus": true,
+    "licenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a"
+  },
+  "review": {
+    "base": "87f406538d076961be8df1e27c2f6406886f118f",
+    "reviewedHead": "2e2a29cf2eb70127e95544450ef1bce2c52da58b",
+    "originalVerdict": "NOT_READY_UNTIL_APPLICATION_STATUS_EXPOSED",
+    "critical": 0,
+    "important": 1,
+    "minor": 0,
+    "fixRevision": "425ed12e3c0903204b11406ffe089c38560ff0cc",
+    "authorFixVerified": true,
+    "secondIndependentReview": false,
+    "details": "REVIEW.md"
+  },
+  "promotion": false,
+  "managedIntegration": false,
+  "gamePerformanceMeasured": false,
+  "totalTests": 104,
+  "hotCodeUnchangedAfterFix": {
+    "FrustumMath": {
+      "sha256": "ceec3f3d9d778f203ed9ee8a1ef33b40b8ebf242f919e2a9245020f30b6fc83a",
+      "matchesMeasuredRevisionBuild": true
+    },
+    "FrustumPatch": {
+      "sha256": "5f0d2afa637c8815f190c60dd5c03601c2f16c5b370e05ae995e1b34bd01ca8d",
+      "matchesMeasuredRevisionBuild": true
+    }
+  },
+  "license": {
+    "matchesOpusBytes": true,
+    "sha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a"
+  },
+  "publishedGitlinkPreserved": "ddae1243c17f900599054e67bc8d133633862856",
+  "tooling": {
+    "gradle": "9.7.0",
+    "testAndCompilerJvm": "Eclipse Adoptium 25.0.2+10-LTS",
+    "compilerRelease": 8,
+    "gradleHostArch": "aarch64",
+    "realBytecodeAndBridgeSmokeJvm": "OpenJDK 1.8.0_502 x86_64"
+  }
+}

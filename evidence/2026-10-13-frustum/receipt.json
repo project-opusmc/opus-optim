@@ -55,5 +55,8 @@
     "note": "supporting-corner lower bound is an opportunity model; final adaptive algorithm may evaluate two corners per plane"
   },
   "rawReportsPreserved": true,
-  "earlierPrototypes": "preliminary-v1/preliminary-v2/preliminary-v3; unfavorable results retained"
+  "earlierPrototypes": "preliminary-v1/preliminary-v2/preliminary-v3; unfavorable results retained",
+  "verification": "verification.json",
+  "review": "REVIEW.md",
+  "factoryApplicationStatusVerified": true
 }
