@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "host-neutral benchmark engine",
-  "implementationCommit": "43cfac2abb13c8885a9a213cb84b7eb948d8015a",
+  "implementationCommit": "62527c74a3caf8cbecaf5530ac4d7e1db6f3c1ed",
   "sourceBaselineCommit": "ddae1243c17f900599054e67bc8d133633862856",
   "verificationCommand": "./gradlew clean test check assemble",
   "modules": {
@@ -28,7 +28,7 @@
       "jarSha256": "e67775542c888639f6f57adc5fa90eb7b76924ed38d400172afaf952d917163f"
     },
     "bench": {
-      "tests": 31,
+      "tests": 36,
       "failures": 0,
       "errors": 0,
       "skipped": 0,
@@ -36,10 +36,10 @@
       "classMajors": [
         52
       ],
-      "jarSha256": "54f251bf3d408318872c43dc8670ac757250ec0984fcf055201a460b72ac392d"
+      "jarSha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
     }
   },
-  "totalTests": 64,
+  "totalTests": 69,
   "java8ArtifactSmoke": {
     "version": "1.8.0_502",
     "passed": true,
@@ -56,5 +56,23 @@
   "measuredGamePerformanceGain": false,
   "featurePromotion": false,
   "managedArtifactStagingChanged": false,
-  "licenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a"
+  "licenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a",
+  "freshCloneVerification": {
+    "commit": "62527c74a3caf8cbecaf5530ac4d7e1db6f3c1ed",
+    "buildTestCheckAssemblePassed": true,
+    "jarHashesMatch": true
+  },
+  "independentReview": {
+    "reviewedHead": "373432f6ff6a6b95765f1cb6ba4d47a95c509e88",
+    "critical": 0,
+    "important": 2,
+    "minor": 2,
+    "executorRegradedMinorToImportant": 2,
+    "findingsFixed": 4,
+    "newRegressions": 5,
+    "redObserved": true,
+    "fullSuiteGreenAfterFix": true,
+    "secondReviewPerformed": false,
+    "deferredFindings": []
+  }
 }
