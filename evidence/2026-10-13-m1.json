@@ -1,0 +1,315 @@
+{
+  "milestone": "M1",
+  "verifiedAtUtc": "2026-10-13T07:50:19.271606+00:00",
+  "runtimeBase": "34714870c4ccdc6e00025a0e3176e92027f1d3cc",
+  "command": "./gradlew test :optim:api:check :optim:core:check :optim:api:jar :optim:core:jar",
+  "exitCode": 0,
+  "testCount": 107,
+  "optimTestCount": 30,
+  "suites": [
+    {
+      "name": "org.polydevs.opusmc.bootstrap.BootstrapArgumentsTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.bootstrap.ForgeBootstrapArgumentsTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.bootstrap.GameArgumentProtocolTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.bootstrap.GameLaunchStatusTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.bootstrap.TransformerChainTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.core.OpusCoreTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.forge.ForgeLifecycleTransformerTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.forge.ForgeTelemetryLifecycleTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.forge.OpusForgeClassTransformerTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.forge.RetinaDisplayTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.CombatTelemetryTransformerTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.MinecraftTelemetryTransformerTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.NetworkTelemetryTransformerTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.OptiFineCloudRendererTransformerTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.RenderTelemetryTransformerTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.RetinaBackbufferTransformerTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.RetinaGuiInputTransformerTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.patches.WindowTitleTransformerTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.EventBusTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.ObfuscationReflectionHelperTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.OpusOverlayDispatchTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.OpusTweakerTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.OpusUiRemappingTransformerTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.StandaloneEventHookTransformerTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.StandaloneLoadingScreenTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.StandaloneRetinaInputTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.standalone.StandaloneVanillaMouseInputTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.optim.api.ContractTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.optim.core.ConfigStoreTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.optim.core.CrashMarkerTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "name": "org.polydevs.opusmc.optim.core.PatchPlannerTest",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "javaClassMajorVersion": 52,
+  "optimClassCount": 25,
+  "boundaryNegativeProbe": {
+    "beforeGuard": "Forbidden GL symbol fixture was accepted (red guard regression)",
+    "afterGuard": "api:test rejected both Java source and class constant pool via verifyOptimBoundary",
+    "fixtureRemoved": true
+  },
+  "redEvidence": {
+    "contracts": "API compile failed on absent new contract classes; core compile failed on absent core classes",
+    "startupSemantics": "26 core tests completed, 3 expected assertion failures before restart/self-conflict fixes"
+  },
+  "artifacts": {
+    "optim/api/build/libs/api-0.0.1.jar": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f",
+    "optim/core/build/libs/core-0.0.1.jar": "b835b64b95d7d35d2550d2714114f8e630eac7695f37c77956e5b5eab0e2f4a2"
+  },
+  "sourceSha256": {
+    "settings.gradle.kts": "4ea8905b8ea6b4e6eb99fbd6c7062a70c4d78ddff2d65f150f40143f6db5aa5b",
+    "gradle/verification-metadata.xml": "606f8297ced0a0e04dea49e31c4f85602c146ccf2f0cda430b93b704d7634f00",
+    "optim/.gitignore": "8ece6f052d7dc07352e38fb43b77f724c1f47a0c1b83ed223d03085182b4d69a",
+    "optim/README.md": "d2f8ffef4097f84c1f6bcab43a435ae852a814be3bff8a06358452732771d9e6",
+    "optim/api/build.gradle.kts": "8df3cd1902d40fa493da939503d0720f0eb82bde061a302bebb38057a3b88b04",
+    "optim/api/gradle.lockfile": "9fb1673db77fd226fece0f49ead5a4c75b6269a5db7d5307bacb8f0642ae34a8",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/ActivationKind.java": "7d68fc7744917a6317fb0641c28ef8b5328e9f55def78d1d6b90b527e17bb703",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/CapabilitySet.java": "ef288cccda0f5a55885f43631d8fddcb0df6e0e595855555dc8f65ccdfee1d0b",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/Identifiers.java": "885ca3f546ab3c7e4fcbfcac31a77102e545473c3993e5ebbdca6281b7325533",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/Metrics.java": "74a59049247536c099f92c128e8ee6716f3f992ed61d26106fb5e63703721135",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/OptimizationDescriptor.java": "9c8c9d82f045a5f38cdc48161eee5c4380403ee395ea284cacad8ea1ded2bb94",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/OptimizationStatus.java": "8ac8dfcb3098cebd331c707f258d56aa8741c9b9781d195d5ee66da98b32d91c",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/PatchClaim.java": "764419e1c90a3d35854b1aede4b25884edd82035d0cf9fdaab2c07f7360585d4",
+    "optim/api/src/main/java/org/polydevs/opusmc/optim/api/RuntimeDescriptor.java": "88ee19222fe01a02c5afe3ad776a5d65d1df0d11b53a048471ca95c932ff2971",
+    "optim/api/src/test/java/org/polydevs/opusmc/optim/api/ContractTest.java": "4a95bcd775e84f3b07dbea8f61c581046859d45700fa19456c3a188f947f0c45",
+    "optim/core/build.gradle.kts": "14631b3d9147d51916cca62f857465ee36f2065fb375df3d562c866d9d3c8a63",
+    "optim/core/gradle.lockfile": "a9fa63a246964fb67897273cf1a20c49ca03fd57b221eba7435e77563fcbbda1",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/CompatibilityResolver.java": "e657a9b51be686c7597d8f20f93d3b48d0c4a2eb7c9b343e7ad75c7662bf9619",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/ConfigStore.java": "9ebd3645cfe2845fe31d4d058390c7eaa242859639deb189c1f8114fb81db6ab",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/CrashMarker.java": "dafb2f375c841952c15d592ad3cd8089a5e784b636865d027223d4bff8cd7ea9",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/ExclusionReason.java": "c2fe23cb961e9a9290329eafc44d1b6c799384e74a63f1f25d12c7640b10c9c8",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/JsonFiles.java": "d252ef41b17c2e4d3a9b98c4bc0ca9282f22469ed5385b040bbde724791f1010",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/OptimConfig.java": "f011cc0ca23c286905266e26e8d3dc5a5a0d96bf516d3d0b33136d17f252d608",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/OptimizationRegistry.java": "f5a217e46f9c325eb6ed63ec1af9e83db7b8b7defccd343756ff30354270f26d",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/PatchPlan.java": "5688f88605b9cc435b604529f5c87630b837a76e4d11144d1458dd04a171b31d",
+    "optim/core/src/main/java/org/polydevs/opusmc/optim/core/PatchPlanner.java": "709a04d72e3daab69faad8c5cb650089ed47593a74da21b925b15cef62072e39",
+    "optim/core/src/test/java/org/polydevs/opusmc/optim/core/ConfigStoreTest.java": "88ad7a2455d32a0810ae135e66edc248c25baad50c4a8e9fb7bed23321cd523a",
+    "optim/core/src/test/java/org/polydevs/opusmc/optim/core/CrashMarkerTest.java": "f7fe0ee8abc41e3480cd632d9129f41e69b3134555d17fdc3c15f307e3663f93",
+    "optim/core/src/test/java/org/polydevs/opusmc/optim/core/PatchPlannerTest.java": "0ab5c63070ee21002e16a08c3ed53cd4b65c2720211ec7fefb4884a331c59ecf",
+    "optim/verify-boundary.gradle.kts": "eac9c46480e48d66e58632154e521303e757c3d28a4aad829d11ac81bc8a8963"
+  },
+  "logs": {
+    "full-suite.log": {
+      "path": "build/reports/optim-m1/full-suite.log",
+      "sha256": "e47fb0846b2e639c6d5a6ba204346afeaee07464e312e62a21f050e4776f2e14"
+    },
+    "green-api.log": {
+      "path": "build/reports/optim-m1/green-api.log",
+      "sha256": "fed9547e59f99faec5f21fb0654502abc2e8845274ae28c9ada22c77d6874cac"
+    },
+    "green-boundary-rejection.log": {
+      "path": "build/reports/optim-m1/green-boundary-rejection.log",
+      "sha256": "18342dc9a02c69038a588f7078d8e89cd43c0cca0e8ffc32b6af6d6c9085823b"
+    },
+    "green-core.log": {
+      "path": "build/reports/optim-m1/green-core.log",
+      "sha256": "cd356f701a95793a20223bfdff3c28c3b6870470dd9859d2ce8fab14ce4e0614"
+    },
+    "red-boundary.log": {
+      "path": "build/reports/optim-m1/red-boundary.log",
+      "sha256": "89aa4f518b4e9f2b374687f595274c023c91bc73cd17cb8eb5619a1a03b904cc"
+    },
+    "red-contracts.log": {
+      "path": "build/reports/optim-m1/red-contracts.log",
+      "sha256": "5e2e9c1309b34012a6340206b886cdda27553cb1f4cc7f202811f5ad38f2d059"
+    },
+    "red-core.log": {
+      "path": "build/reports/optim-m1/red-core.log",
+      "sha256": "85ffad0c3b6d847b40794d37957858abc2ff8761314b26a19798cf81889fb249"
+    },
+    "red-startup-semantics.log": {
+      "path": "build/reports/optim-m1/red-startup-semantics.log",
+      "sha256": "570a558c3b570f3e67c572a524d3c45ca193b86f9c7b11d8aaf24200e100e0c0"
+    }
+  },
+  "claims": {
+    "gameIntegration": false,
+    "launcherStaging": false,
+    "measuredPerformanceGain": false,
+    "physicalAcceptance": false
+  }
+}
