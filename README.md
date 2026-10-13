@@ -1,8 +1,9 @@
 # Opus Optim (O2)
 
 This is the Java 8 optimizer foundation for managed Minecraft 1.8.9, with a
-host-neutral API/core and a local benchmark report/comparison engine. Managed
-game capture, provider integration and controlled scenario runners remain pending;
+host-neutral API/core, a local benchmark engine and a platform provider/callback
+bridge checked against an archived Loader draft. Managed game wiring, installation
+and controlled scenario runners remain pending;
 no installed game optimization or measured game performance gain is claimed.
 
 ## Modules and verification
@@ -13,6 +14,8 @@ no installed game optimization or measured game performance gain is claimed.
   and incomplete-launch recovery.
 - `:bench`: bounded raw frame capture, strict JSONL run reports, exact percentiles/
   slowest-frame lows, independent-run A/A–A/B comparison and offline CLI.
+- `:platform-opus`: sealed startup bindings/provider registrations and optional
+  raw telemetry callback; compile-only Loader draft fixture is excluded from its JAR.
 
 From this repository root:
 
@@ -20,10 +23,12 @@ From this repository root:
 ./gradlew clean test check assemble
 ```
 
-Every module's `test` and `check` tasks run `verifyOptimBoundary`. It checks production
+The pure API/core/bench `test` and `check` tasks run `verifyOptimBoundary`. It checks production
 dependencies, Java source, and compiled symbols for forbidden game, Loader, UI,
 and GL references. Opus Runtime retains its current five artifact roles; the
-ordinary O2 Gradle JARs are not added to Launcher staging.
+ordinary O2 Gradle JARs are not added to Launcher staging. Platform `test`, `check`
+and `assemble` verify the JAR's SPI, Java 8 class version and absence of bundled
+Loader/ASM/game classes; every build checks the archived Loader source hashes.
 
 ## Configuration
 
@@ -141,8 +146,29 @@ are the next work; this engine is not completion of those milestones.
 
 ## Loader handoff
 
-The next integration depends on Loader's pinned mappings and generic managed
-provider/registration/target-routing contract. Optim will map selected ids to
-provider registrations after validating actual platform claims and helper
-visibility. OFF/absent must contribute no registrations. M1 introduces no
-tweaker, coremod, class loader, renderer choice or game helper.
+`ProviderPlan.prepare` maps trusted startup bindings to immutable exact-target
+registrations, retains core exclusion reasons, checks Loader priority/id ordering
+against dependencies/composition and verifies injected helper class identity.
+`OptimBootstrap.install` is once-only before approved SPI discovery; discovery
+seals even an unconfigured OFF snapshot. No optimizer candidate is shipped yet.
+
+`FrameTimingBridge.start` explicitly attaches one bounded diagnostic session.
+The future host telemetry observer calls `frameCompleted` with its existing wall
+interval; no new frame transformer or GL probe is added. Invalid/foreign-thread
+callbacks invalidate the capture and requested COMPLETE becomes INTERRUPTED.
+`CaptureSession.finish` detaches/seals; report output is explicit outside the loop.
+
+The archived Loader draft currently rejects an approved empty OFF provider, and
+its default adapters approve no O2 provider. These are demonstrated prerequisites,
+not silently patched host behavior. See the [exact host handoff and baseline
+protocol](docs/LOADER_HANDOFF.md) and [bridge spec](docs/PROVIDER_BRIDGE_SPEC.md).
+Synthetic ASM/SPI tests do not prove a real game integration or baseline.
+
+An additional executable artifact check requires an installed Java 8 VM:
+
+```sh
+./gradlew :platform-opus:java8Smoke -Pjava8Home=/absolute/path/to/java8/home
+```
+
+It uses the actual O2 JARs plus the separate API fixture and labels every report
+SYNTHETIC. Gradle itself runs on the existing supported build JVM.
