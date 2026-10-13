@@ -21,7 +21,17 @@ public final class FrustumOptimization {
                         PatchClaim.Effect.BEHAVIOR, "", 400))).build();
     }
 
-    public static TransformerBinding binding() {
-        return new TransformerBinding(descriptor(), new FrustumPatch(), Collections.singleton(FrustumMath.class));
+    /** Keep this handle for the host's post-transformation application report. */
+    public static Candidate candidate() { return new Candidate(); }
+
+    /** Selection is startup intent; this per-instance status records the actual bytecode outcome. */
+    public static final class Candidate {
+        private final FrustumPatch patch = new FrustumPatch();
+        private final TransformerBinding binding =
+                new TransformerBinding(descriptor(), patch, Collections.singleton(FrustumMath.class));
+
+        private Candidate() { }
+        public TransformerBinding binding() { return binding; }
+        public FrustumPatch.ApplicationState applicationState() { return patch.applicationState(); }
     }
 }

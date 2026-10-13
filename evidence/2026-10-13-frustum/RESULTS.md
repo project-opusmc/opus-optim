@@ -44,3 +44,6 @@ with query-level measurement, not completion of game optimization acceptance.
 
 See `receipt.json`, both microbench summaries and all raw fork JSON files for
 scope identities, helper/source hashes, checksums and raw elapsed timings.
+The [review and resolution](REVIEW.md) retain the independent review's finding,
+single author fix, declined judgments and decision ledger. Final fresh-clone
+verification is recorded separately in `verification.json`.

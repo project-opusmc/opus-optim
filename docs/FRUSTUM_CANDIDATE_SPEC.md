@@ -45,13 +45,18 @@ culling; concurrent mutation is outside this candidate's contract.
 `FrustumPatch` verifies the exact input digest before rewriting the one method.
 Unknown input is returned by identity and exposed as UNSUPPORTED_INPUT; it cannot
 be reported as an applied optimization. Non-target classes are unchanged.
-`FrustumOptimization.binding()` supplies id `render.frustum.positive-vertex`,
+`FrustumOptimization.candidate()` supplies a per-instance handle for id `render.frustum.positive-vertex`,
 EXPERIMENTAL descriptor, exact behavior claim, priority 400, helper identity and
 required capabilities `mc189.frustum.optifine-m5.notch` and `loader.asm5`.
 OFF, absent flag, missing capabilities and experimental recovery contribute no
 registrations through the existing planner. The host must attest the actual
 target resource and compatible ASM before installation, then report application
 state; no managed Loader/Launcher changes or artifact-role changes in this task.
+Retain the candidate, supply its `binding()` to the planner, and query its
+`applicationState()` after the registered transformer runs. The handle observes
+NOT_SEEN, APPLIED and UNSUPPORTED_INPUT without a global/shared status. A selected
+plan is immutable startup intent; digest refusal does not rewrite that plan.
+APPLIED means bytes were rewritten, not that the class was defined or used.
 
 ASM 5.0.3 is compile-only for this platform transformer, already host-owned.
 Allow references to ASM in platform classes, still reject bundling its classes

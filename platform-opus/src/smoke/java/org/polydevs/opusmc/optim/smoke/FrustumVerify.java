@@ -10,6 +10,9 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.zip.*;
 import org.objectweb.asm.*;
+import org.polydevs.opusmc.optim.api.*;
+import org.polydevs.opusmc.optim.core.*;
+import org.polydevs.opusmc.optim.platform.*;
 import org.polydevs.opusmc.optim.platform.mc189.*;
 
 /** Local vendor-bytecode verification and query microbenchmarks; never game/FPS evidence. */
@@ -38,6 +41,16 @@ public final class FrustumVerify {
         report.addProperty("optifineJarSha256", sha(Files.readAllBytes(optifine)));
         report.addProperty("helperSha256", sha(read(FrustumMath.class.getResourceAsStream("FrustumMath.class"))));
         if (args[0].equals("verify")) {
+            FrustumOptimization.Candidate candidate = FrustumOptimization.candidate();
+            require(candidate.applicationState() == FrustumPatch.ApplicationState.NOT_SEEN, "Factory status must start unseen");
+            ProviderPlan selected = ProviderPlan.prepare(
+                    new OptimConfig(true, Collections.singletonMap(FrustumOptimization.ID, true)),
+                    new CapabilitySet(Arrays.asList(FrustumOptimization.TARGET_CAPABILITY, FrustumOptimization.ASM_CAPABILITY)),
+                    CrashMarker.Recovery.clean(), Collections.singleton(candidate.binding()), Collections.emptyList(),
+                    FrustumVerify.class.getClassLoader());
+            byte[] viaFactory = selected.registrations().get(0).transformer().transform("bid", original);
+            require(candidate.applicationState() == FrustumPatch.ApplicationState.APPLIED, "Factory status did not observe application");
+            require(Arrays.equals(optimized, viaFactory), "Factory binding changed transformed bytes");
             report.addProperty("cases", parity(original, optimized)); report.addProperty("mismatches", 0);
             byte[] vanilla;
             try (ZipFile base = new ZipFile(minecraft.toFile())) { vanilla = read(base.getInputStream(base.getEntry("bid.class"))); }
@@ -45,7 +58,13 @@ public final class FrustumVerify {
             require(rejected.transform("bid", vanilla) == vanilla, "Vanilla pin was accepted");
             require(rejected.transform("bid", optimized) == optimized, "Already modified pin was accepted");
             require(rejected.applicationState() == FrustumPatch.ApplicationState.UNSUPPORTED_INPUT, "Missing rejection state");
+            require(selected.registrations().get(0).transformer().transform("bid", optimized) == optimized,
+                    "Factory binding accepted already modified input");
+            require(candidate.applicationState() == FrustumPatch.ApplicationState.UNSUPPORTED_INPUT,
+                    "Factory status did not observe rejection");
             report.addProperty("unknownPinsRetained", true); report.addProperty("disabledAndFullyVerified", true);
+            report.addProperty("factoryStatusVerified", true);
+            report.addProperty("transformedTargetSha256", sha(optimized));
         } else if (args[0].equals("trial")) {
             require(args[3].equals("control") || args[3].equals("treatment"), "Invalid arm");
             String workload = args[4]; double[] boxes = boxes(workload);

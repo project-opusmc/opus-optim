@@ -10,6 +10,23 @@ import org.polydevs.opusmc.optim.platform.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FrustumPatchTest {
+    @Test void factoryStatusRemainsObservableThroughPlannerAndIndependentPerCandidate() throws Exception {
+        FrustumOptimization.Candidate candidate = FrustumOptimization.candidate();
+        FrustumOptimization.Candidate other = FrustumOptimization.candidate();
+        assertEquals(FrustumPatch.ApplicationState.NOT_SEEN, candidate.applicationState());
+        assertEquals(FrustumPatch.ApplicationState.NOT_SEEN, other.applicationState());
+        ProviderPlan selected = plan(new OptimConfig(true, Collections.singletonMap(FrustumOptimization.ID, true)),
+                allCapabilities(), candidate.binding());
+        byte[] unsupported = {1, 2, 3};
+        assertSame(unsupported, selected.registrations().get(0).transformer().transform("other.Class", unsupported));
+        assertEquals(FrustumPatch.ApplicationState.NOT_SEEN, candidate.applicationState());
+        assertSame(unsupported, selected.registrations().get(0).transformer().transform("bid", unsupported));
+        assertEquals(FrustumPatch.ApplicationState.UNSUPPORTED_INPUT, candidate.applicationState());
+        assertEquals(FrustumPatch.ApplicationState.NOT_SEEN, other.applicationState());
+        // Selection is startup intent; application status reports the later bytecode result.
+        assertEquals(Collections.singletonList(FrustumOptimization.ID), selected.patchPlan().selectedIds());
+        assertSame(candidate.binding(), candidate.binding());
+    }
     @Test void unknownBytesAndNonTargetClassesRemainUnchangedWithObservableState() throws Exception {
         FrustumPatch transformer = new FrustumPatch(); byte[] other = {1, 2, 3};
         assertSame(other, transformer.transform("other.Class", other));
@@ -39,7 +56,7 @@ class FrustumPatchTest {
         assertEquals(true, visible.invoke(instance, Double.NaN, 0d, 0d, 1d, 1d, 1d));
     }
     @Test void independentFlagAndCapabilitiesAreRequiredAndStatusRemainsExperimental() {
-        TransformerBinding binding = FrustumOptimization.binding();
+        TransformerBinding binding = FrustumOptimization.candidate().binding();
         ProviderPlan off = plan(new OptimConfig(false, Collections.singletonMap(FrustumOptimization.ID, true)), allCapabilities(), binding);
         assertTrue(off.registrations().isEmpty());
         assertEquals(ExclusionReason.OPTIM_OFF, off.patchPlan().excluded().get(FrustumOptimization.ID).code());

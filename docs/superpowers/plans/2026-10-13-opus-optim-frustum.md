@@ -36,7 +36,7 @@
 ### Task 2: Pinned transformer and opt-in binding
 
 **Files:** `mc189/{FrustumPatch,FrustumOptimization}.java`, candidate tests, platform Gradle compile-only ASM and guard allowance.
-**Interfaces:** `FrustumPatch.matchesTarget(byte[]): boolean`, ClassTransformer implementation with application state; `FrustumOptimization.binding(): TransformerBinding` consumes Task 1 helper.
+**Interfaces:** `FrustumPatch.matchesTarget(byte[]): boolean`, ClassTransformer implementation with application state; `FrustumOptimization.candidate(): Candidate` retains the patch status and supplies `binding(): TransformerBinding` consuming Task 1 helper.
 
 - [x] Write negative pin/non-target tests, synthetic bytecode execution test, flag/capability/OFF/recovery tests and unchanged disabled/full-predicate tests.
 - [x] Run platform tests; observe missing transformer/binding before implementation.

@@ -154,12 +154,16 @@ against dependencies/composition and verifies injected helper class identity.
 `OptimBootstrap.install` is once-only before approved SPI discovery; discovery
 seals even an unconfigured OFF snapshot.
 
-`FrustumOptimization.binding()` supplies the first actual candidate:
+`FrustumOptimization.candidate()` supplies the first actual candidate:
 `render.frustum.positive-vertex`, EXPERIMENTAL and OFF without an explicit flag.
 It preserves OptiFine M5 float behavior, first-corner success, disabled bypass and
 full containment, then skips remaining corner tests when the supporting corner
 settles an ordered box. Raw target SHA/capabilities/helper identity are required;
 unknown or remapped input stays unchanged with an observable unsupported state.
+Retain the returned candidate, pass its `binding()` to `ProviderPlan.prepare`,
+and read its `applicationState()` after transformation. Each candidate owns its
+status; startup selection alone does not establish application. APPLIED records
+rewritten bytes, not class definition, game use or a performance gain.
 There is no VALIDATED/DEFAULT promotion or managed game installation.
 The [current query results](evidence/2026-10-13-frustum/RESULTS.md) include both
 reductions on mixed/outside workloads and an inside-workload regression under
