@@ -75,4 +75,34 @@ final class ConfigStoreTest {
                 .getAsJsonObject().get("new-field").getAsInt());
         assertThrows(UnsupportedOperationException.class, () -> store.load().config().features().clear());
     }
+
+    @Test
+    void scopedUpdatesPreserveUnknownNullMembersAtEveryObjectDepth() throws Exception {
+        write("{\"schemaVersion\":1,\"enabled\":false,\"future\":null,\"nested\":{\"unset\":null},"
+                + "\"array\":[null,{\"unset\":null}]}");
+        new ConfigStore(configPath()).updateEnabled(true);
+        com.google.gson.JsonObject result = JsonParser.parseString(
+                new String(Files.readAllBytes(configPath()), StandardCharsets.UTF_8)).getAsJsonObject();
+        assertTrue(result.has("future"));
+        assertTrue(result.get("future").isJsonNull());
+        assertTrue(result.getAsJsonObject("nested").has("unset"));
+        assertTrue(result.getAsJsonObject("nested").get("unset").isJsonNull());
+        assertTrue(result.getAsJsonArray("array").get(0).isJsonNull());
+        assertTrue(result.getAsJsonArray("array").get(1).getAsJsonObject().has("unset"));
+    }
+
+    @Test
+    void anUpdateThatWouldExceedTheReadLimitRetainsTheOriginalReadableFile() throws Exception {
+        StringBuilder json = new StringBuilder("{\"schemaVersion\":1,\"enabled\":false,\"future\":[");
+        for (int i = 0; i < 300_000; i++) { json.append("0,"); }
+        json.append("0]}");
+        String original = json.toString();
+        write(original);
+        ConfigStore store = new ConfigStore(configPath());
+        assertFalse(store.load().config().isSafe());
+        assertThrows(java.io.IOException.class, () -> store.updateEnabled(true));
+        assertEquals(original, new String(Files.readAllBytes(configPath()), StandardCharsets.UTF_8));
+        assertFalse(store.load().config().isSafe());
+        assertFalse(store.load().config().enabled());
+    }
 }

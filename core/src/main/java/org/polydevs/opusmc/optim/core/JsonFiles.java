@@ -9,7 +9,7 @@ import java.nio.file.*;
 
 final class JsonFiles {
     private static final int MAX_BYTES = 1024 * 1024;
-    private static final Gson WRITER = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson WRITER = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
 
     private JsonFiles() { }
 
@@ -60,10 +60,14 @@ final class JsonFiles {
 
     /** No non-atomic fallback: a failed write must retain the existing document. */
     static void writeAtomic(Path path, JsonObject document) throws IOException {
+        byte[] serialized = (WRITER.toJson(document) + "\n").getBytes(StandardCharsets.UTF_8);
+        if (serialized.length > MAX_BYTES) {
+            throw new IOException("Serialized Optim JSON exceeds 1 MiB; existing file retained");
+        }
         Files.createDirectories(path.getParent());
         Path temporary = Files.createTempFile(path.getParent(), "opus-optim-", ".tmp");
         try {
-            Files.write(temporary, (WRITER.toJson(document) + "\n").getBytes(StandardCharsets.UTF_8));
+            Files.write(temporary, serialized);
             Files.move(temporary, path, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
         } finally {
             Files.deleteIfExists(temporary);

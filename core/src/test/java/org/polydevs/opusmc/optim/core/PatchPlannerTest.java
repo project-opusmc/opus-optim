@@ -207,4 +207,11 @@ final class PatchPlannerTest {
                 new PatchClaim("ave", "runGameLoop()V", "different-anchor-v2", PatchClaim.Effect.BEHAVIOR, "receipt-v2", 10))).build();
         assertTrue(plan(enabled("patch"), after).restartRequiredComparedTo(plan(enabled("patch"), before)));
     }
+
+    @Test
+    void selfDeclaredConflictCannotAppearInASelectedPlan() {
+        PatchPlan result = plan(enabled("a"), feature("a").conflicts(Collections.singleton("a")).build());
+        assertTrue(result.selectedIds().isEmpty());
+        assertEquals(ExclusionReason.CONFLICT, result.excluded().get("a").code());
+    }
 }

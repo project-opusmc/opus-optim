@@ -18,6 +18,9 @@ public final class CompatibilityResolver {
     }
 
     public Optional<String> internalConflict(OptimizationDescriptor descriptor) {
+        if (descriptor.conflicts().contains(descriptor.id())) {
+            return Optional.of("Self-declared conflict: " + descriptor.id());
+        }
         List<PatchClaim> claims = descriptor.patchClaims();
         for (int i = 0; i < claims.size(); i++) {
             for (int j = i + 1; j < claims.size(); j++) {

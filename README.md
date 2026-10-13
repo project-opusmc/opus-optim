@@ -30,6 +30,8 @@ config leaves Optim OFF; invalid, oversized, wrongly typed, or unsupported-schem
 config enters SAFE and refuses scoped updates without altering the existing file.
 Updates reload the current document, retain unknown root fields/feature flags,
 check for changes during the read/update, and replace through an atomic move.
+Explicit null members are preserved. If the formatted output would exceed the
+1 MiB read limit, the update fails and retains the original readable file.
 There is no non-atomic overwrite fallback. Use one writer per config path; this
 store is not a multi-process transaction or a shared-settings migration.
 
