@@ -3,6 +3,18 @@ import org.junit.jupiter.api.Test;import org.objectweb.asm.*;import static org.j
 final class RendererTransformerTest {
     @Test void disabledAndUnrelatedBytesAreIdentical(){byte[] bytes={1,2,3};assertSame(bytes,new RendererTransformer(false).transform("Config","Config",bytes));assertSame(bytes,new RendererTransformer(true).transform("some.other.Class","some.other.Class",bytes));}
     @Test void explicitlySelectedUnknownPinnedTargetFails(){assertThrows(IllegalStateException.class,()->new RendererTransformer(true).transform("Config","Config",new byte[]{1,2,3}));}
+    @Test void minecraftFinishesHostUnloadBeforeBulkGpuCleanup(){
+        ClassWriter fixture=new ClassWriter(0);fixture.visit(52,Opcodes.ACC_PUBLIC,"ave",null,"java/lang/Object",null);
+        MethodVisitor method=fixture.visitMethod(Opcodes.ACC_PUBLIC,"a","(Lbdb;Ljava/lang/String;)V",null,null);
+        method.visitCode();method.visitMethodInsn(Opcodes.INVOKESTATIC,"Fixture","hostUnload","()V",false);method.visitInsn(Opcodes.RETURN);method.visitMaxs(0,3);method.visitEnd();fixture.visitEnd();
+        java.util.List<String> calls=new java.util.ArrayList<>();
+        new ClassReader(RendererTransformer.patchKnown("ave",fixture.toByteArray())).accept(new ClassVisitor(Opcodes.ASM5){
+            @Override public MethodVisitor visitMethod(int access,String name,String desc,String sig,String[] ex){return new MethodVisitor(Opcodes.ASM5){
+                @Override public void visitMethodInsn(int op,String owner,String name,String desc,boolean itf){calls.add(name);}
+            };}
+        },0);
+        assertEquals(java.util.Arrays.asList("hostUnload","worldChanging"),calls);
+    }
     @Test void regionHookShapeIncludesAttachAndLifecycleAndLeavesOtherMethods(){byte[] output=RendererTransformer.patchKnown("net.optifine.render.VboRegion",region());int[] calls={0};new ClassReader(output).accept(new ClassVisitor(Opcodes.ASM5){@Override public MethodVisitor visitMethod(int a,String n,String d,String s,String[] e){return new MethodVisitor(Opcodes.ASM5){@Override public void visitMethodInsn(int op,String owner,String name,String desc,boolean itf){if(owner.contains("optim/renderer"))calls[0]++;}};}},0);assertTrue(calls[0]>=8);}
     static byte[] region(){ClassWriter w=new ClassWriter(0);w.visit(52,Opcodes.ACC_PUBLIC,"net/optifine/render/VboRegion",null,"java/lang/Object",null);w.visitField(Opcodes.ACC_PRIVATE,"vertexBytes","I",null,null).visitEnd();w.visitField(Opcodes.ACC_PRIVATE,"glBufferId","I",null,null).visitEnd();method(w,"<init>","(Ljava/lang/Object;)V",Opcodes.RETURN);method(w,"bufferData","(Ljava/nio/ByteBuffer;Lnet/optifine/render/VboRange;)V",Opcodes.RETURN);method(w,"drawArrays","(ILnet/optifine/render/VboRange;)V",Opcodes.RETURN);method(w,"finishDraw","(Lbfy;)V",Opcodes.RETURN);method(w,"bindBuffer","()V",Opcodes.RETURN);method(w,"deleteGlBuffers","()V",Opcodes.RETURN);method(w,"getPositionTop","()I",Opcodes.IRETURN);w.visitEnd();return w.toByteArray();}
     static void method(ClassWriter w,String n,String d,int ret){MethodVisitor m=w.visitMethod(Opcodes.ACC_PUBLIC,n,d,null,null);m.visitCode();if(n.equals("<init>")){m.visitVarInsn(Opcodes.ALOAD,0);m.visitMethodInsn(Opcodes.INVOKESPECIAL,"java/lang/Object","<init>","()V",false);}if(ret==Opcodes.IRETURN)m.visitInsn(Opcodes.ICONST_0);m.visitInsn(ret);m.visitMaxs(2,4);m.visitEnd();}

@@ -43,9 +43,6 @@ public final class RendererTransformer implements IClassTransformer {
                 return new MethodVisitor(Opcodes.ASM5,out) {
                     @Override public void visitCode() {
                         super.visitCode();
-                        if (target.equals("ave") && name.equals("a") && desc.equals("(Lbdb;Ljava/lang/String;)V")) {
-                            hooked[0]++;out.visitVarInsn(Opcodes.ALOAD,1);out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"worldChanging","(Ljava/lang/Object;)V",false);
-                        }
                         if (target.equals("bfr") && name.equals("a") && (desc.equals("()V") || desc.equals("(Lbdb;)V"))) {
                             hooked[0]++;out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"worldReset","()V",false);
                         }
@@ -79,6 +76,10 @@ public final class RendererTransformer implements IClassTransformer {
                         }
                     }
                     @Override public void visitInsn(int op) {
+                        if (target.equals("ave") && name.equals("a") && desc.equals("(Lbdb;Ljava/lang/String;)V") && op==Opcodes.RETURN) {
+                            // Preserve host disconnect/shutdown ordering before bulk GPU deletion.
+                            hooked[0]++;out.visitVarInsn(Opcodes.ALOAD,1);out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"worldChanging","(Ljava/lang/Object;)V",false);
+                        }
                         if (target.equals("Config") && name.equals("isRenderRegions") && desc.equals("()Z") && op==Opcodes.IRETURN) {
                             hooked[0]++;out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"regions","(Z)Z",false);
                         }
