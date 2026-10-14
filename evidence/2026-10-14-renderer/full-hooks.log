@@ -1,0 +1,18 @@
+> Task :renderer-celeritas:compileJava UP-TO-DATE
+> Task :renderer-celeritas:processResources NO-SOURCE
+> Task :renderer-celeritas:classes UP-TO-DATE
+> Task :renderer-celeritas:compileSmokeJava
+> Task :renderer-celeritas:processSmokeResources NO-SOURCE
+> Task :renderer-celeritas:smokeClasses
+
+> Task :renderer-celeritas:hookVerify
+[O2] renderer hook APPLIED Config input=8530b8c8f9690c07f881dbf32a9ad579b0639f2701f5eff8a673c101ce3627aa
+VERIFIED full Java8 class Config
+[O2] renderer hook APPLIED bqs input=6e51da6383889c601142ab90c8f48fb3d5418eb6c3431458651d2f8389560ff3
+VERIFIED full Java8 class bqs
+[O2] renderer hook APPLIED net.optifine.render.VboRegion input=38f2e59fa54ecc815e7ba8a1db398ecf79685b0bab1a0ebe143de8bc263da441
+VERIFIED full Java8 class net.optifine.render.VboRegion
+
+BUILD SUCCESSFUL in 2s
+3 actionable tasks: 2 executed, 1 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html

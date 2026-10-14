@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "backend": "celeritas-region",
+  "minecraftVersion": "1.8.9",
+  "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+  "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+  "entrypoint": "org.polydevs.opusmc.optim.renderer.OptimRendererTweaker",
+  "artifacts": [
+    {
+      "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+      "size": 887804,
+      "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+    },
+    {
+      "file": "fastutil-7.1.0.jar",
+      "size": 17655579,
+      "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+    },
+    {
+      "file": "joml-1.10.5.jar",
+      "size": 712082,
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "file": "renderer-celeritas-0.0.1.jar",
+      "size": 21499,
+      "sha256": "063377f3c8e6b6e420fa1392ec14c867d23759fae5bd1f2ea6bd7d2c49516c1c"
+    }
+  ]
+}

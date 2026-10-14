@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "55592941a1aa65607dea867d44ab6d4806e143c8",
+  "launcherRevision": "cb67916787c63a9ba854a16c89b67077fc178088",
+  "tests": {
+    "bench": {
+      "tests": 36,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "renderer-celeritas": {
+      "tests": 9,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core": {
+      "tests": 33,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "api": {
+      "tests": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform-opus": {
+      "tests": 44,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "launcherTests": {
+    "engine": 69,
+    "cli": 1,
+    "officialNetworkContractIgnored": 1
+  },
+  "build": "PASS",
+  "java8FullFiveClassVerifier": "PASS",
+  "bundleMatchesCurrentJar": true,
+  "earlierGlFixture": "PASS",
+  "earlierStandardTerrain": "PASS_OLDER_BUNDLE",
+  "currentCleanupReplay": "NOT_TESTED_MACOS_CONSOLE_LOCKED",
+  "fpsGain": "NOT_ESTABLISHED",
+  "installedLauncherChanged": false,
+  "independentReview": "PENDING",
+  "ownLicenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a",
+  "bundle": {
+    "schemaVersion": 1,
+    "backend": "celeritas-region",
+    "minecraftVersion": "1.8.9",
+    "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+    "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+    "entrypoint": "org.polydevs.opusmc.optim.renderer.OptimRendererTweaker",
+    "artifacts": [
+      {
+        "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+        "size": 887804,
+        "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+      },
+      {
+        "file": "fastutil-7.1.0.jar",
+        "size": 17655579,
+        "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+      },
+      {
+        "file": "joml-1.10.5.jar",
+        "size": 712082,
+        "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+      },
+      {
+        "file": "renderer-celeritas-0.0.1.jar",
+        "size": 21499,
+        "sha256": "063377f3c8e6b6e420fa1392ec14c867d23759fae5bd1f2ea6bd7d2c49516c1c"
+      }
+    ]
+  }
+}
