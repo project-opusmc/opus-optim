@@ -26,9 +26,13 @@ fails draft TransformerPlan discovery because it returns zero registrations.
    transformers as baseline bindings with their reviewed composition receipts.
    Call `ProviderPlan.prepare(...)`, inspect its exclusions, then
    `OptimBootstrap.install(plan)` in the SAME provider classloader that SPI will
-   use. No optimization binding is shipped by this bridge; the test probe is a
-   synthetic fixture. The host must check the bytecode shape and receipts for each
-   future candidate, and forbid later installation. Do not mark client-ready or
+    use. Explicit EXPERIMENTAL bindings now exist through FrustumOptimization,
+    PipelineOptimizations and ResourceOptimization; retain their application-state
+    handles. Candidate selection is not successful application/class definition.
+    For the current standalone GUI routing, pass the mapped FontRenderer routing
+    identity as a caller-supplied alias for the exact raw avn candidate. An alias
+    never authorizes remapped bytecode. The host must attest raw pins, helper
+    identity and applicable receipts, and forbid later installation. Do not mark client-ready or
    first-frame as clean shutdown; preserve crash-marker semantics.
 4. Add a host-neutral observer to `ClientTelemetry`, with an explicit managed
    attach/detach lifecycle. Common Runtime must not import O2. The managed platform
@@ -81,3 +85,8 @@ comparison. A comparator PERFORMANCE_SIGNAL does not enable/promote a feature.
 O2 unit/SPI/ASM/classloader/JDK8 checks are fixtures. No Standalone/Forge live
 adapter session, Loader-managed O2 approval, telemetry observer wiring, controlled
 game baseline, A/A instrumentation overhead, game parity or FPS gain is claimed.
+Local real-bytecode evidence now includes complete frustum/reference queries,
+pipeline method kernels, raw font class definition/clinit and full raw resource
+class tests. None establishes these managed integration gates. Independent
+review of the new pipeline/resource increment remains pending after a usage-limit
+failure without a verdict; author tests do not supply that missing verdict.

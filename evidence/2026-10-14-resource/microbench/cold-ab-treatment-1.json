@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "scope": "FULL_RAW_RESOURCE_CLASS_NOT_GAME",
+  "sessionId": "6c436f9c-ebf6-49e6-b8e9-0bc89b66b80a",
+  "java": "1.8.0_502",
+  "arch": "x86_64",
+  "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+  "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+  "commonsLangSha256": "6b81d10754dadf184d386011486e6509c2cc0c3d33565ced4fb4402b9413d47d",
+  "originalSha256": "4dcb02692da8c3ae7d6137281b1a25e5f249514e2bc7d1efeb7b9400f857dd22",
+  "patchedSha256": "1862006e934109d825bcac59d756b536fa1eae3c06c1db32f29a5415904aa23c",
+  "factoryStatesVerified": true,
+  "unchangedMethodsVerified": true,
+  "arm": "treatment",
+  "workload": "cold",
+  "fixture": "4096 opus(0..16)/textures(i)/resource.png; seed recipe v1",
+  "queriesPerSample": 262144,
+  "warmupQueries": 2621440,
+  "sampleNanos": [
+    4023709,
+    3936458,
+    3855542,
+    5698334,
+    3966750,
+    3946458,
+    3934459,
+    5054250
+  ],
+  "checksums": [
+    317288448,
+    317288448,
+    317288448,
+    317288448,
+    317288448,
+    317288448,
+    317288448,
+    317288448
+  ],
+  "sampleAllocatedBytes": [
+    27916336,
+    27916336,
+    27916336,
+    27916336,
+    27916336,
+    27916336,
+    27916336,
+    27927200
+  ],
+  "allocationCounterOverheadIncluded": true,
+  "blackhole": 317288448,
+  "role": "ab-treatment",
+  "forkIndex": 1,
+  "jvmArguments": [
+    "-Xms512m",
+    "-Xmx512m"
+  ]
+}

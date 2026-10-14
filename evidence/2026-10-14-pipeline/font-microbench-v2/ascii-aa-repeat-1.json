@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+  "sessionId": "92bbd2a0-682d-449e-91f3-d4d2b89731b8",
+  "java": "1.8.0_502",
+  "arch": "x86_64",
+  "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+  "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+  "targets": {
+    "text.glyph_lookup": {
+      "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+      "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+      "factoryStatesVerified": true,
+      "unchangedMethodsVerified": true
+    },
+    "render.buffer_growth": {
+      "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+      "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+      "factoryStatesVerified": true,
+      "unchangedMethodsVerified": true
+    },
+    "world.fixed_budget": {
+      "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+      "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+      "factoryStatesVerified": true,
+      "unchangedMethodsVerified": true
+    }
+  },
+  "helperSha256": {
+    "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+    "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+    "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+  },
+  "arm": "control",
+  "workload": "ascii",
+  "queriesPerSample": 1048576,
+  "warmupQueries": 10485760,
+  "sampleNanos": [
+    16489208,
+    16643333,
+    18033958,
+    36932375,
+    23937375,
+    18196125,
+    18031209,
+    17878542,
+    18005125,
+    17595875
+  ],
+  "checksums": [
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272,
+    1065134977974272
+  ],
+  "blackhole": 1065134977974272,
+  "role": "aa-repeat",
+  "forkIndex": 1,
+  "jvmArguments": [
+    "-Xms512m",
+    "-Xmx512m"
+  ]
+}

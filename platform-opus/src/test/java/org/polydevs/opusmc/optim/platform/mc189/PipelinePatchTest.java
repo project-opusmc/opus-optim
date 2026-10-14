@@ -50,12 +50,18 @@ class PipelinePatchTest {
         StringBuilder a = new StringBuilder(); for (int i=0;i<256;i++) { a.append((char)(i%128)); }
         String alphabet = a.toString();
         ClassWriter w = type("avn"); constructor(w);
+        w.visitField(Opcodes.ACC_PUBLIC|Opcodes.ACC_STATIC,"alphabetLength","I",null,null).visitEnd();
+        w.visitField(Opcodes.ACC_PUBLIC|Opcodes.ACC_STATIC,"obfuscatedChar","I",null,null).visitEnd();
         glyphMethod(w, "a", "(CZ)F", alphabet, Opcodes.FRETURN);
         glyphMethod(w, "getCharWidthFloat", "(C)F", alphabet, Opcodes.FRETURN);
         glyphMethod(w, "b", "(C)I", "abc", Opcodes.IRETURN);
         MethodVisitor draw=w.visitMethod(Opcodes.ACC_PUBLIC,"a","(Ljava/lang/String;Z)V",null,null);
         draw.visitCode();draw.visitLdcInsn(alphabet);draw.visitInsn(Opcodes.ICONST_0);
         draw.visitMethodInsn(Opcodes.INVOKEVIRTUAL,"java/lang/String","indexOf","(I)I",false);draw.visitInsn(Opcodes.POP);
+        draw.visitLdcInsn(alphabet);draw.visitMethodInsn(Opcodes.INVOKEVIRTUAL,"java/lang/String","length","()I",false);
+        draw.visitFieldInsn(Opcodes.PUTSTATIC,"avn","alphabetLength","I");
+        draw.visitLdcInsn(alphabet);draw.visitIntInsn(Opcodes.BIPUSH,66);draw.visitMethodInsn(Opcodes.INVOKEVIRTUAL,"java/lang/String","charAt","(I)C",false);
+        draw.visitFieldInsn(Opcodes.PUTSTATIC,"avn","obfuscatedChar","I");
         draw.visitInsn(Opcodes.RETURN);draw.visitMaxs(2,3);draw.visitEnd();
         MethodVisitor format=w.visitMethod(Opcodes.ACC_PUBLIC,"format","(I)I",null,null);
         format.visitCode();format.visitLdcInsn("abc");format.visitVarInsn(Opcodes.ILOAD,1);
@@ -65,6 +71,9 @@ class PipelinePatchTest {
         Method index=t.getMethod("getCharWidthFloat",char.class);
         for(int c=0;c<65536;c++){assertEquals((float)alphabet.indexOf(c),index.invoke(o,(char)c));}
         assertEquals(1,t.getMethod("b",char.class).invoke(o,'b'));
+        t.getMethod("a",String.class,boolean.class).invoke(o,"owned",true);
+        assertEquals(256,t.getField("alphabetLength").getInt(null));
+        assertEquals(66,t.getField("obfuscatedChar").getInt(null));
         assertEquals(1,t.getMethod("format",int.class).invoke(o,(int)'b'));
     }
     @Test void bufferRewriteAppliesCapacityBeforeTheOriginalStore() throws Exception {

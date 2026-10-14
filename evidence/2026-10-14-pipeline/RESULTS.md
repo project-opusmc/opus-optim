@@ -14,21 +14,35 @@ cases matched on actual Java 8: all BMP characters, both Unicode flags. The
 verifier also hashes reconstructed unmodified methods and checks all three
 public factory/pin/application/refusal routes.
 
-Forty independent Java 8 processes: five per A/A-control, A/A-repeat, A/B-control
+Current measurements are the corrected v2 patch in `font-microbench-v2`.
+The original `font-microbench` and first verification receipts are historical:
+their isolated width kernel ran, but author full-class verification later found
+a VerifyError in obfuscated text from replacing alphabet length/charAt loads.
+That whole renderer candidate was invalid and its timings do not describe the
+corrected patch. The retained v1 data is not current acceptance evidence.
+
+The fix preserves every String literal and substitutes only the three indexOf
+calls. The expanded owned draw-method regression failed with VerifyError first,
+then passed. Actual complete raw font definition and clinit also pass on Java8,
+preserving the original 256 page slots and adding 19,266 bytes of table payload
+in an isolated unsigned test classloader. This verifies class definition/clinit,
+not full font constructor, GL draw behavior or managed adapter installation.
+
+Forty new independent Java 8 processes: five per A/A-control, A/A-repeat, A/B-control
 and A/B-treatment arm for ASCII and Unicode-miss workloads. Each has 10,485,760
 warmup queries and ten samples of 1,048,576 queries, direct interface calls and
 consumed identical checksums. Medians are medians of per-fork sample medians.
 
 | Width-query workload | A/B median cost reduction | A/A median shift |
 |---|---:|---:|
-| ASCII | 90.37% | -1.78% |
-| Unicode-miss | 96.54% | -0.07% |
+| ASCII | 90.18% | -2.44% |
+| Unicode-miss | 95.81% | -2.17% |
 
-These are isolated font-width kernel costs: roughly 15.66 -> 1.51 ns and
-44.04 -> 1.53 ns respectively. They are not total text-render cost or FPS.
+These are isolated font-width kernel costs: roughly 15.90 -> 1.56 ns and
+44.37 -> 1.86 ns respectively. They are not total text-render cost or FPS.
 No statistical significance, confidence interval or whole-game acceptance is
 claimed. The local point effects exceed the observed A/A median shifts. All raw
-reports and variation are retained in font-microbench; no alternate JVM flags.
+reports and variation are retained; no alternate JVM flags.
 
 ## Graphics buffer/core allocation
 
@@ -71,7 +85,7 @@ All three exact raw pins apply through the public candidate -> planner ->
 registration path. Unknown input remains unchanged with per-instance observable
 refusal. Verification uses real method bodies with owned substitutes and owned
 constructors/table init; it does not load the whole original game class hierarchy,
-prove full FontRenderer clinit/GL execution or establish installed-provider use.
+prove full font construction/GL execution or establish installed-provider use.
 The host routing-alias factory additionally applies the same pinned font bytes
 through the mapped FontRenderer routing name and reports APPLIED; no actual
 managed adapter invocation is claimed. Emitted target/helper hashes stay equal
@@ -80,5 +94,6 @@ to the recorded timing revision after that factory boundary addition.
 Managed Loader approval/helper visibility, observer wiring, staging, real
 lobby/chunk controls, pack/shader visual parity, frame p95/p99, allocation and
 instrumentation overhead remain required. No default or FPS claim is made.
-See kernel-verification.json and font-microbench/summary.json for raw scope and
-hashes; final verification and review receipts are saved alongside this report.
+See corrected-kernel-verification.json, probes/full-font-init.log and
+font-microbench-v2/summary.json for current raw scope and hashes. Independent
+review failed at its usage limit without a verdict; that gate remains pending.

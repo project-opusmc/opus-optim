@@ -123,3 +123,15 @@ tasks.register<Exec>("pipelineVerify") {
             "org.polydevs.opusmc.optim.smoke.PipelineVerify", "verify", minecraft, optifine)
     }
 }
+tasks.register<Exec>("resourceVerify") {
+    group = "verification"
+    dependsOn(artifactJars, smoke.classesTaskName, verifyPlatformArtifact)
+    doFirst {
+        val java8 = providers.gradleProperty("java8Home").orNull ?: error("Supply java8Home")
+        val minecraft = providers.gradleProperty("minecraftJar").orNull ?: error("Supply minecraftJar")
+        val optifine = providers.gradleProperty("optifineJar").orNull ?: error("Supply optifineJar")
+        val commons = providers.gradleProperty("commonsLangJar").orNull ?: error("Supply commonsLangJar")
+        commandLine(file("$java8/bin/java").absolutePath, "-cp", smokeRuntime.asPath,
+            "org.polydevs.opusmc.optim.smoke.ResourceVerify", "verify", minecraft, optifine, commons)
+    }
+}

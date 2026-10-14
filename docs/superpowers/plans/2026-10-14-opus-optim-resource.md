@@ -29,16 +29,16 @@
 **Files:** platform-opus/.../mc189/ResourceOptimization.java, ResourcePatch.java and ResourcePatchTest.java.
 **Interfaces:** ResourceOptimization.candidate():Candidate; descriptor(), binding(), applicationState().
 
-- [ ] Write cold/warm/subclass/instance/status/flag tests against an owned bytecode fixture; observe missing candidate.
-- [ ] Implement exact hash gate, volatile field, hit branch, original cold body and result retention with a valid frame.
-- [ ] Run full ./gradlew test check assemble and commit.
+- [x] Write cold/warm/subclass/instance/status/flag tests against an owned bytecode fixture; observe missing candidate.
+- [x] Implement exact hash gate, volatile field, hit branch, original cold body and result retention with a valid frame.
+- [x] Run full ./gradlew test check assemble and commit.
 
 ### Task 2: Real full class verification and fork measurements
 
 **Files:** smoke ResourceVerify.java, Gradle resourceVerify task; scripts/resource-microbench.py; evidence/2026-10-14-resource and README/status/handoff.
 **Interfaces:** Consumes Task1 factory, local MC/M5 inputs, actual Java8 and explicit existing commons-lang3 jar.
 
-- [ ] Execute complete original/patched class with real constructors/dependency; verify content/errors/equals/hashCode/subclass/concurrent readers and public state.
-- [ ] Measure five independent forks per AA/AB arm on cold/warm string workloads; preserve checksums/identity, throughput and heap-retention caveats.
+- [x] Execute complete original/patched class with real constructors/dependency; verify content/errors/equals/hashCode/subclass/concurrent readers and public state.
+- [x] Measure five independent forks per AA/AB arm on cold/warm string workloads; preserve checksums/identity, throughput and heap-retention caveats.
 - [ ] Run clean full suite and all4 Java8 verifiers, fresh-clone JAR/license guards; commit evidence.
 - [ ] Preserve author review and independent-review failure without a verdict; keep review gate pending.

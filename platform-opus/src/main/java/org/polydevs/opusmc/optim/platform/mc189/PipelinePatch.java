@@ -65,15 +65,19 @@ public final class PipelinePatch implements ClassTransformer {
                         }
                     }
                     @Override public void visitLdcInsn(Object value) {
-                        if (alphabet!=null && alphabet.equals(value)) {
-                            out.visitFieldInsn(Opcodes.GETSTATIC,kind.target,TABLE,"[S"); glyphPending=true;
-                        } else { super.visitLdcInsn(value); }
+                        // The same literal also feeds length()/charAt() in obfuscated text.
+                        // Preserve its String type; discard it only at the exact indexOf call.
+                        glyphPending=alphabet!=null && alphabet.equals(value);
+                        super.visitLdcInsn(value);
                     }
                     @Override public void visitMethodInsn(int opcode,String owner,String method,String descriptor,boolean iface) {
                         if (glyphPending && owner.equals("java/lang/String") && method.equals("indexOf") && descriptor.equals("(I)I")) {
+                            out.visitInsn(Opcodes.SWAP);out.visitInsn(Opcodes.POP);
+                            out.visitFieldInsn(Opcodes.GETSTATIC,kind.target,TABLE,"[S");out.visitInsn(Opcodes.SWAP);
                             out.visitMethodInsn(Opcodes.INVOKESTATIC,Type.getInternalName(GlyphIndex.class),"lookup","([SI)I",false);
-                            glyphPending=false; edits[0]++;
+                            edits[0]++;
                         } else { super.visitMethodInsn(opcode,owner,method,descriptor,iface); }
+                        glyphPending=false;
                     }
                     @Override public void visitVarInsn(int opcode,int slot) {
                         if (kind==PipelineOptimizations.Kind.BUFFER_GROWTH && opcode==Opcodes.ISTORE && slot==4) {

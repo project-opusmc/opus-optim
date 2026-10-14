@@ -151,6 +151,10 @@ are the next work; this engine is not completion of those milestones.
 O2 is a wider suite still in development; see the [current implementation map](docs/ENGINEERING_STATUS.md).
 The new `PipelineOptimizations.candidates()` pack contains independent opt-in
 font-glyph lookup, vertex-buffer growth and chunk-upload deadline candidates.
+`ResourceOptimization.candidate()` additionally caches immutable resource text
+per instance. Its [cold/warm results](evidence/2026-10-14-resource/RESULTS.md)
+include the extra cold allocation and retained-string cost. All are experimental,
+and independent review remains pending after a usage-limit failure without verdict.
 Retain each candidate's status handle and pass its binding to ProviderPlan.
 If the host routes a raw class under a mapped identity, supply that exact name
 through `candidate(kind, routingAliases)`; this never accepts remapped bytecode.

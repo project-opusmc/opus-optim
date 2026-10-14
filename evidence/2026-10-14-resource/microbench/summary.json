@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "scope": "FULL_RAW_RESOURCE_CLASS_NOT_GAME",
+  "independentForks": 40,
+  "forksPerArmPerWorkload": 5,
+  "jvmArguments": [
+    "-Xms512m",
+    "-Xmx512m"
+  ],
+  "gameFpsMeasured": false,
+  "liveHeapMeasured": false,
+  "promotion": false,
+  "workloads": {
+    "warm": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          12.572128295898438,
+          13.300737380981445,
+          13.325136184692383,
+          16.201892852783203,
+          15.660207748413086
+        ],
+        "medianNsPerQuery": 13.325136184692383,
+        "forkMedianAllocatedBytesPerQuery": [
+          83.2421875,
+          82.49237060546875,
+          83.2421875,
+          83.2421875,
+          83.2421875
+        ],
+        "medianAllocatedBytesPerQuery": 83.2421875
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          15.299955368041992,
+          13.70803451538086,
+          13.970453262329102,
+          14.048418045043945,
+          14.446178436279297
+        ],
+        "medianNsPerQuery": 14.048418045043945,
+        "forkMedianAllocatedBytesPerQuery": [
+          83.2421875,
+          83.2421875,
+          83.2421875,
+          83.2421875,
+          83.2421875
+        ],
+        "medianAllocatedBytesPerQuery": 83.2421875
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          14.57667350769043,
+          13.112703323364258,
+          12.697139739990234,
+          16.62627601623535,
+          14.366943359375
+        ],
+        "medianNsPerQuery": 14.366943359375,
+        "forkMedianAllocatedBytesPerQuery": [
+          83.2421875,
+          83.2421875,
+          83.2421875,
+          83.2421875,
+          83.2421875
+        ],
+        "medianAllocatedBytesPerQuery": 83.2421875
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          3.142040252685547,
+          3.3736228942871094,
+          3.6351661682128906,
+          3.597972869873047,
+          3.5936012268066406
+        ],
+        "medianNsPerQuery": 3.5936012268066406,
+        "forkMedianAllocatedBytesPerQuery": [
+          0.00018310546875,
+          0.00018310546875,
+          0.00018310546875,
+          0.00018310546875,
+          0.00018310546875
+        ],
+        "medianAllocatedBytesPerQuery": 0.00018310546875
+      },
+      "queryCostReductionPercent": 74.9870161180689,
+      "aaMedianShiftPercent": 5.427950981712685,
+      "interpretation": "OBSERVED_LOCAL_QUERY_REDUCTION_NO_GAME_ACCEPTANCE"
+    },
+    "cold": {
+      "aa-control": {
+        "forkMedianNsPerQuery": [
+          17.264366149902344,
+          17.455894470214844,
+          22.825878143310547,
+          16.209999084472656,
+          20.795106887817383
+        ],
+        "medianNsPerQuery": 17.455894470214844,
+        "forkMedianAllocatedBytesPerQuery": [
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875
+        ],
+        "medianAllocatedBytesPerQuery": 82.49237060546875
+      },
+      "aa-repeat": {
+        "forkMedianNsPerQuery": [
+          17.441747665405273,
+          15.355745315551758,
+          16.309024810791016,
+          17.37888526916504,
+          15.484968185424805
+        ],
+        "medianNsPerQuery": 16.309024810791016,
+        "forkMedianAllocatedBytesPerQuery": [
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875
+        ],
+        "medianAllocatedBytesPerQuery": 82.49237060546875
+      },
+      "ab-control": {
+        "forkMedianNsPerQuery": [
+          17.33835792541504,
+          21.953901290893555,
+          20.119112014770508,
+          16.281288146972656,
+          16.61737632751465
+        ],
+        "medianNsPerQuery": 17.33835792541504,
+        "forkMedianAllocatedBytesPerQuery": [
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875,
+          82.49237060546875
+        ],
+        "medianAllocatedBytesPerQuery": 82.49237060546875
+      },
+      "ab-treatment": {
+        "forkMedianNsPerQuery": [
+          15.324831008911133,
+          15.093246459960938,
+          18.420616149902344,
+          17.337480545043945,
+          15.041112899780273
+        ],
+        "medianNsPerQuery": 15.324831008911133,
+        "forkMedianAllocatedBytesPerQuery": [
+          106.49237060546875,
+          106.49237060546875,
+          106.49237060546875,
+          106.49237060546875,
+          106.49237060546875
+        ],
+        "medianAllocatedBytesPerQuery": 106.49237060546875
+      },
+      "queryCostReductionPercent": 11.613135022160451,
+      "aaMedianShiftPercent": -6.570099638152273,
+      "interpretation": "OBSERVED_LOCAL_QUERY_REDUCTION_NO_GAME_ACCEPTANCE"
+    }
+  }
+}

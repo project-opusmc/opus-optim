@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "PENDING_NO_INDEPENDENT_VERDICT",
+  "requestedBase": "6c0d580",
+  "requestedHead": "f1f66574b3f1f2581421104a5b86e60fa4e4b26b",
+  "failure": "Reviewer usage limit before findings or verdict",
+  "independentFindings": null,
+  "independentReadyToMerge": null,
+  "laterResourceIncrementReviewed": false,
+  "authorImportantGlyphFixVerified": true,
+  "details": "REVIEW_STATUS.md"
+}

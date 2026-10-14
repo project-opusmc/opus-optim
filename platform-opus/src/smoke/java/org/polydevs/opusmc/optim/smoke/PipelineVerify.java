@@ -219,7 +219,7 @@ public final class PipelineVerify {
         else{allowed.add(kind==PipelineOptimizations.Kind.BUFFER_GROWTH?"b(I)V":"a(J)Z");}
         for(String method:a.keySet()){if(!allowed.contains(method)){require(a.get(method).equals(b.get(method)),"Unrelated method changed: "+method);}}
     }
-    private static Map<String,String> methods(byte[] bytes) throws Exception {
+    static Map<String,String> methods(byte[] bytes) throws Exception {
         Map<String,String> result=new TreeMap<>();ClassReader reader=new ClassReader(bytes);
         reader.accept(new ClassVisitor(Opcodes.ASM5) {
             @Override public MethodVisitor visitMethod(int access,String name,String desc,String sig,String[] ex) {
