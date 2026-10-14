@@ -26,6 +26,7 @@ public final class RendererTransformer implements IClassTransformer {
     private final boolean enabled;
     public RendererTransformer() { this("celeritas-region".equals(System.getProperty("opus.optim.renderer"))); }
     RendererTransformer(boolean enabled) { this.enabled = enabled; }
+    static Set<String> targetClasses() { return PINS.keySet(); }
     static boolean allApplied() { return APPLIED.containsAll(PINS.keySet()); }
     @Override public byte[] transform(String name, String transformedName, byte[] bytes) {
         if (!enabled || bytes == null) return bytes;

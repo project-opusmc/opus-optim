@@ -49,12 +49,16 @@ public final class TransformerChain {
     }
 
     public byte[] transform(String className, byte[] originalBytecode) throws Exception {
+        return transform(className, className, originalBytecode);
+    }
+
+    public byte[] transform(String rawName, String routedName, byte[] originalBytecode) throws Exception {
         byte[] current = originalBytecode;
         for (ClassTransformer transformer : transformers) {
-            byte[] transformed = transformer.transform(className, current);
+            byte[] transformed = transformer.transform(rawName, routedName, current);
             if (transformed == null) {
                 throw new IllegalStateException(
-                        "Transformer " + transformer.id() + " returned null for " + className);
+                        "Transformer " + transformer.id() + " returned null for " + rawName);
             }
             current = transformed;
         }

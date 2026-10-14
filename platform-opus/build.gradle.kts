@@ -5,12 +5,13 @@ import org.gradle.jvm.tasks.Jar
 
 plugins { `java-library` }
 
-// Local draft API fixture. These classes are compile/test inputs, never JAR inputs.
+// Pinned loader fixture is a fallback/test input; integration builds use the real Runtime JAR.
 val loaderContract = sourceSets.create("loaderContract")
 dependencies {
     api(project(":core"))
     api(project(":bench"))
-    compileOnly(files(loaderContract.output))
+    compileOnly(if (providers.gradleProperty("opusBootstrapJar").isPresent)
+        files(providers.gradleProperty("opusBootstrapJar").get()) else files(loaderContract.output))
     compileOnly("org.ow2.asm:asm:5.0.3")
     testImplementation(files(loaderContract.output))
     testImplementation("org.ow2.asm:asm:5.0.3")
@@ -77,7 +78,8 @@ val smoke = sourceSets.create("smoke") {
 val artifactJars = listOf(":api", ":core", ":bench", ":platform-opus").map {
     project(it).tasks.named<Jar>("jar")
 }
-val smokeRuntime = files(smoke.output, loaderContract.output,
+val smokeRuntime = files(smoke.output,
+    if (providers.gradleProperty("opusBootstrapJar").isPresent) files(providers.gradleProperty("opusBootstrapJar").get()) else loaderContract.output,
     artifactJars.map { it.flatMap { jar -> jar.archiveFile } },
     configurations.getByName("runtimeClasspath").filter { it.name.startsWith("gson-") },
     configurations.getByName("compileClasspath").filter { it.name.startsWith("asm-") })

@@ -18,7 +18,26 @@ public final class GameProbeAgent {
             ClassLoader loader=null;long timeout=System.currentTimeMillis()+120000;
             while(loader==null && System.currentTimeMillis()<timeout){loader=(ClassLoader)launch.getField("classLoader").get(null);Thread.sleep(100);}
             if(loader==null)throw new IllegalStateException("LaunchWrapper unavailable");
-            Class<?> hooks=Class.forName("org.polydevs.opusmc.optim.renderer.RendererHooks");
+            Class<?> hooks=rendererHooks(baseline,GameProbeAgent.class.getClassLoader());
+            if(baseline) {
+                while(!frameStarted && System.currentTimeMillis()<timeout)Thread.sleep(100);
+                if(!frameStarted)throw new IllegalStateException("Base Loader first frame unavailable");
+                final Class<?> baseType=Class.forName("ave",true,loader);
+                final Object baseGame=baseType.getMethod("A").invoke(null);
+                File baseDirectory=(File)baseType.getField("v").get(baseGame);
+                if(!baseDirectory.getCanonicalPath().equals(new File(expected).getCanonicalPath()))throw new IllegalStateException("Wrong base control instance");
+                schedule(baseType,baseGame,()->{
+                    try {
+                        Class<?> events=Class.forName("org.polydevs.opusmc.standalone.OpusEventHooks");
+                        String state=events.getMethod("clientInitializationState").invoke(null).toString();
+                        if(!state.equals("READY"))throw new IllegalStateException("Base client not ready: "+state);
+                        if(!System.getProperty("opus.loader.providers","").isEmpty())throw new IllegalStateException("O2 approved in base control");
+                        System.out.println("[O2/PROBE] base Loader workload PASS clientState=READY O2=absent; shutdown REQUEST");
+                        baseType.getMethod("m").invoke(baseGame);
+                    }catch(Exception e){throw new IllegalStateException(e);}
+                });
+                return;
+            }
             while(!(baseline?frameStarted:((Boolean)hooks.getMethod("ready").invoke(null)).booleanValue()) && System.currentTimeMillis()<timeout)Thread.sleep(100);
             if(!(baseline?frameStarted:((Boolean)hooks.getMethod("ready").invoke(null)).booleanValue()))throw new IllegalStateException("Game renderer was not ready");
             if(baseline)System.out.println("[O2/PROBE] baseline quit control backend=off");
@@ -114,6 +133,9 @@ public final class GameProbeAgent {
                 }catch(Exception e){throw new IllegalStateException(e);}
             });
         }catch(Throwable e){System.err.println("[O2/PROBE] FAILED "+e);e.printStackTrace();if(mc!=null&&minecraft!=null){final Class<?> type=mc;final Object game=minecraft;try{schedule(type,game,()->{try{type.getMethod("m").invoke(game);}catch(Exception ignored){ }});}catch(Exception ignored){ }}}
+    }
+    static Class<?> rendererHooks(boolean baseline,ClassLoader loader)throws ClassNotFoundException {
+        return baseline?null:Class.forName("org.polydevs.opusmc.optim.renderer.RendererHooks",false,loader);
     }
     private static void schedule(Class<?> type,Object game,Runnable work)throws Exception {
         java.util.concurrent.FutureTask<?> future=new java.util.concurrent.FutureTask<Void>(work,null);

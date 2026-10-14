@@ -2,12 +2,18 @@ import java.security.MessageDigest
 import java.util.zip.ZipFile
 import groovy.json.JsonOutput
 import org.gradle.jvm.tasks.Jar
+import org.gradle.api.tasks.SourceSetContainer
 plugins { `java-library` }
 repositories { maven("https://maven.taumc.org/releases") { content { includeGroup("org.embeddedt.celeritas") }; metadataSources { mavenPom(); artifact(); ignoreGradleMetadataRedirection() } }; maven("https://libraries.minecraft.net") { content { includeGroup("net.minecraft") } } }
+evaluationDependsOn(":platform-opus")
+val loaderFixture = project(":platform-opus").extensions.getByType<SourceSetContainer>().getByName("loaderContract").output
 dependencies {
     implementation("org.embeddedt.celeritas:celeritas-common:2.5.0-pre.1:downgraded-8@jar")
     implementation("it.unimi.dsi:fastutil:7.1.0")
     implementation("org.joml:joml:1.10.5")
+    compileOnly(if (providers.gradleProperty("opusBootstrapJar").isPresent)
+        files(providers.gradleProperty("opusBootstrapJar").get()) else files(loaderFixture))
+    testImplementation(files(loaderFixture))
     compileOnly("org.lwjgl.lwjgl:lwjgl:2.9.3") { isTransitive = false }
     compileOnly("net.minecraft:launchwrapper:1.12")
     compileOnly("org.ow2.asm:asm:5.0.3")
@@ -36,17 +42,19 @@ tasks.withType<JavaCompile>().configureEach { options.compilerArgs.add("-Xlint:-
 val frameworkSources = configurations.create("frameworkSources") { isCanBeConsumed = false }
 dependencies { add(frameworkSources.name, "org.embeddedt.celeritas:celeritas-common:2.5.0-pre.1:sources@jar") }
 val rendererJar = tasks.named<Jar>("jar")
+val optimJars = listOf(":api",":core",":bench",":platform-opus").map { rootProject.project(it).tasks.named<Jar>("jar") }
 val rendererBundle = tasks.register("rendererBundle") {
-    dependsOn(rendererJar)
+    dependsOn(rendererJar, optimJars)
     val out = layout.buildDirectory.dir("renderer-bundle")
     outputs.dir(out)
     inputs.file(rendererJar.flatMap { it.archiveFile })
+    inputs.files(optimJars.map { it.flatMap { jar -> jar.archiveFile } })
     inputs.files(configurations.getByName("runtimeClasspath"), frameworkSources)
     inputs.files(rootProject.file("LICENSE"), project.file("THIRD_PARTY.md"))
     doLast {
         val dir = out.get().asFile
         dir.deleteRecursively(); dir.mkdirs()
-        val jars = listOf(rendererJar.get().archiveFile.get().asFile) + configurations.getByName("runtimeClasspath").files
+        val jars = listOf(rendererJar.get().archiveFile.get().asFile) + optimJars.map { it.get().archiveFile.get().asFile } + configurations.getByName("runtimeClasspath").files
         val artifacts = jars.sortedBy { it.name }.map { source ->
             val target = source.copyTo(dir.resolve(source.name))
             val bytes = target.readBytes()
@@ -63,10 +71,10 @@ val rendererBundle = tasks.register("rendererBundle") {
         }
         rootProject.file("LICENSE").copyTo(dir.resolve("O2-LICENSE"))
         project.file("THIRD_PARTY.md").copyTo(dir.resolve("THIRD_PARTY.md"))
-        val manifest = mapOf("schemaVersion" to 1, "backend" to "celeritas-region", "minecraftVersion" to "1.8.9",
+        val manifest = mapOf("schemaVersion" to 2, "loaderProtocolVersion" to 1, "backend" to "celeritas-region", "minecraftVersion" to "1.8.9",
             "minecraftSha256" to "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
             "optifineSha256" to "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
-            "entrypoint" to "org.polydevs.opusmc.optim.renderer.OptimRendererTweaker", "artifacts" to artifacts)
+            "providers" to listOf("opus.optim", "opus.optim.renderer"), "artifacts" to artifacts)
         dir.resolve("opus-optim-renderer.json").writeText(JsonOutput.prettyPrint(JsonOutput.toJson(manifest))+"\n")
     }
 }
@@ -113,6 +121,9 @@ val verifyRendererBundle = tasks.register("verifyRendererBundle") {
         val bundle=layout.buildDirectory.dir("renderer-bundle").get().asFile
         val jar=rendererJar.get().archiveFile.get().asFile
         check(jar.readBytes().contentEquals(bundle.resolve(jar.name).readBytes())) { "O2 renderer bundle is stale" }
+        optimJars.forEach { task -> val current=task.get().archiveFile.get().asFile
+            check(current.readBytes().contentEquals(bundle.resolve(current.name).readBytes())) { "O2 bundle is stale: ${current.name}" }
+        }
     }
 }
 tasks.named("check") { dependsOn(verifyRendererBundle) }

@@ -8,6 +8,8 @@ final class ProviderState {
     private boolean installed, sealed;
     private List<TransformerRegistration> snapshot = Collections.emptyList();
 
+    synchronized boolean installed() { return installed; }
+
     synchronized void install(ProviderPlan plan) {
         Objects.requireNonNull(plan, "plan");
         if (installed || sealed) { throw new IllegalStateException("O2 startup is already installed or sealed; restart required"); }

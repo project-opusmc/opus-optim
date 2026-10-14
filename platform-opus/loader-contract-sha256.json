@@ -1,7 +1,7 @@
 {
-  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/ClassTransformer.java": "f91730510bd41f23a0b55e0dea33328d360ac0505b40ed53e8d3fe6be2b24581",
-  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/ClassTransformerProvider.java": "7f9eb6de44235f8c19991e7a15f2e5643e54f37dfa30913a9894756549fd1a98",
-  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/TransformerRegistration.java": "df7bdb5eaa19d9eef74ecae5bfd279906aa71ea4cead68ca0094ba3d075c5aaa",
-  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/TransformerChain.java": "2790e36bcfd7bd0e45f51d8cb9e09c6be74dff472e1a001eb33a9674b73ef165",
-  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/TransformerPlan.java": "28ee52e04f2548daa34650c4e97e967a6995113dcb23ebc231564aaee817b1d2"
+  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/ClassTransformer.java": "feef5a85d9f7ca47a37ab9c896c85d525e654f80ffa4e4d8b05f16c77e4ccc50",
+  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/ClassTransformerProvider.java": "598f42bc3f042d708601db86731aa0e4ecae9407e3e24f8c01fff191e74e4fb2",
+  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/TransformerChain.java": "69b2d6b37279ea1dab915fafb4103de8ebef56024b872090e6a4399f15d1af31",
+  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/TransformerPlan.java": "b86394df23cd304eacd8b5162c81fba7f84e66064c55ffa82403c414f347b220",
+  "src/loaderContract/java/org/polydevs/opusmc/bootstrap/TransformerRegistration.java": "df7bdb5eaa19d9eef74ecae5bfd279906aa71ea4cead68ca0094ba3d075c5aaa"
 }
