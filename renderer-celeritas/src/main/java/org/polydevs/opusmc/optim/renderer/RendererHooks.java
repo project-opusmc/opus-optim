@@ -1,6 +1,8 @@
 package org.polydevs.opusmc.optim.renderer;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Field;
+import java.util.concurrent.Future;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL15;
@@ -13,6 +15,7 @@ public final class RendererHooks {
     private static volatile long regionsCreated, regionsDeleted;
     private static Method shaders, multiTexture, settings;
     private static VertexPointers pointers;
+    private static Field serverThread;
     private RendererHooks() { }
     public static void initialize(Class<?> configClass) {
         if (!"celeritas-region".equals(System.getProperty("opus.optim.renderer"))) return;
@@ -23,11 +26,14 @@ public final class RendererHooks {
             Class.forName("bqs", false, loader);
             Class.forName("bfr", false, loader);
             Class.forName("ave", false, loader);
+            Class.forName("bpo", false, loader);
             if (!RendererTransformer.allApplied()) throw new IllegalStateException("O2 renderer hooks are incomplete");
             if (!GLContext.getCapabilities().OpenGL21) throw new IllegalStateException("O2 region backend requires OpenGL2.1");
             config = configClass;
             shaders = configClass.getMethod("isShaders"); multiTexture = configClass.getMethod("isMultiTexture"); settings = configClass.getMethod("getGameSettings");
             pointers = new VertexPointers(Class.forName("bfy", false, loader));
+            serverThread = Class.forName("net.minecraft.server.MinecraftServer", false, loader).getDeclaredField("aa");
+            serverThread.setAccessible(true);
             // Force framework/service linkage while startup can still fail clearly.
             Class.forName("org.taumc.celeritas.lwjgl.LWJGLServiceProvider", true, RendererHooks.class.getClassLoader());
             ready = true;
@@ -62,6 +68,15 @@ public final class RendererHooks {
     }
     private static volatile boolean submitted;
     public static void delete(RegionRenderer renderer) { if (LIFETIME.release(renderer)) regionsDeleted++; }
+    public static Future<?> prepareServerTaskWait(Future<?> future, Object server) {
+        if(serverThread==null)return future;
+        try {
+            Future<?> prepared=ServerTaskWait.prepare(future, (Thread)serverThread.get(server));
+            if(prepared!=future)System.out.println("[O2] abandoned shutdown future released after server thread TERMINATED");
+            return prepared;
+        }
+        catch (IllegalAccessException error) { throw new IllegalStateException("O2 server lifetime unavailable", error); }
+    }
     public static void worldChanging(Object world) { if (world == null) worldReset(); }
     public static void worldReset() { regionsDeleted += LIFETIME.reset(); }
     public static int liveRegions() { return LIFETIME.size(); }

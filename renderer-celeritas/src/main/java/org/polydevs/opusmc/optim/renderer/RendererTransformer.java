@@ -17,6 +17,8 @@ public final class RendererTransformer implements IClassTransformer {
         pins.put("Config", "8530b8c8f9690c07f881dbf32a9ad579b0639f2701f5eff8a673c101ce3627aa");
         pins.put("ave", "430a17aa1911bcd0251aa4dcecb013b6c5b251bb5d0122c7305de0e36dc33e82");
         pins.put("bfr", "a60c44bbc5535e985b1c4b3549bb298b126e3039074aa910f99da97378250619");
+        pins.put("bpo", "869d345907c9e49396f1214dcfe52f14509106b7f04fa80367cbc74914e10cbc");
+        pins.put("net.minecraft.server.MinecraftServer", "63b4c32e947e2f83ea6db33ab685518603350455ee598a4efff180fc43045283");
         pins.put("bqs", "6e51da6383889c601142ab90c8f48fb3d5418eb6c3431458651d2f8389560ff3");
         pins.put("net.optifine.render.VboRegion", "38f2e59fa54ecc815e7ba8a1db398ecf79685b0bab1a0ebe143de8bc263da441");
         PINS = Collections.unmodifiableMap(pins);
@@ -35,6 +37,14 @@ public final class RendererTransformer implements IClassTransformer {
         return output;
     }
     static byte[] patchKnown(String target, byte[] bytes) {
+        if (target.equals("net.minecraft.server.MinecraftServer")) {
+            int[] fields={0};
+            new ClassReader(bytes).accept(new ClassVisitor(Opcodes.ASM5){
+                @Override public FieldVisitor visitField(int access,String name,String desc,String sig,Object value){if(name.equals("aa")&&desc.equals("Ljava/lang/Thread;"))fields[0]++;return null;}
+            },ClassReader.SKIP_CODE|ClassReader.SKIP_DEBUG|ClassReader.SKIP_FRAMES);
+            if(fields[0]!=1)throw new IllegalStateException("O2 server-thread field anchor changed");
+            return bytes;
+        }
         ClassReader reader = new ClassReader(bytes); ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_MAXS);
         int[] hooked = {0};
         reader.accept(new ClassVisitor(Opcodes.ASM5, writer) {
@@ -74,6 +84,13 @@ public final class RendererTransformer implements IClassTransformer {
                         if (target.equals("bqs") && name.equals("f") && desc.equals("()Z") && op==Opcodes.GETSTATIC && field.equals("vboRegions")) {
                             hooked[0]++;out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"vboRegions","(Z)Z",false);
                         }
+                    }
+                    @Override public void visitMethodInsn(int op,String owner,String method,String methodDesc,boolean itf) {
+                        if(target.equals("bpo")&&name.equals("w")&&desc.equals("()V")&&op==Opcodes.INVOKESTATIC&&owner.equals("com/google/common/util/concurrent/Futures")&&method.equals("getUnchecked")&&methodDesc.equals("(Ljava/util/concurrent/Future;)Ljava/lang/Object;")) {
+                            hooked[0]++;out.visitVarInsn(Opcodes.ALOAD,0);
+                            out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"prepareServerTaskWait","(Ljava/util/concurrent/Future;Ljava/lang/Object;)Ljava/util/concurrent/Future;",false);
+                        }
+                        super.visitMethodInsn(op,owner,method,methodDesc,itf);
                     }
                     @Override public void visitInsn(int op) {
                         if (target.equals("ave") && name.equals("a") && desc.equals("(Lbdb;Ljava/lang/String;)V") && op==Opcodes.RETURN) {

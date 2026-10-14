@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;import java.io.*;import java.lang.instrument
 /** Test-only agent: bounded offline workload in an explicitly supplied disposable directory. */
 public final class GameProbeAgent {
     private static final java.util.concurrent.ConcurrentLinkedQueue<java.util.concurrent.FutureTask<?>> WORK = new java.util.concurrent.ConcurrentLinkedQueue<>();
+    private static volatile boolean frameStarted;
     private GameProbeAgent() { }
     public static void premain(String expectedDirectory, Instrumentation ignored) {
         if(expectedDirectory==null || !expectedDirectory.contains("renderer-client"))throw new IllegalArgumentException("Explicit disposable renderer-client directory required");
@@ -12,13 +13,15 @@ public final class GameProbeAgent {
     private static void run(String expected) {
         Object minecraft=null;Class<?> mc=null;
         try {
+            final boolean baseline=Boolean.getBoolean("opus.optim.probe.baselineQuit");
             Class<?> launch=Class.forName("net.minecraft.launchwrapper.Launch");
             ClassLoader loader=null;long timeout=System.currentTimeMillis()+120000;
             while(loader==null && System.currentTimeMillis()<timeout){loader=(ClassLoader)launch.getField("classLoader").get(null);Thread.sleep(100);}
             if(loader==null)throw new IllegalStateException("LaunchWrapper unavailable");
             Class<?> hooks=Class.forName("org.polydevs.opusmc.optim.renderer.RendererHooks");
-            while(!((Boolean)hooks.getMethod("ready").invoke(null)).booleanValue() && System.currentTimeMillis()<timeout)Thread.sleep(100);
-            if(!((Boolean)hooks.getMethod("ready").invoke(null)).booleanValue())throw new IllegalStateException("O2 renderer was not ready");
+            while(!(baseline?frameStarted:((Boolean)hooks.getMethod("ready").invoke(null)).booleanValue()) && System.currentTimeMillis()<timeout)Thread.sleep(100);
+            if(!(baseline?frameStarted:((Boolean)hooks.getMethod("ready").invoke(null)).booleanValue()))throw new IllegalStateException("Game renderer was not ready");
+            if(baseline)System.out.println("[O2/PROBE] baseline quit control backend=off");
             mc=Class.forName("ave",true,loader);minecraft=mc.getMethod("A").invoke(null);
             File directory=(File)mc.getField("v").get(minecraft);
             if(!directory.getCanonicalPath().equals(new File(expected).getCanonicalPath()))throw new IllegalStateException("Refusing to touch another game instance");
@@ -40,10 +43,12 @@ public final class GameProbeAgent {
                 try {Object screen=type.getField("m").get(game); Object world=type.getField("f").get(game);Object render=type.getField("g").get(game);System.out.println("[O2/PROBE] world="+(world!=null)+" screen="+(screen==null?"none":screen.getClass().getName())+" chunks="+render.getClass().getMethod("f").invoke(render));}
                 catch(Exception e){throw new IllegalStateException(e);}
             });
-            Field submitted=hooks.getDeclaredField("submitted");submitted.setAccessible(true);
-            timeout=System.currentTimeMillis()+90000;
-            while(!submitted.getBoolean(null) && System.currentTimeMillis()<timeout)Thread.sleep(200);
-            if(!submitted.getBoolean(null))throw new IllegalStateException("No actual O2 terrain draw observed");
+            if(!baseline){
+                Field submitted=hooks.getDeclaredField("submitted");submitted.setAccessible(true);
+                timeout=System.currentTimeMillis()+90000;
+                while(!submitted.getBoolean(null) && System.currentTimeMillis()<timeout)Thread.sleep(200);
+                if(!submitted.getBoolean(null))throw new IllegalStateException("No actual O2 terrain draw observed");
+            }
             Thread.sleep(5000);
             schedule(type,game,()->{
                 try {
@@ -52,11 +57,12 @@ public final class GameProbeAgent {
                     GL11.glReadPixels(0,0,width,height,GL11.GL_RGBA,GL11.GL_UNSIGNED_BYTE,pixels);
                     BufferedImage image=new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
                     for(int y=0;y<height;y++)for(int x=0;x<width;x++){int i=(y*width+x)*4;image.setRGB(x,height-1-y,((pixels.get(i+3)&255)<<24)|((pixels.get(i)&255)<<16)|((pixels.get(i+1)&255)<<8)|(pixels.get(i+2)&255));}
-                    Path output=Paths.get(expected).resolve("o2-terrain.png");ImageIO.write(image,"png",output.toFile());
+                    Path output=Paths.get(expected).resolve(baseline?"baseline-terrain.png":"o2-terrain.png");ImageIO.write(image,"png",output.toFile());
                     int error=GL11.glGetError();if(error!=0)throw new IllegalStateException("GL error="+error);
                     System.out.println("[O2/PROBE] actual terrain frame="+width+"x"+height+" regionsCreated="+hooks.getMethod("regionsCreated").invoke(null)+" glError="+error);
                 }catch(Exception e){throw new IllegalStateException(e);}
             });
+            if(!baseline){
             reload(type,game,hooks,true,"renderer-reload");
             awaitActiveDraws(type,game,hooks,"renderer-reload");
             reload(type,game,hooks,false,"vbo-off");
@@ -67,14 +73,11 @@ public final class GameProbeAgent {
             });
             reload(type,game,hooks,true,"vbo-on");
             awaitActiveDraws(type,game,hooks,"vbo-on");
+            }
             schedule(type,game,()->{
                 try {
-                    // Match GuiIngameMenu: disconnect/unload/menu in one main-thread task.
-                    // A later tick can already stop the integrated server, making its
-                    // subsequent shutdown wait forever on a task queued to a dead thread.
-                    System.out.println("[O2/PROBE] disconnect BEGIN");
-                    Object world=type.getField("f").get(game);world.getClass().getMethod("H").invoke(world);
-                    System.out.println("[O2/PROBE] disconnect END");
+                    quitPackets(type,game);
+                    System.out.println("[O2/PROBE] integrated world API unload BEGIN");
                     System.out.println("[O2/PROBE] unload BEGIN liveRegions="+hooks.getMethod("liveRegions").invoke(null));
                     type.getMethod("a",Class.forName("bdb",false,gameLoader)).invoke(game,new Object[]{null});
                     System.out.println("[O2/PROBE] unload END liveRegions="+hooks.getMethod("liveRegions").invoke(null));
@@ -94,17 +97,19 @@ public final class GameProbeAgent {
                     System.out.println("[O2/PROBE] offline world reopen requested");
                 }catch(Exception e){throw new IllegalStateException(e);}
             });
-            awaitActiveDraws(type,game,hooks,"world-reopen");
+            if(baseline)Thread.sleep(6000);else awaitActiveDraws(type,game,hooks,"world-reopen");
+            if(!baseline)Thread.sleep(6000);
             schedule(type,game,()->{
                 try {
-                    Object world=type.getField("f").get(game);world.getClass().getMethod("H").invoke(world);
+                    quitPackets(type,game);
+                    System.out.println("[O2/PROBE] second integrated world API unload BEGIN");
                     type.getMethod("a",Class.forName("bdb",false,gameLoader)).invoke(game,new Object[]{null});
                     type.getMethod("a",Class.forName("axu",false,gameLoader)).invoke(game,Class.forName("aya",true,gameLoader).getConstructor().newInstance());
                     int live=((Integer)hooks.getMethod("liveRegions").invoke(null)).intValue();
                     long created=((Long)hooks.getMethod("regionsCreated").invoke(null)).longValue(),deleted=((Long)hooks.getMethod("regionsDeleted").invoke(null)).longValue();
                     if(live!=0||created!=deleted)throw new IllegalStateException("Region leak after second world unload");
                     if(GL11.glGetError()!=0)throw new IllegalStateException("GL error after second world unload");
-                    System.out.println("[O2/PROBE] lifecycle workload PASS regionsCreated="+created+" regionsDeleted="+deleted+" liveRegions="+live+" glError=0; shutdown REQUEST");
+                    System.out.println("[O2/PROBE] "+(baseline?"baseline quit":"lifecycle")+" workload PASS regionsCreated="+created+" regionsDeleted="+deleted+" liveRegions="+live+" glError=0; shutdown REQUEST");
                     type.getMethod("m").invoke(game);
                 }catch(Exception e){throw new IllegalStateException(e);}
             });
@@ -117,7 +122,36 @@ public final class GameProbeAgent {
         finally {if(!future.isDone()){future.cancel(false);WORK.remove(future);}}
     }
     public static void onFrame() {
+        frameStarted=true;
         for(int i=0;i<8;i++){java.util.concurrent.FutureTask<?> work=WORK.poll();if(work==null)return;work.run();}
+    }
+    private static void quitPackets(Class<?> type,Object game)throws Exception {
+        drainMinecraftTasks(type,game);
+        Object world=type.getField("f").get(game);
+        if(world!=null)world.getClass().getMethod("H").invoke(world);
+        // Apply already scheduled packets before loadWorld clears their handler's world.
+        drainMinecraftTasks(type,game);
+    }
+    private static void drainMinecraftTasks(Class<?> type,Object game)throws Exception {
+        Field selected=null;
+        for(Field f:type.getDeclaredFields())if(java.util.Queue.class.isAssignableFrom(f.getType())){
+            if(selected!=null)throw new IllegalStateException("Ambiguous disposable task queue");selected=f;
+        }
+        if(selected==null)throw new IllegalStateException("Disposable task queue unavailable");
+        selected.setAccessible(true);
+        int drained=drainTasks((java.util.Queue<?>)selected.get(game));
+        System.out.println("[O2/PROBE] applied pending Minecraft tasks="+drained);
+    }
+    static int drainTasks(java.util.Queue<?> queue)throws Exception {
+        for(int drained=0;drained<4096;drained++){
+            Object work;
+            synchronized(queue){work=queue.poll();}
+            if(work==null)return drained;
+            if(!(work instanceof java.util.concurrent.FutureTask<?>))throw new IllegalStateException("Unsupported disposable task type");
+            java.util.concurrent.FutureTask<?> task=(java.util.concurrent.FutureTask<?>)work;
+            task.run();task.get();
+        }
+        throw new IllegalStateException("Disposable task drain exceeded 4096 entries");
     }
     private static void reload(Class<?> type,Object game,Class<?> hooks,boolean useVbo,String phase)throws Exception {
         schedule(type,game,()->{
