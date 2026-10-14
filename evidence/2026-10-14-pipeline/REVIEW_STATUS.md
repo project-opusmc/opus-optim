@@ -20,6 +20,14 @@ class definition/clinit now also passes, retaining 256 original Unicode page
 slots and initializing a 19,266-byte lookup-table payload. All 40 timing forks
 were rerun as v2 because emitted target bytes changed. See probes and v2 reports.
 
+Author combined-enable verification also found that arbitrary 410/420/430/440
+priorities conflicted with the core planner's canonical id order for independent
+surfaces. A five-candidate preparation regression observed the exception first.
+Shared priority 400 keeps all five independent candidates in that canonical order
+without introducing dependencies or weakening the bridge's validation. The
+regression, full 117-test suite and all Java8 verifiers pass; emitted target bytes
+still match the final timing revisions. This is preparation, not host installation.
+
 Author full tests and actual Java8 verifiers are recorded separately. They do
 not replace the missing independent review. No minor review findings were
 received or silently deferred; severity counts for independent review are
@@ -41,6 +49,10 @@ unavailable, not zero. No default promotion, host installation, push or merge.
 4. Withdraw v1 renderer validity, fix the overbroad alphabet substitution and
    rerun timing. Kernel correctness alone did not establish whole-class validity.
    Cost: additional verification/forks; v1 evidence stays preserved and labeled.
+5. Use a shared priority 400 for these independent non-overlapping candidates to
+   preserve the strict planner/Loader order contract. Cost for future composition:
+   a new reviewed order/receipt is required; arbitrary new priorities cannot be
+   assumed compatible.
 
 ## Limits retained by author assessment
 

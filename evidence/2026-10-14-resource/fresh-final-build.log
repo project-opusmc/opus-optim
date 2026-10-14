@@ -1,0 +1,76 @@
+> Task :clean UP-TO-DATE
+> Task :api:clean UP-TO-DATE
+> Task :bench:clean UP-TO-DATE
+> Task :core:clean UP-TO-DATE
+> Task :platform-opus:clean UP-TO-DATE
+> Task :api:compileJava
+> Task :api:processResources NO-SOURCE
+> Task :api:classes
+> Task :api:jar
+> Task :api:compileTestJava
+> Task :api:processTestResources NO-SOURCE
+> Task :api:testClasses
+> Task :api:verifyOptimBoundary
+> Task :api:test
+> Task :bench:compileJava
+> Task :bench:processResources NO-SOURCE
+> Task :bench:classes
+> Task :bench:jar
+> Task :bench:compileTestJava
+> Task :bench:processTestResources NO-SOURCE
+> Task :bench:testClasses
+> Task :bench:verifyOptimBoundary
+> Task :bench:test
+> Task :core:compileJava
+> Task :core:processResources NO-SOURCE
+> Task :core:classes
+> Task :core:jar
+> Task :core:compileTestJava
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses
+> Task :core:verifyOptimBoundary
+> Task :core:test
+> Task :platform-opus:verifyLoaderContract
+> Task :platform-opus:compileLoaderContractJava
+> Task :platform-opus:processLoaderContractResources NO-SOURCE
+> Task :platform-opus:loaderContractClasses
+> Task :platform-opus:compileJava
+> Task :platform-opus:processResources
+> Task :platform-opus:classes
+> Task :platform-opus:jar
+> Task :platform-opus:compileTestJava
+> Task :platform-opus:processTestResources NO-SOURCE
+> Task :platform-opus:testClasses
+> Task :platform-opus:verifyPlatformArtifact
+> Task :platform-opus:test
+> Task :check UP-TO-DATE
+> Task :api:check
+> Task :bench:check
+> Task :core:check
+> Task :platform-opus:check
+> Task :assemble UP-TO-DATE
+> Task :api:assemble
+> Task :bench:assemble
+> Task :core:assemble
+> Task :platform-opus:assemble
+> Task :platform-opus:compileSmokeJava
+> Task :platform-opus:processSmokeResources NO-SOURCE
+> Task :platform-opus:smokeClasses
+
+> Task :platform-opus:java8Smoke
+O2_JAVA8_BRIDGE_SMOKE_PASS java=1.8.0_502 origin=SYNTHETIC
+
+> Task :platform-opus:frustumVerify
+{"schemaVersion":1,"scope":"LOCAL_QUERY_MICROBENCHMARK_NOT_GAME","sessionId":"99a137f8-2092-42b3-a835-437e590674b9","java":"1.8.0_502","vm":"OpenJDK 64-Bit Server VM","os":"Mac OS X 26.6","arch":"x86_64","targetSha256":"85b5a3893dfa826880a9e6e5a1221ac4443c1d778e38c384ef715911ababa7c4","minecraftJarSha256":"14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298","optifineJarSha256":"2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4","helperSha256":"ceec3f3d9d778f203ed9ee8a1ef33b40b8ebf242f919e2a9245020f30b6fc83a","cases":121211,"mismatches":0,"unknownPinsRetained":true,"disabledAndFullyVerified":true,"factoryStatusVerified":true,"transformedTargetSha256":"fc562740e913f3760547428f703a2d98bcc4a95a2909fd48465a719a0b421ef9"}
+
+> Task :platform-opus:pipelineVerify
+{"schemaVersion":1,"scope":"REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME","sessionId":"b642c6c4-cbbc-4648-a654-89faa13dbd27","java":"1.8.0_502","arch":"x86_64","minecraftSha256":"14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298","optifineSha256":"2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4","targets":{"text.glyph_lookup":{"originalSha256":"bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e","patchedSha256":"219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c","factoryStatesVerified":true,"unchangedMethodsVerified":true},"render.buffer_growth":{"originalSha256":"5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40","patchedSha256":"f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7","factoryStatesVerified":true,"unchangedMethodsVerified":true},"world.fixed_budget":{"originalSha256":"381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7","patchedSha256":"c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e","factoryStatesVerified":true,"unchangedMethodsVerified":true}},"helperSha256":{"GlyphIndex":"d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0","BufferGrowth":"0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43","DeadlineBudget":"edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"},"fontMappedRoutingAliasVerified":true,"fontCases":131072,"fontMismatches":0,"buffer":{"control":{"directReallocations":9,"bytesCopied":94371840,"peakCapacity":20971520,"usedBytes":20971520,"bytesViewsSpritesVerified":true},"treatment":{"directReallocations":4,"bytesCopied":31457280,"peakCapacity":33554432,"usedBytes":20971520,"bytesViewsSpritesVerified":true}},"uploads":{"control":{"firstDrainTasks":64,"firstDrainNanos":16898166,"drainsToFinish":1,"fifoAndProgressVerified":true,"zeroExpiredEmptyVerified":true,"slowTaskCanExceedCap":true},"treatment":{"firstDrainTasks":8,"firstDrainNanos":2002583,"drainsToFinish":8,"fifoAndProgressVerified":true,"zeroExpiredEmptyVerified":true,"slowTaskCanExceedCap":true}}}
+
+> Task :platform-opus:resourceVerify
+{"schemaVersion":1,"scope":"FULL_RAW_RESOURCE_CLASS_NOT_GAME","sessionId":"cae97869-8109-4784-9a21-5c5c7731de61","java":"1.8.0_502","arch":"x86_64","minecraftSha256":"14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298","optifineSha256":"2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4","commonsLangSha256":"6b81d10754dadf184d386011486e6509c2cc0c3d33565ced4fb4402b9413d47d","originalSha256":"4dcb02692da8c3ae7d6137281b1a25e5f249514e2bc7d1efeb7b9400f857dd22","patchedSha256":"1862006e934109d825bcac59d756b536fa1eae3c06c1db32f29a5415904aa23c","factoryStatesVerified":true,"unchangedMethodsVerified":true,"contentCases":20043,"mismatches":0,"concurrentReads":80000,"constructorsEqualsHashSubclassVerified":true,"warmIdentityAndInstanceIsolationVerified":true,"allocationContract":"warm repeats retain one String; cold races may allocate duplicates; one reference field and retained String per queried instance"}
+
+> Task :platform-opus:writeFrustumHarnessClasspath
+
+BUILD SUCCESSFUL in 4s
+34 actionable tasks: 29 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html

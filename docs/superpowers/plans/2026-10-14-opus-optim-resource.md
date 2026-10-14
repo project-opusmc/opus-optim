@@ -40,5 +40,5 @@
 
 - [x] Execute complete original/patched class with real constructors/dependency; verify content/errors/equals/hashCode/subclass/concurrent readers and public state.
 - [x] Measure five independent forks per AA/AB arm on cold/warm string workloads; preserve checksums/identity, throughput and heap-retention caveats.
-- [ ] Run clean full suite and all4 Java8 verifiers, fresh-clone JAR/license guards; commit evidence.
-- [ ] Preserve author review and independent-review failure without a verdict; keep review gate pending.
+- [x] Run clean full suite and all4 Java8 verifiers, fresh-clone JAR/license guards; commit evidence.
+- [x] Preserve author review and independent-review failure without a verdict; keep review gate pending.
