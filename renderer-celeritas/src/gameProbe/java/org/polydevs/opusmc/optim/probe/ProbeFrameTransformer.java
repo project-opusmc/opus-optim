@@ -9,6 +9,26 @@ import org.objectweb.asm.*;
 public final class ProbeFrameTransformer implements ClassFileTransformer {
     @Override public byte[] transform(ClassLoader loader, String name, Class<?> redefining,
             ProtectionDomain domain, byte[] bytes) {
+        if ("org/polydevs/opusmc/client/EarlyClientRuntime".equals(name)
+                && loader instanceof LaunchClassLoader) {
+            ((LaunchClassLoader) loader).addClassLoaderExclusion("org.polydevs.opusmc.optim.probe.");
+            ClassReader earlyReader = new ClassReader(bytes);
+            ClassWriter earlyWriter = new ClassWriter(earlyReader, ClassWriter.COMPUTE_MAXS);
+            earlyReader.accept(new ClassVisitor(Opcodes.ASM5, earlyWriter) {
+                @Override public MethodVisitor visitMethod(int access, String method, String desc, String sig, String[] ex) {
+                    MethodVisitor output = super.visitMethod(access, method, desc, sig, ex);
+                    if (!"displayReady".equals(method) || !"()V".equals(desc)) return output;
+                    return new MethodVisitor(Opcodes.ASM5, output) {
+                        @Override public void visitInsn(int opcode) {
+                            if (opcode == Opcodes.RETURN) super.visitMethodInsn(Opcodes.INVOKESTATIC,
+                                "org/polydevs/opusmc/optim/probe/GameProbeAgent", "onStartupFrame", "()V", false);
+                            super.visitInsn(opcode);
+                        }
+                    };
+                }
+            }, 0);
+            return earlyWriter.toByteArray();
+        }
         if (!"ave".equals(name) || !(loader instanceof LaunchClassLoader)) return null;
         ((LaunchClassLoader) loader).addClassLoaderExclusion("org.polydevs.opusmc.optim.probe.");
         ClassReader reader = new ClassReader(bytes);

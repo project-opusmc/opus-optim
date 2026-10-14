@@ -4,11 +4,37 @@ import java.awt.image.BufferedImage;import java.io.*;import java.lang.instrument
 public final class GameProbeAgent {
     private static final java.util.concurrent.ConcurrentLinkedQueue<java.util.concurrent.FutureTask<?>> WORK = new java.util.concurrent.ConcurrentLinkedQueue<>();
     private static volatile boolean frameStarted;
+    private static String disposableDirectory;
     private GameProbeAgent() { }
     public static void premain(String expectedDirectory, Instrumentation ignored) {
         if(expectedDirectory==null || !expectedDirectory.contains("renderer-client"))throw new IllegalArgumentException("Explicit disposable renderer-client directory required");
+        disposableDirectory = expectedDirectory;
         ignored.addTransformer(new ProbeFrameTransformer());
         Thread t=new Thread(()->run(expectedDirectory),"O2 disposable gameplay probe");t.setDaemon(true);t.start();
+    }
+    public static void onStartupFrame() {
+        try {
+            if (frameStarted) throw new IllegalStateException("Startup frame reached after game loop");
+            IntBuffer viewport = ByteBuffer.allocateDirect(64).order(ByteOrder.nativeOrder()).asIntBuffer();
+            GL11.glGetInteger(GL11.GL_VIEWPORT, viewport);
+            int width = Math.round(org.lwjgl.opengl.Display.getWidth() * org.lwjgl.opengl.Display.getPixelScaleFactor());
+            int height = Math.round(org.lwjgl.opengl.Display.getHeight() * org.lwjgl.opengl.Display.getPixelScaleFactor());
+            ByteBuffer pixels = ByteBuffer.allocateDirect(width * height * 4);
+            int previous = GL11.glGetInteger(GL11.GL_READ_BUFFER);
+            try {
+                GL11.glReadBuffer(GL11.GL_FRONT);
+                GL11.glReadPixels(0, 0, width, height, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, pixels);
+            } finally { GL11.glReadBuffer(previous); }
+            int error = GL11.glGetError();
+            if (error != 0) throw new IllegalStateException("Startup OpenGL error=" + error);
+            BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+            for (int y=0; y<height; y++) for (int x=0; x<width; x++) {
+                int i=(y*width+x)*4;
+                image.setRGB(x,height-1-y,0xff000000 | (pixels.get(i)&255)<<16 | (pixels.get(i+1)&255)<<8 | (pixels.get(i+2)&255));
+            }
+            ImageIO.write(image,"png",Paths.get(disposableDirectory).resolve("early-cef-boot.png").toFile());
+            System.out.println("[O2/PROBE] early CEF before game-loop PASS framebuffer="+width+"x"+height+" GL=0");
+        } catch (Throwable failure) { throw new IllegalStateException("Early CEF acceptance failed",failure); }
     }
     private static void run(String expected) {
         Object minecraft=null;Class<?> mc=null;
