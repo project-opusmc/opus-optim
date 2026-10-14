@@ -35,6 +35,7 @@ public final class CeleritasStorage implements RegionRenderer.Storage {
             return new Allocation(upload.getResult());
         } finally { nativeData.free(); }
     }
+    @Override public void bind() { GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, arena.getBufferObject().handle()); }
     @Override public void draw(int mode, IntBuffer first, IntBuffer count, Runnable pointers) {
         RenderDevice.enterManagedCode();
         try (CommandList commands = RenderDevice.INSTANCE.createCommandList()) {

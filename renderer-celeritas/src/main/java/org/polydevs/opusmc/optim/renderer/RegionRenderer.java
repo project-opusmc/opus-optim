@@ -12,6 +12,7 @@ public final class RegionRenderer implements AutoCloseable {
     public interface Segment { int offset(); int length(); void free(); }
     public interface Storage extends AutoCloseable {
         Segment upload(ByteBuffer data);
+        default void bind() { throw new UnsupportedOperationException("External binding unavailable"); }
         void draw(int mode, IntBuffer first, IntBuffer count, Runnable pointers);
         @Override void close();
     }
@@ -68,8 +69,10 @@ public final class RegionRenderer implements AutoCloseable {
             pending = 0;
         }
     }
+    public void bind() { check(); storage.bind(); }
     public int positionTop() { check(); int top = 0; for (Segment s : meshes.values()) top = Math.max(top, Math.addExact(s.offset(), s.length())); return top; }
     public int meshCount() { check(); return meshes.size(); }
+    public boolean isClosed() { return closed; }
     public long uploads() { return uploads; }
     public long draws() { return draws; }
     public long submittedVertices() { return submittedVertices; }

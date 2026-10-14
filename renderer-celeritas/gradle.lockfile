@@ -2,7 +2,7 @@
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
 # To regenerate this file, run: ./gradlew :renderer-celeritas:dependencies --write-locks
-it.unimi.dsi:fastutil:7.1.0=compileClasspath,testCompileClasspath,testRuntimeClasspath
+it.unimi.dsi:fastutil:7.1.0=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
 net.java.jinput:jinput-platform:2.0.5=testRuntimeClasspath
 net.java.jinput:jinput:2.0.5=compileClasspath,testCompileClasspath,testRuntimeClasspath
 net.java.jutils:jutils:1.0.0=compileClasspath,testCompileClasspath,testRuntimeClasspath
@@ -11,8 +11,8 @@ net.sf.jopt-simple:jopt-simple:4.5=compileClasspath,testCompileClasspath,testRun
 org.apache.logging.log4j:log4j-api:2.0-beta9=compileClasspath,testCompileClasspath,testRuntimeClasspath
 org.apache.logging.log4j:log4j-core:2.0-beta9=compileClasspath,testCompileClasspath,testRuntimeClasspath
 org.apiguardian:apiguardian-api:1.1.2=testCompileClasspath
-org.embeddedt.celeritas:celeritas-common:2.5.0-pre.1=compileClasspath,testCompileClasspath,testRuntimeClasspath
-org.joml:joml:1.10.5=compileClasspath,testCompileClasspath,testRuntimeClasspath
+org.embeddedt.celeritas:celeritas-common:2.5.0-pre.1=compileClasspath,frameworkSources,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
+org.joml:joml:1.10.5=compileClasspath,runtimeClasspath,testCompileClasspath,testRuntimeClasspath
 org.junit.jupiter:junit-jupiter-api:5.13.4=testCompileClasspath,testRuntimeClasspath
 org.junit.jupiter:junit-jupiter-engine:5.13.4=testRuntimeClasspath
 org.junit.jupiter:junit-jupiter-params:5.13.4=testCompileClasspath,testRuntimeClasspath
@@ -26,4 +26,4 @@ org.lwjgl.lwjgl:lwjgl:2.9.3=compileClasspath,testCompileClasspath,testRuntimeCla
 org.opentest4j:opentest4j:1.3.0=testCompileClasspath,testRuntimeClasspath
 org.ow2.asm:asm-debug-all:5.0.3=compileClasspath,testCompileClasspath,testRuntimeClasspath
 org.ow2.asm:asm:5.0.3=compileClasspath,testCompileClasspath,testRuntimeClasspath
-empty=annotationProcessor,testAnnotationProcessor
+empty=annotationProcessor,smokeAnnotationProcessor,smokeCompileClasspath,smokeRuntimeClasspath,testAnnotationProcessor
