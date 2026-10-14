@@ -7,9 +7,9 @@ its flag. The user-directed Opus license is unchanged.
 
 | Area | Executable code currently implemented | Work still required |
 |---|---|---|
-| Render | Frustum adaptive-corner candidate; three font glyph-table anchors | Draw submission/batching, entity/HUD pricing and real visual parity |
+| Render | Celeritas-backed custom region arena and ordered multi-draw backend; frustum candidate; font glyph-table anchors | Draw submission/batching, entity/HUD pricing and real visual parity |
 | Chunk | Pinned existing upload-drain deadline capped at 2 ms per call | Compile/queue/upload stage pricing, priority/aging/generation cancellation and world lifecycle |
-| Graphics | Bounded geometric vertex-buffer growth, existing GL/shader/sprite path retained | Actual GL counters, shader/pack acceptance, texture lifetime and supported backend work |
+| Graphics | Separate Celeritas Common Java8/LWJGL2 backend and real GL2.1 pixel/lifetime harness; bounded geometric vertex-buffer growth | Actual GL counters, shader/pack acceptance, texture lifetime and supported backend work |
 | Workload | Fixed deferrable upload cap; zero/past sentinel and FIFO/progress retained | Cross-stage budgets, queue-latency pricing and comparison before any adaptive governor |
 | Core runtime | Immutable glyph index, direct-buffer allocation/copy reduction and per-resource immutable text cache | Lifecycle leaks, resource metadata invalidation/decode/cache, live hit-rate/heap pricing and additional allocation hotspots |
 | FPS/frame stability | Raw-frame capture/comparison infrastructure and local kernel measurements | Managed observer/provider/staging integration; controlled lobby/chunk A/A/A/B and frame-tail/overhead evidence |
@@ -27,7 +27,8 @@ pending after its usage-limit failure; no verdict or merge readiness is claimed.
 Current platform support is one pinned raw Minecraft 1.8.9 + OptiFine M5 input
 per candidate. Unknown/remapped/already modified bytecode is unchanged and reports
 unsupported. The provider bridge exists; the current host defaults still approve
-no external providers. Claude's Loader work is read-only here. Whole-game
+no external providers. The renderer has a separate, explicitly selected LaunchWrapper
+tweaker and checked Launcher bundle route; it does not depend on that unpublished SPI. Claude's Loader work is read-only here. Whole-game
 integration, auto-enable, Forge/vanilla support and a terrain rewrite are not
 silently inferred from local kernel verification.
 Host-supplied routing aliases are available because standalone routes raw avn
@@ -38,3 +39,20 @@ See [pipeline spec](PIPELINE_OPTIM_SPEC.md), [measured pipeline results](../evid
 and [frustum results](../evidence/2026-10-13-frustum/RESULTS.md).
 See [resource-cache results](../evidence/2026-10-14-resource/RESULTS.md) for the
 additional core-runtime candidate and measured cold/warm tradeoff.
+
+## Celeritas renderer integration
+
+`renderer-celeritas` is executable Java8 code, dynamically linked to Celeritas
+Common2.5.0-pre.1, with separate upstream LGPL JAR/source/notices. It replaces
+OptiFine M5 region storage, uploads and ordered draw submission, and owns GPU
+cleanup across world/reload boundaries. Minecraft/OptiFine still provides CPU
+block meshing, culling, lighting, textures and transparent sorting. This is not
+the complete Sodium/Celeritas mod or an entity-instancing/shader port.
+
+Launcher source on `opus-optim` validates/stages an optional four-JAR bundle,
+selects O2 after OptiFine/before Opus, and exposes a standalone CLI dry-run plus
+desktop environment opt-in. The installed Launcher is unchanged. Real Standard
+client startup and an earlier bundle's opaque terrain draw have been observed.
+The latest unload/fresh-bundle corrections still require a fresh game replay,
+currently blocked by the production host's locked macOS console check.
+See [renderer status](RENDERER_INTEGRATION.md) for exact boundaries.

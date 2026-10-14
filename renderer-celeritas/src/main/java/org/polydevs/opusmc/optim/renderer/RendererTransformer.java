@@ -15,6 +15,8 @@ public final class RendererTransformer implements IClassTransformer {
     static {
         Map<String,String> pins = new LinkedHashMap<>();
         pins.put("Config", "8530b8c8f9690c07f881dbf32a9ad579b0639f2701f5eff8a673c101ce3627aa");
+        pins.put("ave", "430a17aa1911bcd0251aa4dcecb013b6c5b251bb5d0122c7305de0e36dc33e82");
+        pins.put("bfr", "a60c44bbc5535e985b1c4b3549bb298b126e3039074aa910f99da97378250619");
         pins.put("bqs", "6e51da6383889c601142ab90c8f48fb3d5418eb6c3431458651d2f8389560ff3");
         pins.put("net.optifine.render.VboRegion", "38f2e59fa54ecc815e7ba8a1db398ecf79685b0bab1a0ebe143de8bc263da441");
         PINS = Collections.unmodifiableMap(pins);
@@ -41,6 +43,12 @@ public final class RendererTransformer implements IClassTransformer {
                 return new MethodVisitor(Opcodes.ASM5,out) {
                     @Override public void visitCode() {
                         super.visitCode();
+                        if (target.equals("ave") && name.equals("a") && desc.equals("(Lbdb;Ljava/lang/String;)V")) {
+                            hooked[0]++;out.visitVarInsn(Opcodes.ALOAD,1);out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"worldChanging","(Ljava/lang/Object;)V",false);
+                        }
+                        if (target.equals("bfr") && name.equals("a") && (desc.equals("()V") || desc.equals("(Lbdb;)V"))) {
+                            hooked[0]++;out.visitMethodInsn(Opcodes.INVOKESTATIC,HOOK,"worldReset","()V",false);
+                        }
                         if (!target.equals("net.optifine.render.VboRegion")) return;
                         String call = null;
                         if (name.equals("bufferData") && desc.equals("(Ljava/nio/ByteBuffer;Lnet/optifine/render/VboRange;)V")) call = "upload";
@@ -91,7 +99,7 @@ public final class RendererTransformer implements IClassTransformer {
                 super.visitEnd();
             }
         },0);
-        int minimum = target.equals("net.optifine.render.VboRegion") ? 7 : target.equals("Config") ? 2 : 1;
+        int minimum = target.equals("net.optifine.render.VboRegion") ? 7 : target.equals("Config") || target.equals("bfr") ? 2 : 1;
         if (hooked[0] < minimum) throw new IllegalStateException("O2 renderer method anchors changed: " + target);
         return writer.toByteArray();
     }

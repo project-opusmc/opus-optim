@@ -6,7 +6,7 @@ public final class HookClassVerify {
     public static void main(String[] args)throws Exception {
         if(!System.getProperty("java.version").startsWith("1.8."))throw new AssertionError("Java8 required");
         try(GameLoader loader=new GameLoader(Paths.get(args[0]),Paths.get(args[1]))) {
-            for(String target:new String[]{"Config","bqs","net.optifine.render.VboRegion"}) {
+            for(String target:new String[]{"Config","bqs","bfr","ave","net.optifine.render.VboRegion"}) {
                 Class<?> c=Class.forName(target,false,loader);c.getDeclaredMethods();c.getDeclaredConstructors();
                 System.out.println("VERIFIED full Java8 class "+target);
             }

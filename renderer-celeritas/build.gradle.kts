@@ -40,6 +40,9 @@ val rendererBundle = tasks.register("rendererBundle") {
     dependsOn(rendererJar)
     val out = layout.buildDirectory.dir("renderer-bundle")
     outputs.dir(out)
+    inputs.file(rendererJar.flatMap { it.archiveFile })
+    inputs.files(configurations.getByName("runtimeClasspath"), frameworkSources)
+    inputs.files(rootProject.file("LICENSE"), project.file("THIRD_PARTY.md"))
     doLast {
         val dir = out.get().asFile
         dir.deleteRecursively(); dir.mkdirs()
@@ -72,7 +75,9 @@ tasks.named<Exec>("glVerify") { doFirst { val dir=layout.buildDirectory.dir("gl-
 tasks.register<Exec>("hookVerify") {
     dependsOn(smoke.classesTaskName)
     doFirst {
-        commandLine("${providers.gradleProperty("java8Home").get()}/bin/java", "-cp", smoke.runtimeClasspath.asPath,
+        val minecraft = file(providers.gradleProperty("minecraftJar").get())
+        val libraries = fileTree(minecraft.parentFile.parentFile.parentFile.resolve("libraries")) { include("**/*.jar") }
+        commandLine("${providers.gradleProperty("java8Home").get()}/bin/java", "-cp", files(smoke.runtimeClasspath, libraries).asPath,
             "org.polydevs.opusmc.optim.renderer.HookClassVerify", providers.gradleProperty("minecraftJar").get(), providers.gradleProperty("optifineJar").get())
     }
 }
@@ -91,3 +96,22 @@ val verifyRendererJar = tasks.register("verifyRendererJar") {
     }
 }
 tasks.named("check") { dependsOn(verifyRendererJar) }
+// Test-only workload JAR is never included in the renderer bundle or production JAR.
+val gameProbe = sourceSets.create("gameProbe") {
+    compileClasspath += configurations.getByName("compileClasspath")
+}
+tasks.register<Jar>("gameProbeJar") {
+    dependsOn(gameProbe.classesTaskName)
+    archiveClassifier.set("game-probe")
+    from(gameProbe.output)
+    manifest { attributes("Premain-Class" to "org.polydevs.opusmc.optim.probe.GameProbeAgent") }
+}
+val verifyRendererBundle = tasks.register("verifyRendererBundle") {
+    dependsOn(rendererBundle, verifyRendererJar)
+    doLast {
+        val bundle=layout.buildDirectory.dir("renderer-bundle").get().asFile
+        val jar=rendererJar.get().archiveFile.get().asFile
+        check(jar.readBytes().contentEquals(bundle.resolve(jar.name).readBytes())) { "O2 renderer bundle is stale" }
+    }
+}
+tasks.named("check") { dependsOn(verifyRendererBundle) }

@@ -8,6 +8,7 @@ import org.lwjgl.opengl.GL15;
 
 /** Display/context capability is established once on the actual render thread. */
 public final class RendererHooks {
+    private static final RegionLifetime LIFETIME = new RegionLifetime();
     private static volatile Class<?> config;
     private static volatile boolean ready;
     private static volatile long regionsCreated, regionsDeleted;
@@ -20,6 +21,8 @@ public final class RendererHooks {
             ClassLoader loader = configClass.getClassLoader();
             Class.forName("net.optifine.render.VboRegion", false, loader);
             Class.forName("bqs", false, loader);
+            Class.forName("bfr", false, loader);
+            Class.forName("ave", false, loader);
             if (!RendererTransformer.allApplied()) throw new IllegalStateException("O2 renderer hooks are incomplete");
             if (!GLContext.getCapabilities().OpenGL21) throw new IllegalStateException("O2 region backend requires OpenGL2.1");
             config = configClass;
@@ -42,7 +45,7 @@ public final class RendererHooks {
     }
     public static RegionRenderer create(int stride) {
         if (!compatible()) return null;
-        RegionRenderer renderer = new RegionRenderer(stride, new CeleritasStorage(stride)); regionsCreated++;
+        RegionRenderer renderer = new RegionRenderer(stride, new CeleritasStorage(stride)); regionsCreated++; LIFETIME.add(renderer);
         if (regionsCreated == 1) System.out.println("[O2] custom region ATTACHED stride="+stride);
         return renderer;
     }
@@ -60,8 +63,11 @@ public final class RendererHooks {
         });
         if (renderer.draws() > before && !submitted) { submitted = true; System.out.println("[O2] custom region DRAW_SUBMITTED vertices="+renderer.submittedVertices()); }
     }
-    private static boolean submitted;
-    public static void delete(RegionRenderer renderer) { if (!renderer.isClosed()) { renderer.close(); regionsDeleted++; } }
+    private static volatile boolean submitted;
+    public static void delete(RegionRenderer renderer) { if (LIFETIME.release(renderer)) regionsDeleted++; }
+    public static void worldChanging(Object world) { if (world == null) worldReset(); }
+    public static void worldReset() { regionsDeleted += LIFETIME.reset(); }
+    public static int liveRegions() { return LIFETIME.size(); }
     public static long regionsCreated() { return regionsCreated; }
     public static long regionsDeleted() { return regionsDeleted; }
     public static boolean ready() { return ready; }
