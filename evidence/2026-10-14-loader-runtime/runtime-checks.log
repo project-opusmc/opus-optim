@@ -1,0 +1,143 @@
+> Task :check UP-TO-DATE
+> Task :common:compileJava UP-TO-DATE
+> Task :bootstrap:compileJava UP-TO-DATE
+> Task :bootstrap:processResources NO-SOURCE
+> Task :bootstrap:classes UP-TO-DATE
+> Task :bootstrap:jar UP-TO-DATE
+> Task :bootstrap:compileTestJava UP-TO-DATE
+> Task :bootstrap:processTestResources NO-SOURCE
+> Task :bootstrap:testClasses UP-TO-DATE
+> Task :common:processResources NO-SOURCE
+> Task :common:classes UP-TO-DATE
+> Task :common:jar UP-TO-DATE
+> Task :bootstrap:test UP-TO-DATE
+> Task :bootstrap:check UP-TO-DATE
+> Task :common:compileTestJava UP-TO-DATE
+> Task :common:processTestResources NO-SOURCE
+> Task :common:testClasses UP-TO-DATE
+> Task :common:test UP-TO-DATE
+> Task :common:check UP-TO-DATE
+> Task :legacy:compileJava NO-SOURCE
+> Task :legacy:processResources NO-SOURCE
+> Task :legacy:classes UP-TO-DATE
+> Task :legacy:compileTestJava NO-SOURCE
+> Task :legacy:processTestResources NO-SOURCE
+> Task :legacy:testClasses UP-TO-DATE
+> Task :legacy:test NO-SOURCE
+> Task :legacy:check UP-TO-DATE
+> Task :optim:compileJava NO-SOURCE
+> Task :optim:processResources NO-SOURCE
+> Task :optim:classes UP-TO-DATE
+> Task :optim:compileTestJava NO-SOURCE
+> Task :optim:processTestResources NO-SOURCE
+> Task :optim:testClasses UP-TO-DATE
+> Task :optim:test NO-SOURCE
+> Task :optim:check UP-TO-DATE
+> Task :legacy:1.8.9:compileJava NO-SOURCE
+> Task :legacy:1.8.9:processResources NO-SOURCE
+> Task :legacy:1.8.9:classes UP-TO-DATE
+> Task :legacy:1.8.9:compileTestJava NO-SOURCE
+> Task :legacy:1.8.9:processTestResources NO-SOURCE
+> Task :legacy:1.8.9:testClasses UP-TO-DATE
+> Task :legacy:1.8.9:test NO-SOURCE
+> Task :legacy:1.8.9:check UP-TO-DATE
+> Task :optim:api:compileJava UP-TO-DATE
+> Task :optim:api:processResources NO-SOURCE
+> Task :optim:api:classes UP-TO-DATE
+> Task :optim:api:jar UP-TO-DATE
+> Task :optim:api:compileTestJava UP-TO-DATE
+> Task :optim:api:processTestResources NO-SOURCE
+> Task :optim:api:testClasses UP-TO-DATE
+> Task :optim:api:verifyOptimBoundary
+> Task :optim:api:test UP-TO-DATE
+> Task :optim:api:check
+> Task :optim:core:compileJava UP-TO-DATE
+> Task :optim:core:processResources NO-SOURCE
+> Task :optim:core:classes UP-TO-DATE
+> Task :optim:core:compileTestJava UP-TO-DATE
+> Task :optim:core:processTestResources NO-SOURCE
+> Task :optim:core:testClasses UP-TO-DATE
+> Task :optim:core:verifyOptimBoundary
+> Task :optim:core:test
+> Task :optim:core:check
+> Task :legacy:1.8.9:mappings:compileJava NO-SOURCE
+> Task :legacy:1.8.9:patches:compileJava UP-TO-DATE
+> Task :legacy:1.8.9:forge:compileJava UP-TO-DATE
+> Task :legacy:1.8.9:forge:processResources NO-SOURCE
+> Task :legacy:1.8.9:forge:classes UP-TO-DATE
+> Task :legacy:1.8.9:mappings:processResources UP-TO-DATE
+> Task :legacy:1.8.9:mappings:classes UP-TO-DATE
+> Task :legacy:1.8.9:mappings:jar UP-TO-DATE
+> Task :legacy:1.8.9:patches:processResources UP-TO-DATE
+> Task :legacy:1.8.9:patches:classes UP-TO-DATE
+> Task :legacy:1.8.9:patches:jar UP-TO-DATE
+> Task :legacy:1.8.9:forge:jar UP-TO-DATE
+> Task :legacy:1.8.9:forge:compileTestJava UP-TO-DATE
+> Task :legacy:1.8.9:forge:processTestResources NO-SOURCE
+> Task :legacy:1.8.9:forge:testClasses UP-TO-DATE
+> Task :legacy:1.8.9:forge:test
+> Task :legacy:1.8.9:forge:check
+> Task :legacy:1.8.9:lwjgl-macos-compat:compileJava UP-TO-DATE
+> Task :legacy:1.8.9:lwjgl-macos-compat:processResources NO-SOURCE
+> Task :legacy:1.8.9:lwjgl-macos-compat:classes UP-TO-DATE
+> Task :legacy:1.8.9:lwjgl-macos-compat:compileResizeGuardNative UP-TO-DATE
+> Task :legacy:1.8.9:lwjgl-macos-compat:patchNativeResize UP-TO-DATE
+> Task :legacy:1.8.9:lwjgl-macos-compat:jar UP-TO-DATE
+> Task :legacy:1.8.9:lwjgl-macos-compat:compileTestJava NO-SOURCE
+> Task :legacy:1.8.9:lwjgl-macos-compat:processTestResources NO-SOURCE
+> Task :legacy:1.8.9:lwjgl-macos-compat:testClasses UP-TO-DATE
+> Task :legacy:1.8.9:lwjgl-macos-compat:test NO-SOURCE
+> Task :legacy:1.8.9:lwjgl-macos-compat:compileDrawableOwnershipTest UP-TO-DATE
+
+> Task :legacy:1.8.9:lwjgl-macos-compat:testDrawableOwnership
+[OPUS/LWJGL] drawable ownership selectors are unavailable
+[OPUS/LWJGL] OpenGL view live-resize content preservation disabled
+PASS: drawable hooks defer ordinary/fullscreen/live/focus updates; one-shot coalescing
+
+> Task :legacy:1.8.9:lwjgl-macos-compat:verifyMacOsLwjglCompatibilityArtifact
+> Task :legacy:1.8.9:lwjgl-macos-compat:check
+> Task :legacy:1.8.9:mappings:compileTestJava NO-SOURCE
+> Task :legacy:1.8.9:mappings:processTestResources NO-SOURCE
+> Task :legacy:1.8.9:mappings:testClasses UP-TO-DATE
+> Task :legacy:1.8.9:mappings:test NO-SOURCE
+> Task :legacy:1.8.9:mappings:check UP-TO-DATE
+> Task :legacy:1.8.9:patches:compileTestJava UP-TO-DATE
+> Task :legacy:1.8.9:patches:processTestResources NO-SOURCE
+> Task :legacy:1.8.9:patches:testClasses UP-TO-DATE
+> Task :legacy:1.8.9:patches:test UP-TO-DATE
+> Task :legacy:1.8.9:patches:check UP-TO-DATE
+> Task :legacy:1.8.9:standalone:compileJava UP-TO-DATE
+> Task :legacy:1.8.9:standalone:processResources UP-TO-DATE
+> Task :legacy:1.8.9:standalone:classes UP-TO-DATE
+> Task :legacy:1.8.9:standalone:jar UP-TO-DATE
+> Task :legacy:1.8.9:standalone:compileTestJava UP-TO-DATE
+> Task :legacy:1.8.9:standalone:processTestResources
+> Task :legacy:1.8.9:standalone:testClasses
+> Task :legacy:1.8.9:standalone:test
+> Task :legacy:1.8.9:standalone:check
+> Task :buildWebClient UP-TO-DATE
+> Task :bootstrap:verifyBootstrapArtifact
+> Task :legacy:1.8.9:forge:verifyCoremodArtifact
+> Task :legacy:1.8.9:standalone:verifyStandaloneArtifact
+> Task :prepareBootstrap
+> Task :prepareRuntime
+> Task :verifyRuntimeArtifacts
+Persisted dependency lock state for project ':bootstrap'
+Persisted dependency lock state for project ':common'
+Persisted dependency lock state for project ':optim:api'
+Persisted dependency lock state for project ':optim:core'
+Persisted dependency lock state for project ':legacy:1.8.9:forge'
+Persisted dependency lock state for project ':legacy:1.8.9:lwjgl-macos-compat'
+Persisted dependency lock state for project ':legacy:1.8.9:patches'
+Persisted dependency lock state for project ':legacy:1.8.9:standalone'
+
+[Incubating] Problems report is available at: file:///Users/zvwgvx/.codex/worktrees/opus-optim-m1/Opus/runtime/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3s
+48 actionable tasks: 14 executed, 34 up-to-date

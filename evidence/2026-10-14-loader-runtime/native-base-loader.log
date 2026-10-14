@@ -1,0 +1,80 @@
+Native session1791974937720-7355; host0/strict probe0; Runtime production e2b69fb; O2 absent
+[OPUS/STANDALONE] bootstrap loaded
+[OPUS/STANDALONE] injecting OpusTweaker into LaunchClassLoader
+[OPUS/STANDALONE] Loaded 68807 SRG->Notch mappings for UI.
+[OPUS/STANDALONE] OptiFineTweaker owns game arguments; OpusTweaker is transformer-only
+[OPUS/STANDALONE] transforming class=ave raw=ave mapped=ave bytes=63236
+[OPUS/PATCH] applied opus.retina-backbuffer
+[OPUS/PATCH] applied opus.standalone-lifecycle
+[OPUS/PATCH] applied opus.standalone-event-hooks to ave
+[OPUS/PATCH] applied opus.minecraft-telemetry
+[O2/PROBE] frame dispatch hooked after host transforms
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiScreen raw=axu mapped=axu bytes=15698
+[OPUS/PATCH] applied opus.retina-gui-input class=net.minecraft.client.gui.GuiScreen hooks=2
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiYesNoCallback raw=awx mapped=awx bytes=96
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.Gui raw=avp mapped=avp bytes=4906
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiMemoryErrorScreen raw=axo mapped=axo bytes=2107
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiMainMenu raw=aya mapped=aya bytes=17024
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiGameOver raw=axe mapped=axe bytes=3598
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiSleepMP raw=axk mapped=axk bytes=1675
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiChat raw=awv mapped=awv bytes=6045
+[OPUS/PATCH] applied opus.retina-gui-input class=net.minecraft.client.gui.GuiChat hooks=4
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiInventory raw=azc mapped=azc bytes=3088
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiContainer raw=ayl mapped=ayl bytes=11901
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiYesNo raw=awy mapped=awy bytes=2804
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiIngameMenu raw=axp mapped=axp bytes=2818
+[OPUS/STANDALONE] transforming class=bfk raw=bfk mapped=bfk bytes=51517
+[OPUS/PATCH] applied opus.standalone-event-hooks to bfk
+[OPUS/PATCH] applied opus.retina-gui-input class=bfk hooks=2
+[OPUS/PATCH] applied opus.render-telemetry
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiBeacon raw=ayn mapped=ayn bytes=5049
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiBrewingStand raw=ayp mapped=ayp bytes=1762
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiChest raw=ayr mapped=ayr bytes=1500
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiEnchantment raw=ayy mapped=ayy bytes=7406
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiFurnace raw=ayz mapped=ayz bytes=1889
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiHopper raw=aza mapped=aza bytes=1360
+[OPUS/STANDALONE] transforming class=bda raw=bda mapped=bda bytes=9336
+[OPUS/PATCH] applied opus.combat-telemetry class=bda
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.FontRenderer raw=avn mapped=avn bytes=17608
+[OPUS/STANDALONE] transforming class=avi raw=avi mapped=avi bytes=4626
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.achievement.GuiAchievement raw=ayd mapped=ayd bytes=2915
+[OPUS/STANDALONE] transforming class=avo raw=avo mapped=avo bytes=20534
+[OPUS/PATCH] applied opus.standalone-event-hooks to avo
+[OPUS/STANDALONE] transforming class=ek raw=ek mapped=ek bytes=12784
+[OPUS/PATCH] applied opus.network-telemetry
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.ScaledResolution raw=avr mapped=avr bytes=1114
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.MapItemRenderer raw=avq mapped=avq bytes=2005
+[OPUS/STANDALONE] transforming class=net.optifine.render.CloudRenderer raw=net.optifine.render.CloudRenderer mapped=net.optifine.render.CloudRenderer bytes=2986
+[OPUS/PATCH] applied opus.optifine-cloud-compat
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiOverlayDebug raw=avv mapped=avv bytes=12833
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiSpectator raw=awm mapped=awm bytes=3924
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.spectator.ISpectatorMenuRecipient raw=bai mapped=bai bytes=99
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiNewChat raw=avt mapped=avt bytes=6963
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiStreamIndicator raw=awk mapped=awk bytes=2776
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiPlayerTabOverlay raw=awh mapped=awh bytes=9499
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiPlayerTabOverlay$PlayerComparator raw=awh$a mapped=awh$a bytes=1670
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiConfirmOpenLink raw=aww mapped=aww bytes=2136
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.stream.GuiTwitchUserMode raw=bab mapped=bab bytes=6711
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiOptions raw=axn mapped=axn bytes=5744
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiLanguage raw=axl mapped=axl bytes=2732
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiSelectWorld raw=axv mapped=axv bytes=6942
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiMultiplayer raw=azh mapped=azh bytes=8920
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiScreenRealmsProxy raw=awr mapped=awr bytes=5575
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiCreateWorld raw=axb mapped=axb bytes=10233
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.achievement.GuiAchievements raw=aye mapped=aye bytes=10462
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.IProgressMeter raw=ayg mapped=ayg bytes=364
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.achievement.GuiStats raw=ayf mapped=ayf bytes=6227
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiShareToLan raw=axw mapped=axw bytes=3003
+[OPUS/STANDALONE] transforming class=bcy raw=bcy mapped=bcy bytes=38732
+[OPUS/PATCH] applied opus.combat-telemetry class=bcy
+[OPUS/STANDALONE] Registered keybinding successfully: avb@1f05b63d
+[OPUS/STANDALONE] OpusClientMod initialized successfully on game startup!
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiDisconnected raw=axh mapped=axh bytes=2057
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiDownloadTerrain raw=axs mapped=axs bytes=1666
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiScreenWorking raw=axr mapped=axr bytes=1938
+[OPUS/STANDALONE] onGuiOpen: aya -> OpusClientScreen
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiBeacon$ConfirmButton raw=ayn$b mapped=ayn$b bytes=676
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.inventory.GuiBeacon$Button raw=ayn$d mapped=ayn$d bytes=1460
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiButton raw=avs mapped=avs bytes=2769
+[OPUS/STANDALONE] transforming class=net.minecraft.client.gui.GuiControls raw=ayj mapped=ayj bytes=3597
+[O2/PROBE] base Loader workload PASS clientState=READY O2=absent; shutdown REQUEST

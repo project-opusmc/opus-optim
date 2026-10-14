@@ -1,0 +1,48 @@
+Runtimee983989/O2f45c7c4/Launcher813783f; native1791976067478-16150; host0/strict0
+[O2] managed patches SELECTED [render.buffer_growth, render.frustum.positive-vertex, runtime.resource_string_cache, text.glyph_lookup, world.fixed_budget]
+[OPUS/LOADER] provider=opus.optim registrations=5
+[OPUS/LOADER] provider=opus.optim.renderer registrations=1
+[O2] renderer hook APPLIED ave input=430a17aa1911bcd0251aa4dcecb013b6c5b251bb5d0122c7305de0e36dc33e82
+[OPUS/LOADER] transformed=render.celeritas-region raw=ave
+[O2/PROBE] frame dispatch hooked after host transforms
+[OPUS/LOADER] transformed=runtime.resource_string_cache raw=jy
+[O2] renderer hook APPLIED net.minecraft.server.MinecraftServer input=63b4c32e947e2f83ea6db33ab685518603350455ee598a4efff180fc43045283
+[O2] renderer hook APPLIED bpo input=869d345907c9e49396f1214dcfe52f14509106b7f04fa80367cbc74914e10cbc
+[OPUS/LOADER] transformed=render.celeritas-region raw=bpo
+[O2] renderer hook APPLIED Config input=8530b8c8f9690c07f881dbf32a9ad579b0639f2701f5eff8a673c101ce3627aa
+[OPUS/LOADER] transformed=render.celeritas-region raw=Config
+[O2] renderer hook APPLIED bqs input=6e51da6383889c601142ab90c8f48fb3d5418eb6c3431458651d2f8389560ff3
+[OPUS/LOADER] transformed=render.celeritas-region raw=bqs
+[O2] renderer hook APPLIED net.optifine.render.VboRegion input=38f2e59fa54ecc815e7ba8a1db398ecf79685b0bab1a0ebe143de8bc263da441
+[OPUS/LOADER] transformed=render.celeritas-region raw=net.optifine.render.VboRegion
+[O2] renderer hook APPLIED bfr input=a60c44bbc5535e985b1c4b3549bb298b126e3039074aa910f99da97378250619
+[OPUS/LOADER] transformed=render.celeritas-region raw=bfr
+[O2] Celeritas Common 2.5.0-pre.1 / LWJGL2 region backend READY; frame/FPS acceptance pending
+[OPUS/LOADER] transformed=text.glyph_lookup raw=avn
+[OPUS/LOADER] transformed=render.buffer_growth raw=bfd
+[OPUS/LOADER] transformed=render.frustum.positive-vertex raw=bid
+[OPUS/LOADER] transformed=world.fixed_budget raw=bho
+[O2/PROBE] disposable pauseOnLostFocus=false
+[O2/PROBE] offline world launch requested
+[O2] custom region ATTACHED stride=28
+[O2] custom region DRAW_SUBMITTED vertices=1024
+[O2/PROBE] world=true screen=none chunks=C: 120/4624 (s) D: 8, pC: 000, pU: 0, aB: 61
+[O2/PROBE] actual terrain frame=2000x1300 regionsCreated=32 glError=0
+[O2/PROBE] renderer-reload useVbo=true oldLive=16 deleted=16 liveRegions=16 glError=0
+[O2/PROBE] renderer-reload actualDraws=160 liveRegions=16
+[O2/PROBE] vbo-off useVbo=false oldLive=16 deleted=16 liveRegions=0 glError=0
+[O2/PROBE] vbo-off fallback liveRegions=0 glError=0
+[O2/PROBE] vbo-on useVbo=true oldLive=0 deleted=0 liveRegions=16 glError=0
+[O2/PROBE] vbo-on actualDraws=266 liveRegions=16
+[O2/PROBE] applied pending Minecraft tasks=7
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] integrated world API unload BEGIN
+[O2/PROBE] unload BEGIN liveRegions=16
+[O2/PROBE] unload END liveRegions=0
+[O2/PROBE] unload regionsCreated=64 regionsDeleted=64 liveRegions=0
+[O2/PROBE] offline world reopen requested
+[O2/PROBE] world-reopen actualDraws=6 liveRegions=16
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] second integrated world API unload BEGIN
+[O2/PROBE] lifecycle workload PASS regionsCreated=96 regionsDeleted=96 liveRegions=0 glError=0; shutdown REQUEST

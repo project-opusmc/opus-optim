@@ -23,11 +23,11 @@ tests. Snapshot changed/nonignored primary sources and hash them, commit baselin
 Interfaces: ClassTransformer default transform(raw,mapped,bytes); provider
 initialize(ClassLoader); TransformerPlan.discover(providerLoader,gameLoader,
 approvals,builtIns); ManagedTransformProviders approved ids/exclusions.
-- [ ] Snapshot/hash Loader; run existing bootstrap/standalone tests.
-- [ ] RED tests: OFF/invalid selection; missing approved provider; initialize
+- [x] Snapshot/hash Loader; run existing bootstrap/standalone tests.
+- [x] RED tests: OFF/invalid selection; missing approved provider; initialize
 before registrations; providers receive raw while built-ins receive GUI mapping.
-- [ ] Implement Runtime policy, routing and classloader preparation GREEN.
-- [ ] Run full Runtime check and verify built artifacts, commit tested changes.
+- [x] Implement Runtime policy, routing and classloader preparation GREEN.
+- [x] Run full Runtime check and verify built artifacts, commit tested changes.
 
 ### Task2: real O2 managed providers and bundle
 Files: platform OptimTransformerProvider/managed preparation, renderer provider,
@@ -35,23 +35,28 @@ compile-only loader inputs, bundle task and service descriptors; tests/smokes.
 Interfaces: opcode early renderer adapter priority0 with seven exact targets;
 platform provider id opus.optim prepares explicit comma-separated patch ids;
 real bootstrap JAR property opusBootstrapJar; schema2 providers and8 JARs.
-- [ ] RED tests for provider routing/selection/invalid ids/helper identity.
-- [ ] Implement providers; preserve sealed startup/OFF, remove active O2 tweak.
-- [ ] Verify real Java8 bootstrap linkage and early composition, artifact/JAR
+- [x] RED tests for provider routing/selection/invalid ids/helper identity.
+- [x] Implement providers; preserve sealed startup/OFF, remove active O2 tweak.
+- [x] Verify real Java8 bootstrap linkage and early composition, artifact/JAR
 boundaries and8-JAR bundle freshness; full O2 tests GREEN; commit.
 
 ### Task3: checked Launcher managed selection
 Files: engine optim_renderer/launch options/tests, CLI, desktop, developer probe.
 Interfaces: existing optim_renderer_bundle; new optim_patches list; JVM managed
 providers property only after validation; no O2 tweak args; runtime SPI marker.
-- [ ] RED tests schema2/old schema rejection, missing SPI, patch ids and OFF.
-- [ ] Implement8-JAR staging/provider validation and explicit patch selection.
-- [ ] Engine/CLI/example tests, clippy, desktop check GREEN; commit.
+- [x] RED tests schema2/old schema rejection, missing SPI, patch ids and OFF.
+- [x] Implement8-JAR staging/provider validation and explicit patch selection.
+- [x] Engine/CLI/example tests, clippy, desktop check GREEN; commit.
 
 ### Task4: native acceptance and final review
-- [ ] Build/check actual Runtime; stage all5 current roles privately.
-- [ ] Run native O2-absent base control and O2-selected full lifecycle workload;
+- [x] Build/check actual Runtime; stage all5 current roles privately.
+- [x] Run native O2-absent base control and O2-selected full lifecycle workload;
 require clean logs, actual providers/patched classes, GL0 and balanced regions.
-- [ ] Fresh whole-change review. Re-grade; Important fixes one RED/GREEN pass
+- [x] Fresh whole-change review. Re-grade; Important fixes one RED/GREEN pass
 with green suite, no repeat reviewer. Record every ruling and declined boundary.
-- [ ] Commit receipts/docs; retain opus-optim/worktree; clean only plan scratch.
+- [x] Commit receipts/docs; retain opus-optim/worktree; clean only plan scratch.
+
+All tasks verified. Runtimee983989/O2f45c7c4/Launcher813783f; post-fix native
+base1791975963930-15258 and selected1791976067478-16150. Frozen independent review
+With fixes, Important registration swallowing resolved in one real RED/GREEN
+pass; fixture paths minor deferred. See evidence/2026-10-14-loader-runtime.

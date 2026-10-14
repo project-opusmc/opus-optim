@@ -14,11 +14,11 @@ claim of the full Sodium mesher, instanced entities, shader integration or FPS g
 Build the separately licensed bundle with:
 
 ```
-./gradlew :renderer-celeritas:rendererBundle
+./gradlew :renderer-celeritas:rendererBundle -PopusBootstrapJar=../runtime/bootstrap/build/libs/bootstrap-0.0.1.jar
 ```
 
 The output is `renderer-celeritas/build/renderer-bundle`. Its editable integrity
-manifest enumerates exactly four separate JARs and pins the Minecraft1.8.9 and
+schema2 manifest enumerates exactly eight separate JARs and pins the Minecraft1.8.9 and
 OptiFine M5 inputs. Launcher copies/rechecks the JARs in the private session
 before enabling `opus.optim.renderer=celeritas-region`. A modified LGPL library
 may be rebuilt/replaced and its receipt updated; public binary interfaces must
@@ -33,17 +33,18 @@ The isolated Launcher branch `opus-optim` adds:
   API and a disposable explicit OPUS_HOME. Direct CLI game launch stays disabled
   on macOS. The optional game-probe JAR is test-only and excluded from the bundle.
 
-The tweaker order is OptiFine -> O2 -> Opus. This lets exact raw Minecraft
-unload hooks run before owned Loader transformations; subsequent Opus transforms
-continue normally. Exact pins cover Config, bqs, bfr, ave, bpo, MinecraftServer and VboRegion. Unknown
+LaunchWrapper retains OptiFine -> Opus. The Loader-owned renderer provider has
+priority0 before the built-ins, preserving raw input access without an extra O2
+tweaker. Managed patches receive raw names; built-ins keep mapped GUI routing.
+Exact renderer pins cover Config, bqs, bfr, ave, bpo, MinecraftServer and VboRegion. Unknown
 selected inputs fail startup. Off mode returns original bytes. Display init
 establishes GL2.1/LWJGL2 readiness on the render thread. The custom path requires
 VBO enabled and shaders/AF/AA multitexture disabled; other settings preserve the
 host path. Shader/AF/AA transition acceptance has not been established in game.
 
-Verified on actual Java8u74 and GL2.1 Metal Apple M4: seven full extracted
+Historical renderer-slice verification on actual Java8u74 and GL2.1 Metal Apple M4: seven full extracted
 classes; real arena growth/replacement/empty/free; ordered pixel parity with
-conventional VBO draws; GPU/native release in the GL fixture. Current production
+conventional VBO draws; GPU/native release in the GL fixture. The earlier separately-tweaked
 Standard host workload rendered grass terrain (2000x1300, GL0), reloaded the
 renderer, switched VBO OFF/ON, unloaded/reopened a world and finished96 created /
 96 deleted /0 live regions with no probe/NPE errors. Vertex setup is linked once
@@ -67,3 +68,7 @@ the later fix or production promotion; see the covering tests and
 Build/unit verification is separate from live replay, A/A/A/B FPS comparisons,
 shader/pack/dimension or physical GUI acceptance, installation and independent
 review. None of those unverified stages is inferred from READY or from a class name.
+
+Current managed SPI delivery and its own source/session receipts are documented
+in [Loader Runtime integration](LOADER_RUNTIME_INTEGRATION.md). Earlier renderer
+evidence remains attached to its original source and bundle.

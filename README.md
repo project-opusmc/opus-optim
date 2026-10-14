@@ -1,12 +1,11 @@
 # Opus Optim (O2)
 
-This is the Java 8 optimizer foundation for managed Minecraft 1.8.9, with a
-host-neutral API/core, a local benchmark engine and a platform provider/callback
-bridge checked against an archived Loader draft. Managed game wiring, installation
-and controlled scenario runners remain pending. The first explicit experimental
-candidate implements adaptive frustum corner tests for one pinned OptiFine M5
-raw class;
-no installed game optimization or measured game performance gain is claimed.
+O2 is the Java8 optimizer suite for managed Minecraft1.8.9. The current sources
+integrate custom Celeritas region rendering and explicit implemented startup
+patches through completed Opus Loader's managed provider SPI. See
+[Runtime integration](docs/LOADER_RUNTIME_INTEGRATION.md) and the
+[implementation map](docs/ENGINEERING_STATUS.md) for scope and evidence. Candidates
+remain experimental; installation and controlled FPS acceptance are separate.
 
 ## Modules and verification
 
@@ -17,7 +16,7 @@ no installed game optimization or measured game performance gain is claimed.
 - `:bench`: bounded raw frame capture, strict JSONL run reports, exact percentiles/
   slowest-frame lows, independent-run A/A–A/B comparison and offline CLI.
 - `:platform-opus`: sealed startup bindings/provider registrations and optional
-  raw telemetry callback; compile-only Loader draft fixture is excluded from its JAR.
+  raw telemetry callback; compile-only pinned Loader fixture is excluded from its JAR.
 
 From this repository root:
 
@@ -28,9 +27,9 @@ From this repository root:
 The pure API/core/bench `test` and `check` tasks run `verifyOptimBoundary`. It checks production
 dependencies, Java source, and compiled symbols for forbidden game, Loader, UI,
 and GL references. Opus Runtime retains its current five artifact roles; the
-ordinary O2 Gradle JARs are not added to Launcher staging. Platform `test`, `check`
+O2 JARs are staged only through its explicitly selected schema2 bundle. Platform `test`, `check`
 and `assemble` verify the JAR's SPI, Java 8 class version and absence of bundled
-Loader/ASM/game classes; every build checks the archived Loader source hashes.
+Loader/ASM/game classes; every build checks the pinned Loader fixture source hashes.
 
 ## Configuration
 
@@ -154,7 +153,8 @@ font-glyph lookup, vertex-buffer growth and chunk-upload deadline candidates.
 `ResourceOptimization.candidate()` additionally caches immutable resource text
 per instance. Its [cold/warm results](evidence/2026-10-14-resource/RESULTS.md)
 include the extra cold allocation and retained-string cost. All are experimental,
-and independent review remains pending after a usage-limit failure without verdict.
+with their existing kernel evidence; current whole-change managed integration
+review is recorded separately from older quota-interrupted attempts.
 Retain each candidate's status handle and pass its binding to ProviderPlan.
 If the host routes a raw class under a mapped identity, supply that exact name
 through `candidate(kind, routingAliases)`; this never accepts remapped bytecode.
@@ -207,9 +207,9 @@ interval; no new frame transformer or GL probe is added. Invalid/foreign-thread
 callbacks invalidate the capture and requested COMPLETE becomes INTERRUPTED.
 `CaptureSession.finish` detaches/seals; report output is explicit outside the loop.
 
-The archived Loader draft currently rejects an approved empty OFF provider, and
-its default adapters approve no O2 provider. These are demonstrated prerequisites,
-not silently patched host behavior. See the [exact host handoff and baseline
+Current Runtime retains empty-OFF-provider rejection and absent-O2 defaults.
+Its new managed startup boundary explicitly approves verified selected providers;
+raw provider routing and mapped built-in routing share one ordered chain. See the [exact host handoff and baseline
 protocol](docs/LOADER_HANDOFF.md) and [bridge spec](docs/PROVIDER_BRIDGE_SPEC.md).
 Synthetic ASM/SPI tests do not prove a real game integration or baseline.
 
@@ -219,5 +219,6 @@ An additional executable artifact check requires an installed Java 8 VM:
 ./gradlew :platform-opus:java8Smoke -Pjava8Home=/absolute/path/to/java8/home
 ```
 
-It uses the actual O2 JARs plus the separate API fixture and labels every report
-SYNTHETIC. Gradle itself runs on the existing supported build JVM.
+It uses the actual O2 JARs and labels its generated target SYNTHETIC. Supply
+-PopusBootstrapJar=/absolute/current/bootstrap.jar to link the real Runtime SPI;
+without that property it uses the separately pinned API fixture. Gradle itself runs on the existing supported build JVM.

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "sourceRevisions": {
+    "runtime": "e983989a4de597850312555728d28087a2942f55",
+    "opus-optim": "f45c7c41b254063c26e715b21d3affe058994e90",
+    "launcher": "813783f5dd731a2b404e6797b1f9e7d4dcd7d0ee"
+  },
+  "tests": {
+    "o2/api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "o2/core": {
+      "tests": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "o2/bench": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "o2/platform-opus": {
+      "tests": 47,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "o2/renderer-celeritas": {
+      "tests": 23,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/bootstrap": {
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/common": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/optim/api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/optim/core": {
+      "tests": 29,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/legacy/1.8.9/mappings": {
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/legacy/1.8.9/patches": {
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/legacy/1.8.9/standalone": {
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/legacy/1.8.9/forge": {
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime/legacy/1.8.9/lwjgl-macos-compat": {
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "launcherTests": {
+    "engine": 71,
+    "cli": 2,
+    "developerExample": 3,
+    "officialNetworkContractIgnored": 1
+  },
+  "runtimeArtifactManifest": {
+    "schemaVersion": 1,
+    "runtimeVersion": "0.0.1",
+    "protocolVersion": 1,
+    "minecraftVersion": "1.8.9",
+    "artifacts": [
+      {
+        "role": "bootstrap",
+        "file": "opus-bootstrap-0.0.1.jar",
+        "size": 22118,
+        "sha256": "658fff3edf3144f878a984f9d2f169fd13c7fe21bcf1b3938bc991890f12dd16"
+      },
+      {
+        "role": "runtime-legacy-1.8.9",
+        "file": "opus-runtime-legacy-1.8.9-0.0.1.jar",
+        "size": 84373,
+        "sha256": "dad65cac3602a308268ad8ed2d1aa2d867af6f3658e417babd1f730ebcbbf8a0"
+      },
+      {
+        "role": "standalone-loader",
+        "file": "opus-standalone-loader-0.0.1.jar",
+        "size": 473020,
+        "sha256": "cf5320e8b88db14b53bc1bd6ee875793656f02f7b74821ac674a4bbb1c4e33aa"
+      },
+      {
+        "role": "lwjgl-macos-compat",
+        "file": "opus-lwjgl-macos-compat-2.9.2-nightly-20140822.jar",
+        "size": 1202775,
+        "sha256": "2a5c91b98a88ff5d30bd6b6b46568a961a7d2d52804cb3e1a99bf2b0bdce8a6e"
+      },
+      {
+        "role": "native-ui",
+        "file": "opus-native-ui-1.8.9-0.1.0.jar",
+        "size": 10619513,
+        "sha256": "1d54dfa67641f1d5d204223b10c5d11fd900e4e629eac99e4a751002ed9f7b8d"
+      }
+    ]
+  },
+  "optimBundleManifest": {
+    "schemaVersion": 2,
+    "loaderProtocolVersion": 1,
+    "backend": "celeritas-region",
+    "minecraftVersion": "1.8.9",
+    "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+    "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+    "providers": [
+      "opus.optim",
+      "opus.optim.renderer"
+    ],
+    "artifacts": [
+      {
+        "file": "api-0.0.1.jar",
+        "size": 13774,
+        "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+      },
+      {
+        "file": "bench-0.0.1.jar",
+        "size": 40321,
+        "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+      },
+      {
+        "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+        "size": 887804,
+        "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+      },
+      {
+        "file": "core-0.0.1.jar",
+        "size": 29061,
+        "sha256": "57fd49761ce17ed5ee7f062ee1b45ec19643362ba90b7c670eb7c1e029994b43"
+      },
+      {
+        "file": "fastutil-7.1.0.jar",
+        "size": 17655579,
+        "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+      },
+      {
+        "file": "joml-1.10.5.jar",
+        "size": 712082,
+        "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+      },
+      {
+        "file": "platform-opus-0.0.1.jar",
+        "size": 48799,
+        "sha256": "f525a1d316087d52e51fbbc8d8058c0ca81d68a8b50150977ae08410b35b1383"
+      },
+      {
+        "file": "renderer-celeritas-0.0.1.jar",
+        "size": 27296,
+        "sha256": "4fd6f4c78cd4936ddfef3e80b7d2d218bb5a980c0bd93bb1fe2da99844356d6f"
+      }
+    ]
+  },
+  "java8RealBootstrapLinkage": "PASS_SYNTHETIC_TARGET",
+  "java8RendererClassVerifier": "PASS_SEVEN_COMPLETE_CLASSES",
+  "nativeBaseLoader": {
+    "state": "PASS_NATIVE_BOOT_CLIENT_READY",
+    "session": "1791975963930-15258",
+    "hostExitCode": 0,
+    "strictProbeExitCode": 0,
+    "clientReady": true,
+    "optimAbsent": true,
+    "worldLifecycle": "NOT_TESTED"
+  },
+  "nativeManagedO2": {
+    "state": "PASS_AUTOMATED_NATIVE_WORKLOAD_AFTER_REVIEW_FIX",
+    "session": "1791976067478-16150",
+    "hostExitCode": 0,
+    "strictProbeExitCode": 0,
+    "providers": {
+      "opus.optim": 5,
+      "opus.optim.renderer": 1
+    },
+    "actualStartupPatches": [
+      "render.frustum.positive-vertex",
+      "text.glyph_lookup",
+      "render.buffer_growth",
+      "world.fixed_budget",
+      "runtime.resource_string_cache"
+    ],
+    "rendererPinsApplied": 7,
+    "regionCreated": 96,
+    "regionDeleted": 96,
+    "liveRegions": 0,
+    "glError": 0,
+    "reload": true,
+    "vboOffOn": true,
+    "worldReopened": true,
+    "npeOccurrences": 0,
+    "probeFailures": 0,
+    "terminatedOwnerGuardObserved": false
+  },
+  "independentReview": "FROZEN_PACKAGE_REVIEW_PLUS_SINGLE_VERIFIED_FIX_PASS",
+  "physicalGui": "NOT_TESTED",
+  "fpsGain": "NOT_ESTABLISHED",
+  "installedLauncherChanged": false,
+  "ownLicenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a",
+  "reviewedRevisions": {
+    "runtime": "bb0f377",
+    "opus-optim": "f45c7c4",
+    "launcher": "de10cde"
+  },
+  "reviewDisposition": "WITH_FIXES_IMPORTANT_RESOLVED_BY_AUTHOR_RED_GREEN",
+  "postReviewFixRevision": "e983989a4de597850312555728d28087a2942f55",
+  "deferredMinor": "Configurable shared acceptance fixture paths",
+  "earlierNativeManagedO2": {
+    "state": "PASS_AUTOMATED_NATIVE_WORKLOAD",
+    "session": "1791975088865-8559",
+    "hostExitCode": 0,
+    "strictProbeExitCode": 0,
+    "providers": {
+      "opus.optim": 5,
+      "opus.optim.renderer": 1
+    },
+    "actualStartupPatches": [
+      "render.frustum.positive-vertex",
+      "text.glyph_lookup",
+      "render.buffer_growth",
+      "world.fixed_budget",
+      "runtime.resource_string_cache"
+    ],
+    "rendererPinsApplied": 7,
+    "regionCreated": 96,
+    "regionDeleted": 96,
+    "liveRegions": 0,
+    "glError": 0,
+    "reload": true,
+    "vboOffOn": true,
+    "worldReopened": true,
+    "npeOccurrences": 0,
+    "probeFailures": 0,
+    "terminatedOwnerGuardObserved": false
+  },
+  "earlierNativeBaseLoader": {
+    "state": "PASS_NATIVE_BOOT_CLIENT_READY",
+    "session": "1791974937720-7355",
+    "hostExitCode": 0,
+    "strictProbeExitCode": 0,
+    "clientReady": true,
+    "optimAbsent": true,
+    "worldLifecycle": "NOT_TESTED"
+  }
+}

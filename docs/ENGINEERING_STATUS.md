@@ -28,9 +28,10 @@ earlier review attempt reached its usage limit without a verdict.
 
 Current platform support is one pinned raw Minecraft 1.8.9 + OptiFine M5 input
 per candidate. Unknown/remapped/already modified bytecode is unchanged and reports
-unsupported. The provider bridge exists; the current host defaults still approve
-no external providers. The renderer has a separate, explicitly selected LaunchWrapper
-tweaker and checked Launcher bundle route; it does not depend on that unpublished SPI. Claude's Loader work is read-only here. Whole-game
+unsupported. The completed Loader snapshot is integrated into isolated Runtime opus-optim.
+Default startup approves no providers. Explicit checked schema2 selection installs
+O2 through the real managed SPI and one ordered chain, with raw provider/mapped
+built-in routing and no O2 tweaker. The primary Claude workspace remains untouched. Whole-game
 integration, auto-enable, Forge/vanilla support and a terrain rewrite are not
 silently inferred from local kernel verification.
 Host-supplied routing aliases are available because standalone routes raw avn
@@ -51,11 +52,21 @@ cleanup across world/reload boundaries. Minecraft/OptiFine still provides CPU
 block meshing, culling, lighting, textures and transparent sorting. This is not
 the complete Sodium/Celeritas mod or an entity-instancing/shader port.
 
-Launcher source on `opus-optim` validates/stages an optional four-JAR bundle,
-selects O2 after OptiFine/before Opus, and exposes a standalone CLI dry-run plus
-desktop environment opt-in. The installed Launcher is unchanged. Current Standard native-host terrain/reload/VBO OFF/ON/world reopen workload
+Launcher source on `opus-optim` validates/stages an optional eight-JAR schema2 bundle,
+selects managed O2 providers in Opus Loader, and exposes a standalone CLI dry-run plus
+desktop environment opt-in. The installed Launcher is unchanged. Earlier separate-tweaker Standard terrain/reload/VBO OFF/ON/world reopen workload
 completed with96 regions created/deleted,0 live, GL0 and no probe/NPE failures.
 The M5 terminated-server wait guard also executed on the actual abandoned future.
 This is automated workload evidence; physical GUI/shader/pack/dimension and FPS
 acceptance remain separate.
 See [renderer status](RENDERER_INTEGRATION.md) for exact boundaries.
+
+See [current Loader Runtime integration](LOADER_RUNTIME_INTEGRATION.md) for the
+new managed path, source receipts and its independent native acceptance.
+
+Current managed native acceptance: Runtimee983989/O2f45c7c4/Launcher813783f.
+O2-absent clientREADY and selected terrain/reload/VBO/world cycle both pass;
+all five implemented startup patches actually applied. Final cycle96/96/0, GL0,
+no NPE/probe failures. Independent frozen review Important registration-boundary
+issue is fixed with real negative injection tests and native replay. See the
+[managed receipts](../evidence/2026-10-14-loader-runtime/RESULTS.md).
