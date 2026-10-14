@@ -3,10 +3,48 @@ package org.polydevs.opusmc.optim.renderer;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class ServerTaskWaitTest {
+    @Test void failureBetweenTimeoutAndOwnerTerminationRetainsOriginalFuture() throws Exception {
+        assertCompletionRace(false);
+    }
+    @Test void cancellationBetweenTimeoutAndOwnerTerminationRetainsOriginalFuture() throws Exception {
+        assertCompletionRace(true);
+    }
+    private static void assertCompletionRace(boolean cancelled) throws Exception {
+        AtomicReference<FutureTask<Void>> pending = new AtomicReference<>();
+        CountDownLatch timedOut = new CountDownLatch(1);
+        Thread server = new Thread(() -> {
+            try { timedOut.await(); }
+            catch (InterruptedException error) { throw new AssertionError(error); }
+            if (cancelled) pending.get().cancel(false);
+            else pending.get().run();
+        });
+        FutureTask<Void> work = new FutureTask<Void>(() -> { throw new IllegalArgumentException("raced failure"); }) {
+            @Override public Void get(long timeout, TimeUnit unit)
+                    throws InterruptedException, ExecutionException, TimeoutException {
+                try { return super.get(1, TimeUnit.MILLISECONDS); }
+                catch (TimeoutException expired) {
+                    timedOut.countDown();
+                    server.join();
+                    throw expired;
+                }
+            }
+        };
+        pending.set(work);
+        server.start();
+        Future<?> prepared = ServerTaskWait.prepare(work, server);
+        assertSame(work, prepared, "a lost cancellation race must preserve the original future");
+        if (cancelled) assertThrows(CancellationException.class, prepared::get);
+        else assertEquals("raced failure", assertThrows(ExecutionException.class, prepared::get).getCause().getMessage());
+    }
     @Test void abandonedTaskOnTerminatedServerIsCancelledWithoutRunningIt() throws Exception {
         Thread server = new Thread(() -> { }); server.start(); server.join();
         FutureTask<Void> abandoned = new FutureTask<>(() -> fail("task must not run on another thread"), null);

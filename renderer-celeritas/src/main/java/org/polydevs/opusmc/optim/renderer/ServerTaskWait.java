@@ -16,7 +16,7 @@ final class ServerTaskWait {
                 catch (ExecutionException | CancellationException error) { return future; }
                 catch (TimeoutException error) {
                     if (server != null && server.getState() == Thread.State.TERMINATED) {
-                        future.cancel(false);
+                        if (!future.cancel(false)) return future;
                         FutureTask<Void> completed = new FutureTask<>(() -> null);
                         completed.run();
                         return completed;
