@@ -1,0 +1,10 @@
+   Compiling opus-engine v0.0.1 (/Users/zvwgvx/.codex/worktrees/opus-optim-m1/Opus/launcher/crates/engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.69s
+     Running unittests examples/optim_renderer_probe.rs (target/debug/examples/optim_renderer_probe-7503cc12a89b866c)
+
+running 3 tests
+test tests::accepts_completed_error_free_workload ... ok
+test tests::rejects_real_packet_error_shape_even_when_lifetime_assertions_pass ... ok
+test tests::rejects_incomplete_or_failed_workloads ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

@@ -1,0 +1,26 @@
+> Task :renderer-celeritas:compileJava
+> Task :renderer-celeritas:processResources NO-SOURCE
+> Task :renderer-celeritas:classes
+> Task :renderer-celeritas:jar
+> Task :renderer-celeritas:compileGameProbeJava UP-TO-DATE
+> Task :renderer-celeritas:processGameProbeResources NO-SOURCE
+> Task :renderer-celeritas:gameProbeClasses UP-TO-DATE
+> Task :renderer-celeritas:compileTestJava UP-TO-DATE
+> Task :renderer-celeritas:processTestResources NO-SOURCE
+> Task :renderer-celeritas:testClasses UP-TO-DATE
+> Task :renderer-celeritas:test
+> Task :renderer-celeritas:rendererBundle
+> Task :renderer-celeritas:verifyRendererJar
+> Task :renderer-celeritas:verifyRendererBundle
+> Task :renderer-celeritas:check
+
+[Incubating] Problems report is available at: file:///Users/zvwgvx/.codex/worktrees/opus-optim-m1/Opus/opus-optim/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+8 actionable tasks: 6 executed, 2 up-to-date

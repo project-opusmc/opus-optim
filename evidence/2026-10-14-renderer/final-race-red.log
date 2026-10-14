@@ -1,0 +1,31 @@
+> Task :renderer-celeritas:compileJava UP-TO-DATE
+> Task :renderer-celeritas:processResources NO-SOURCE
+> Task :renderer-celeritas:classes UP-TO-DATE
+> Task :renderer-celeritas:compileGameProbeJava UP-TO-DATE
+> Task :renderer-celeritas:processGameProbeResources NO-SOURCE
+> Task :renderer-celeritas:gameProbeClasses UP-TO-DATE
+> Task :renderer-celeritas:compileTestJava
+> Task :renderer-celeritas:processTestResources NO-SOURCE
+> Task :renderer-celeritas:testClasses
+
+> Task :renderer-celeritas:test FAILED
+
+ServerTaskWaitTest > cancellationBetweenTimeoutAndOwnerTerminationRetainsOriginalFuture() FAILED
+    org.opentest4j.AssertionFailedError at ServerTaskWaitTest.java:44
+
+ServerTaskWaitTest > failureBetweenTimeoutAndOwnerTerminationRetainsOriginalFuture() FAILED
+    org.opentest4j.AssertionFailedError at ServerTaskWaitTest.java:44
+
+5 tests completed, 2 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':renderer-celeritas:test'.
+> There were failing tests. See the report at: file:///Users/zvwgvx/.codex/worktrees/opus-optim-m1/Opus/opus-optim/renderer-celeritas/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 1s
+4 actionable tasks: 2 executed, 2 up-to-date

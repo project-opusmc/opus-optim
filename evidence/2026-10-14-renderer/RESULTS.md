@@ -1,47 +1,62 @@
 # O2 Celeritas renderer evidence
 
-Current source: O2 5559294; isolated Launcher cb67916. The source contains a
-real custom region arena/upload/ordered draw backend linked to the separate
-Celeritas Common2.5.0-pre.1 Java8 artifact. Neither the full Sodium mesher nor
-an FPS improvement is claimed.
+Production source: O2 df955a5; isolated Launcher 5b031c7. Own Opus license
+remains byte-identical. Separate LGPL Celeritas Common2.5.0-pre.1 Java8 artifact
+owns the real GPU arena. O2 provides upload, ordered multi-draw, world ownership,
+linked vertex-pointer callbacks and the exact integrated-server wait guard.
+CPU block meshing, visibility, lighting, textures and transparent sort remain
+Minecraft/OptiFine. Full Sodium/Celeritas mod, entity instancing and FPS gain are
+not claimed.
 
-Build/check/assemble:126 tests, no failures/errors/skips. Java8u74 full-class
-verification covers exact Config, bqs, bfr, ave and VboRegion inputs. Bundle
-freshness and own Java8 namespace checks pass. Launcher:69 engine tests and1 CLI
-test pass; official-network contract test is explicitly ignored. Clippy with
-warnings denied and desktop cargo check pass. Opus LICENSE remains byte-identical.
-Four-JAR hashes/sizes are recorded in bundle-manifest.json and verification.json.
+Full suite:138 tests, no failures/errors/skips (renderer21). Actual Java8u74
+verifies seven complete target classes: Config, bqs, bfr, ave, bpo,
+MinecraftServer and VboRegion. Bundle freshness/own Java8 namespace checks pass.
+Launcher:69 engine,1 CLI and3 developer-example tests pass; one official-network
+contract test is explicitly ignored. Clippy with warnings denied and desktop
+cargo check pass. Four-JAR hashes/sizes are in bundle-manifest.json and
+verification.json; every staged current-session JAR was independently rehashed,
+and the staged own JAR matches the current build byte-for-byte.
 
-The real GL2.1 Metal Apple M4 harness ran on Java8u502 and managed Java8u74,
-with unmodified Celeritas binary. Ordered conventional-VBO/custom-region output
-matched exactly across arena growth, with21522 colored pixels; replacement,
-empty uploads, GPU/native release and GL error0 were observed. Its storage/math
-path is unchanged by the later world-lifetime hooks.
+The earlier real GL2.1 Metal Apple M4 fixture ran on Java8u502 and managed8u74
+with the unmodified Celeritas binary. Ordered conventional-VBO/custom-region
+pixels match exactly across arena growth:21522 colored pixels. Replacement,
+empty upload, GPU/native release and GL error0 were checked. Storage/math is
+unchanged by the later ownership/callback/server fixes.
 
-An earlier bundle ran through the production packaged macOS Minecraft host and
-pinned installed Runtime. Session1791943414382-29260 reached custom draw submission
-(1024 vertices on the first logged batch), world=true/screen=none, C128/4624 D8,
-and captured actual2000x1300 grass terrain with GL error0. See earlier-terrain.png.
-It also exposed created32/deleted16 after a test null-world unload; this is not
-reported as a successful current lifecycle test.
+Current native session1791962240351-41185 uses the production packaged macOS
+Minecraft.app and pinned installed Runtime, in an isolated offline game root.
+All seven exact inputs applied; real terrain rendered at2000x1300 with GL error0.
+See current-terrain.png and current-lifecycle.log. Renderer reload released16
+old regions and created replacement regions. VBO OFF left0 O2 regions; ON
+resumed real draw submission. First unload:created64/deleted64/live0. The log
+proves the terminated-server guard handled a genuinely abandoned shutdown future.
+A reopened world rendered again; final unload:created96/deleted96/live0, GL0.
+No probe failure or NullPointerException appears in either output stream, and
+the native lifecycle/strict developer verdict completed successfully.
 
-Subsequent author investigation found vanilla Minecraft's null-world path does
-not call RenderGlobal.setWorld(null), and found Gradle's custom bundle task could
-leave a stale JAR in the output directory. Latest source adds explicit Minecraft
-unload/reload ownership, early tweaker ordering and declared bundle inputs plus
-a freshness check. Unit/whole-class/build checks are green. The current-source
-live replay attempted at1791944823555-36487 was refused by the production host:
-"macOS console is locked; unlock before launching Minecraft". No bypass was
-attempted. Current GPU world-cleanup replay remains NOT_TESTED pending unlock.
+These are automated terrain/render/lifecycle checks. Physical GUI/input,
+shaders/AF/AA transitions, resource packs, dimensions and controlled A/A/A/B FPS
+acceptance remain unverified. No installed Launcher replacement or default
+auto-enable occurred. Existing user worlds/options/accounts were not used.
 
-Previous no-draw runs were paused before initial server chunk packets. The
-bounded test agent now disables pauseOnLostFocus only in its validated disposable
-instance, disconnects/drains queued packets, returns to menu and exits. It is
-excluded from the production bundle. Automated game capture is not physical
-widget/input acceptance. FPS/A/A/A/B, shaders/AF/AA transitions, resource packs,
-dimensions and full terrain compiler replacement remain unverified.
+Earlier failures are retained as provenance, not reassigned to the latest build:
+- Older bundle1791943414382-29260 rendered terrain but left16 regions.
+- Source5559294 session1791956506074-84950 passed a single world cycle32/32/0.
+- Several extended probes hung in integrated-server shutdown or Netty close.
+- Direct public API1791958093915-4233 reached96/96/0 but produced582 NPE log
+  occurrences; whole-workload PASS was rejected.
+- Renderer-OFF control1791958813490-9151 also produced46 NPE occurrences.
+The developer fixture now dispatches outside the Minecraft task monitor and
+applies pending packets before their handler world is cleared, without dropping
+tasks. Native thread dumps also exposed M5 enqueueing shutdown work after its
+owner thread terminated. The production guard pins both owner metadata and
+call-site inputs; it cancels only an abandoned task after TERMINATED, keeps the
+original Guava result/failure/interrupt path, and leaves the original shutdown
+body/pinger cleanup in place. Live/NEW/unknown owners are not cancelled.
 
-Raw full client logs stay in the disposable workspace; committed selected logs
-contain only O2/probe state and the native activation refusal, avoiding helper
-capability URLs. Independent whole-change review is pending. No push, merge,
-installed Launcher replacement or published superproject gitlink change occurred.
+Raw full logs remain private in the disposable workspace. Committed selected
+logs contain only O2/probe state and never helper capability URLs. Fresh independent whole-change review returned With fixes on cff5c0b. Its
+Important future-completion race was reproduced RED and fixed GREEN in df955a5,
+with the complete suite and this new native workload verified afterward. See
+REVIEW.md for the frozen review, single fix pass and exhaustive rulings. An older
+review attempt ended at quota without a verdict. No push, merge or published superproject gitlink change occurred.

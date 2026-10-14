@@ -35,21 +35,35 @@ The isolated Launcher branch `opus-optim` adds:
 
 The tweaker order is OptiFine -> O2 -> Opus. This lets exact raw Minecraft
 unload hooks run before owned Loader transformations; subsequent Opus transforms
-continue normally. Exact pins cover Config, bqs, bfr, ave and VboRegion. Unknown
+continue normally. Exact pins cover Config, bqs, bfr, ave, bpo, MinecraftServer and VboRegion. Unknown
 selected inputs fail startup. Off mode returns original bytes. Display init
 establishes GL2.1/LWJGL2 readiness on the render thread. The custom path requires
 VBO enabled and shaders/AF/AA multitexture disabled; other settings preserve the
 host path. Shader/AF/AA transition acceptance has not been established in game.
 
-Verified on actual Java8u74 and GL2.1 Metal Apple M4: full extracted class verifier;
-real arena growth/replacement/empty/free; ordered pixel parity with conventional
-VBO draws; GPU/native release in the GL fixture. A production Standard client
-with installed, pinned Runtime artifacts reached READY and drew grass terrain
-through O2 (2000x1300, GL error0). That earlier bundle exposed incomplete world
-cleanup. Source corrections now add explicit world ownership/null-world unload
-and fix stale Gradle bundle output; fresh game cleanup replay is pending because
-the last production host launch reported a locked macOS console.
+Verified on actual Java8u74 and GL2.1 Metal Apple M4: seven full extracted
+classes; real arena growth/replacement/empty/free; ordered pixel parity with
+conventional VBO draws; GPU/native release in the GL fixture. Current production
+Standard host workload rendered grass terrain (2000x1300, GL0), reloaded the
+renderer, switched VBO OFF/ON, unloaded/reopened a world and finished96 created /
+96 deleted /0 live regions with no probe/NPE errors. Vertex setup is linked once
+and its callback reused without a per-batch reflective lookup.
+
+A live-found M5 edge queued shutdown work after its server thread terminated.
+The exact bpo/owner-field guard cancels only this abandoned task, while the
+original Guava call retains ordinary results/errors/interrupt semantics and
+original shutdown/pinger cleanup continues. Incomplete waits poll at50ms;
+live/NEW/unknown owner threads are not cancelled. GPU null-world release follows
+host unload completion. Developer packet-drain/frame helpers are test-only.
+If cancellation loses a completion/cancellation race, the original future is
+returned unchanged. Two deterministic regressions cover both outcomes.
+
+Fresh independent review of the frozen package returned With fixes. Its one
+Important race is fixed in df955a5 and verified by138 tests, the seven-class
+Java8 verifier and native session1791962240351-41185. The review did not approve
+the later fix or production promotion; see the covering tests and
+[review disposition](../evidence/2026-10-14-renderer/REVIEW.md).
 
 Build/unit verification is separate from live replay, A/A/A/B FPS comparisons,
-shader/pack/dimension acceptance, installation and independent review. None of
-those unverified stages is inferred from READY or from a class name.
+shader/pack/dimension or physical GUI acceptance, installation and independent
+review. None of those unverified stages is inferred from READY or from a class name.

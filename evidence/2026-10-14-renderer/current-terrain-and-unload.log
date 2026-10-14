@@ -1,0 +1,20 @@
+Historical source5559294; native session1791956506074-84950; single-world32/32/0 only
+[O2] renderer transformer REGISTERED; selection=celeritas-region
+[O2] renderer hook APPLIED ave input=430a17aa1911bcd0251aa4dcecb013b6c5b251bb5d0122c7305de0e36dc33e82
+[O2] renderer hook APPLIED Config input=8530b8c8f9690c07f881dbf32a9ad579b0639f2701f5eff8a673c101ce3627aa
+[O2] renderer hook APPLIED bqs input=6e51da6383889c601142ab90c8f48fb3d5418eb6c3431458651d2f8389560ff3
+[O2] renderer hook APPLIED net.optifine.render.VboRegion input=38f2e59fa54ecc815e7ba8a1db398ecf79685b0bab1a0ebe143de8bc263da441
+[O2] renderer hook APPLIED bfr input=a60c44bbc5535e985b1c4b3549bb298b126e3039074aa910f99da97378250619
+[O2] Celeritas Common 2.5.0-pre.1 / LWJGL2 region backend READY; frame/FPS acceptance pending
+[O2/PROBE] disposable pauseOnLostFocus=false
+[O2/PROBE] offline world launch requested
+[O2] custom region ATTACHED stride=28
+[O2] custom region DRAW_SUBMITTED vertices=1024
+[O2/PROBE] world=true screen=none chunks=C: 13/4624 (s) D: 8, pC: 000, pU: 2, aB: 60
+[O2/PROBE] actual terrain frame=2000x1300 regionsCreated=32 glError=0
+[O2/PROBE] disconnect BEGIN
+[O2/PROBE] disconnect END
+[O2/PROBE] unload BEGIN liveRegions=16
+[O2/PROBE] unload END liveRegions=0
+[O2/PROBE] unload regionsCreated=32 regionsDeleted=32 liveRegions=0
+[O2/PROBE] shutdown REQUEST

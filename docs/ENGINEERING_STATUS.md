@@ -7,11 +7,11 @@ its flag. The user-directed Opus license is unchanged.
 
 | Area | Executable code currently implemented | Work still required |
 |---|---|---|
-| Render | Celeritas-backed custom region arena and ordered multi-draw backend; frustum candidate; font glyph-table anchors | Draw submission/batching, entity/HUD pricing and real visual parity |
+| Render | Celeritas-backed custom region arena, ordered multi-draw and linked pointer setup; actual terrain/reload/VBO cycles; frustum and font candidates | Broader geometry/transparent/pack parity, entity/HUD pricing |
 | Chunk | Pinned existing upload-drain deadline capped at 2 ms per call | Compile/queue/upload stage pricing, priority/aging/generation cancellation and world lifecycle |
 | Graphics | Separate Celeritas Common Java8/LWJGL2 backend and real GL2.1 pixel/lifetime harness; bounded geometric vertex-buffer growth | Actual GL counters, shader/pack acceptance, texture lifetime and supported backend work |
 | Workload | Fixed deferrable upload cap; zero/past sentinel and FIFO/progress retained | Cross-stage budgets, queue-latency pricing and comparison before any adaptive governor |
-| Core runtime | Immutable glyph index, direct-buffer allocation/copy reduction and per-resource immutable text cache | Lifecycle leaks, resource metadata invalidation/decode/cache, live hit-rate/heap pricing and additional allocation hotspots |
+| Core runtime | Immutable glyph index, allocation/copy reduction, immutable text cache and pinned terminated-server wait guard | Broader lifecycle/physical GUI acceptance, resource metadata invalidation/decode/cache, live hit-rate/heap pricing and additional allocation hotspots |
 | FPS/frame stability | Raw-frame capture/comparison infrastructure and local kernel measurements | Managed observer/provider/staging integration; controlled lobby/chunk A/A/A/B and frame-tail/overhead evidence |
 
 FPS is an outcome of these changes, not a separately proven optimization from
@@ -21,8 +21,10 @@ defer gameplay/input/network/ticks. Fixed upload deferral deliberately trades
 first-drain work for completion latency, and buffer growth trades bounded extra
 capacity for fewer allocations. Both costs remain mandatory acceptance criteria.
 Resource warm repeats remove most measured allocation, but cold queries add
-24 B/query and queried instances retain their String. Independent review is still
-pending after its usage-limit failure; no verdict or merge readiness is claimed.
+24 B/query and queried instances retain their String. Independent review of the renderer package returned With fixes; its Important
+future-completion race is now fixed with deterministic RED/GREEN tests,138-test
+suite and fresh native replay. This does not establish production promotion. An
+earlier review attempt reached its usage limit without a verdict.
 
 Current platform support is one pinned raw Minecraft 1.8.9 + OptiFine M5 input
 per candidate. Unknown/remapped/already modified bytecode is unchanged and reports
@@ -51,8 +53,9 @@ the complete Sodium/Celeritas mod or an entity-instancing/shader port.
 
 Launcher source on `opus-optim` validates/stages an optional four-JAR bundle,
 selects O2 after OptiFine/before Opus, and exposes a standalone CLI dry-run plus
-desktop environment opt-in. The installed Launcher is unchanged. Real Standard
-client startup and an earlier bundle's opaque terrain draw have been observed.
-The latest unload/fresh-bundle corrections still require a fresh game replay,
-currently blocked by the production host's locked macOS console check.
+desktop environment opt-in. The installed Launcher is unchanged. Current Standard native-host terrain/reload/VBO OFF/ON/world reopen workload
+completed with96 regions created/deleted,0 live, GL0 and no probe/NPE failures.
+The M5 terminated-server wait guard also executed on the actual abandoned future.
+This is automated workload evidence; physical GUI/shader/pack/dimension and FPS
+acceptance remain separate.
 See [renderer status](RENDERER_INTEGRATION.md) for exact boundaries.

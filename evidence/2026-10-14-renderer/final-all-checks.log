@@ -1,0 +1,97 @@
+> Task :api:compileJava UP-TO-DATE
+> Task :api:processResources NO-SOURCE
+> Task :api:classes UP-TO-DATE
+> Task :api:jar UP-TO-DATE
+> Task :api:compileTestJava UP-TO-DATE
+> Task :api:processTestResources NO-SOURCE
+> Task :api:testClasses UP-TO-DATE
+> Task :api:verifyOptimBoundary
+> Task :api:test UP-TO-DATE
+> Task :bench:compileJava UP-TO-DATE
+> Task :bench:processResources NO-SOURCE
+> Task :bench:classes UP-TO-DATE
+> Task :bench:jar UP-TO-DATE
+> Task :bench:compileTestJava UP-TO-DATE
+> Task :bench:processTestResources NO-SOURCE
+> Task :bench:testClasses UP-TO-DATE
+> Task :bench:verifyOptimBoundary
+> Task :bench:test UP-TO-DATE
+> Task :core:compileJava UP-TO-DATE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar UP-TO-DATE
+> Task :core:compileTestJava UP-TO-DATE
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+> Task :core:verifyOptimBoundary
+> Task :core:test UP-TO-DATE
+> Task :platform-opus:verifyLoaderContract
+> Task :platform-opus:compileLoaderContractJava UP-TO-DATE
+> Task :platform-opus:processLoaderContractResources NO-SOURCE
+> Task :platform-opus:loaderContractClasses UP-TO-DATE
+> Task :platform-opus:compileJava UP-TO-DATE
+> Task :platform-opus:processResources UP-TO-DATE
+> Task :platform-opus:classes UP-TO-DATE
+> Task :platform-opus:jar UP-TO-DATE
+> Task :platform-opus:compileTestJava UP-TO-DATE
+> Task :platform-opus:processTestResources NO-SOURCE
+> Task :platform-opus:testClasses UP-TO-DATE
+> Task :platform-opus:verifyPlatformArtifact
+> Task :platform-opus:test UP-TO-DATE
+> Task :renderer-celeritas:compileJava
+> Task :renderer-celeritas:processResources NO-SOURCE
+> Task :renderer-celeritas:classes
+> Task :renderer-celeritas:jar
+> Task :renderer-celeritas:compileGameProbeJava UP-TO-DATE
+> Task :renderer-celeritas:processGameProbeResources NO-SOURCE
+> Task :renderer-celeritas:gameProbeClasses UP-TO-DATE
+> Task :renderer-celeritas:compileTestJava UP-TO-DATE
+> Task :renderer-celeritas:processTestResources NO-SOURCE
+> Task :renderer-celeritas:testClasses UP-TO-DATE
+> Task :renderer-celeritas:test
+> Task :check UP-TO-DATE
+> Task :api:check
+> Task :bench:check
+> Task :core:check
+> Task :platform-opus:check
+> Task :renderer-celeritas:rendererBundle
+> Task :renderer-celeritas:verifyRendererJar
+> Task :renderer-celeritas:verifyRendererBundle
+> Task :renderer-celeritas:check
+> Task :assemble UP-TO-DATE
+> Task :api:assemble UP-TO-DATE
+> Task :bench:assemble UP-TO-DATE
+> Task :core:assemble UP-TO-DATE
+> Task :platform-opus:assemble
+> Task :renderer-celeritas:assemble
+> Task :renderer-celeritas:gameProbeJar UP-TO-DATE
+> Task :renderer-celeritas:compileSmokeJava UP-TO-DATE
+> Task :renderer-celeritas:processSmokeResources NO-SOURCE
+> Task :renderer-celeritas:smokeClasses UP-TO-DATE
+
+> Task :renderer-celeritas:hookVerify
+[O2] renderer hook APPLIED Config input=8530b8c8f9690c07f881dbf32a9ad579b0639f2701f5eff8a673c101ce3627aa
+[O2] renderer hook APPLIED ave input=430a17aa1911bcd0251aa4dcecb013b6c5b251bb5d0122c7305de0e36dc33e82
+[O2] renderer hook APPLIED bfr input=a60c44bbc5535e985b1c4b3549bb298b126e3039074aa910f99da97378250619
+VERIFIED full Java8 class Config
+[O2] renderer hook APPLIED bqs input=6e51da6383889c601142ab90c8f48fb3d5418eb6c3431458651d2f8389560ff3
+VERIFIED full Java8 class bqs
+VERIFIED full Java8 class bfr
+[O2] renderer hook APPLIED bpo input=869d345907c9e49396f1214dcfe52f14509106b7f04fa80367cbc74914e10cbc
+[O2] renderer hook APPLIED net.minecraft.server.MinecraftServer input=63b4c32e947e2f83ea6db33ab685518603350455ee598a4efff180fc43045283
+VERIFIED full Java8 class ave
+VERIFIED full Java8 class bpo
+VERIFIED full Java8 class net.minecraft.server.MinecraftServer
+[O2] renderer hook APPLIED net.optifine.render.VboRegion input=38f2e59fa54ecc815e7ba8a1db398ecf79685b0bab1a0ebe143de8bc263da441
+VERIFIED full Java8 class net.optifine.render.VboRegion
+
+[Incubating] Problems report is available at: file:///Users/zvwgvx/.codex/worktrees/opus-optim-m1/Opus/opus-optim/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+34 actionable tasks: 12 executed, 22 up-to-date

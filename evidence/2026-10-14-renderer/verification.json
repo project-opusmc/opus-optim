@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceRevision": "55592941a1aa65607dea867d44ab6d4806e143c8",
-  "launcherRevision": "cb67916787c63a9ba854a16c89b67077fc178088",
+  "sourceRevision": "df955a5f81ae214742522d6eeae7ca97d2b8ee4a",
+  "launcherRevision": "5b031c7c2458070764c6ac5bb8dd3c2a46189ec4",
   "tests": {
     "bench": {
       "tests": 36,
@@ -10,7 +10,7 @@
       "skipped": 0
     },
     "renderer-celeritas": {
-      "tests": 9,
+      "tests": 21,
       "failed": 0,
       "errors": 0,
       "skipped": 0
@@ -37,17 +37,18 @@
   "launcherTests": {
     "engine": 69,
     "cli": 1,
-    "officialNetworkContractIgnored": 1
+    "officialNetworkContractIgnored": 1,
+    "developerExample": 3
   },
   "build": "PASS",
-  "java8FullFiveClassVerifier": "PASS",
+  "java8FullFiveClassVerifier": "PASS_HISTORICAL",
   "bundleMatchesCurrentJar": true,
   "earlierGlFixture": "PASS",
   "earlierStandardTerrain": "PASS_OLDER_BUNDLE",
-  "currentCleanupReplay": "NOT_TESTED_MACOS_CONSOLE_LOCKED",
+  "currentCleanupReplay": "PASS_AUTOMATED_DISPOSABLE_WORKLOAD",
   "fpsGain": "NOT_ESTABLISHED",
   "installedLauncherChanged": false,
-  "independentReview": "PENDING",
+  "independentReview": "WITH_FIXES_IMPORTANT_RESOLVED_RED_GREEN",
   "ownLicenseSha256": "3e199e5504dbdf529b2617f21e9881ca4365845935a4b41d54c45d563ce10b3a",
   "bundle": {
     "schemaVersion": 1,
@@ -74,9 +75,29 @@
       },
       {
         "file": "renderer-celeritas-0.0.1.jar",
-        "size": 21499,
-        "sha256": "063377f3c8e6b6e420fa1392ec14c867d23759fae5bd1f2ea6bd7d2c49516c1c"
+        "size": 26136,
+        "sha256": "dec9336442aa17c8e4c2ff6ed56b7d1559b53f0f9589d6b082c6675e9fb1194e"
       }
     ]
-  }
+  },
+  "java8FullSevenClassVerifier": "PASS",
+  "currentStandardTerrain": "PASS",
+  "nativeSession": "1791962240351-41185",
+  "nativeLifecycle": {
+    "regionsCreated": 96,
+    "regionsDeleted": 96,
+    "liveRegions": 0,
+    "glError": 0,
+    "rendererReload": true,
+    "vboOffOn": true,
+    "worldReopened": true,
+    "terminatedOwnerGuardObserved": true,
+    "probeFailures": 0,
+    "nullPointerExceptionOccurrences": 0,
+    "physicalGuiAcceptance": "NOT_TESTED"
+  },
+  "reviewedO2Revision": "cff5c0b",
+  "postReviewFixRevision": "df955a5f81ae214742522d6eeae7ca97d2b8ee4a",
+  "nativeHostExitCode": 0,
+  "strictProbeExitCode": 0
 }
