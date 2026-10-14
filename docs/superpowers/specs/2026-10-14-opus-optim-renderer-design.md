@@ -11,3 +11,18 @@ A LaunchWrapper tweaker in a separate `renderer-celeritas` module registers thes
 The Launcher standalone plan has an explicit optional backend bundle path and enables the tweaker plus exact property only after validating a versioned bundle manifest and SHA-256 for every file. The renderer remains optional while validation proceeds. Framework JARs, license texts, source provenance and dependencies are staged separately, not shaded or relabeled. Keep Runtime's five-role manifest unchanged; O2 is a separate launch-plan component.
 
 Verification must exercise invalid pins, OFF bytes, lifecycle/reupload/empty mesh, relocation before draw, draw ordering/mode, partial buffers and thread ownership. Run Java8 against actual extracted M5 classes; use an actual OpenGL context and Celeritas binary for upload/readback/ordered draw/lifecycle and pixel parity. Launch a disposable Standard-compatible game directory where feasible; preserve user's game/options/accounts. Report separately build, GL harness, game startup and actual in-game rendering/FPS. There is no FPS claim without controlled game measurements.
+
+Live-found shutdown edge: the M5 integrated server can enqueue a void shutdown
+task after its owner thread has terminated, leaving Guava's wait blocked forever.
+Pin bpo's future-wait call and MinecraftServer's aa Thread field. Preserve normal
+results, errors and interrupt behavior through the original Guava call. Cancel an
+abandoned task only after its owner is TERMINATED, returning the normal null
+result to the unchanged shutdown body. Do not cancel work on a live, NEW or
+unknown owner. Preserve the original path before renderer readiness. Null-world
+GPU cleanup runs after the host unload returns. These extra exact inputs and the
+50ms polling interval apply only to the explicitly selected experimental backend.
+
+Developer probes dispatch outside Minecraft's task monitor and apply pending
+packet tasks while their world is still valid. They neither drop tasks nor ship
+in production. A whole native workload requires its final assertions and no
+probe/NPE failures in either output stream; a renderer counter alone is not PASS.

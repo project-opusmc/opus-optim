@@ -43,3 +43,17 @@ Consumes generated renderer bundle; produces validated classpath, property, twea
 - [ ] Implement explicit optional O2 bundle support without changing Runtime artifact roles or user settings.
 - [ ] Run engine checks; stage disposable client and verify actual startup/rendering when available.
 - [ ] Record exact verified boundaries, whole-change review and local commits.
+
+### Task 4: Live-found integrated-server lifetime edge
+Files: ServerTaskWait.java; RendererHooks/RendererTransformer; managed developer probes/tests.
+The pinned M5 integrated server can enqueue its shutdown task after the owner
+thread has terminated. Preserve its original Guava exception/uninterruptible path
+for ordinary futures; cancel only the abandoned task owned by a TERMINATED
+server thread, returning the normal void result to the original shutdown body.
+Validate exact bpo input and unchanged MinecraftServer thread-field input in
+addition to the five renderer targets. Retain original behavior before readiness.
+- [x] Reproduce queued-future wait with actual native thread dumps.
+- [x] Write terminated/live/failure/interrupt tests RED and implement GREEN.
+- [x] Verify all seven complete classes on actual Java8 and bundle freshness.
+- [x] Verify complete native renderer/reload/VBO/world cycle with zero packet errors.
+- [ ] Obtain whole-change review; do not infer a verdict from quota failure.
