@@ -9,12 +9,12 @@ import org.polydevs.opusmc.optim.platform.TransformerBinding;
 /** Explicit candidates, not installation, game acceptance or automatic promotion. */
 public final class PipelineOptimizations {
     public enum Kind {
-        GLYPH_LOOKUP("text.glyph_lookup", "avn", "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e", 410,
+        GLYPH_LOOKUP("text.glyph_lookup", "avn", "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e", 400,
                 "mc189.font.optifine-m5.notch", GlyphIndex.class,
                 "a(CZ)F", "a(Ljava/lang/String;Z)V", "getCharWidthFloat(C)F", "<clinit>()V", "o2$glyphIndex:[S"),
-        BUFFER_GROWTH("render.buffer_growth", "bfd", "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40", 420,
+        BUFFER_GROWTH("render.buffer_growth", "bfd", "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40", 400,
                 "mc189.worldrenderer.optifine-m5.notch", BufferGrowth.class, "b(I)V"),
-        UPLOAD_BUDGET("world.fixed_budget", "bho", "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7", 430,
+        UPLOAD_BUDGET("world.fixed_budget", "bho", "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7", 400,
                 "mc189.chunk-dispatcher.optifine-m5.notch", DeadlineBudget.class, "a(J)Z");
 
         final String id, target, digest, capability;

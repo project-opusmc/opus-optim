@@ -10,6 +10,20 @@ import org.polydevs.opusmc.optim.platform.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PipelinePatchTest {
+    @Test void allIndependentCandidatesCanBePreparedTogether() {
+        List<TransformerBinding> bindings=new ArrayList<>();Map<String,Boolean> flags=new HashMap<>();Set<String> capabilities=new HashSet<>();
+        bindings.add(FrustumOptimization.candidate().binding());flags.put(FrustumOptimization.ID,true);
+        capabilities.addAll(FrustumOptimization.descriptor().requiredCapabilities());
+        for(PipelineOptimizations.Candidate c:PipelineOptimizations.candidates()) {
+            bindings.add(c.binding());flags.put(c.descriptor().id(),true);capabilities.addAll(c.descriptor().requiredCapabilities());
+        }
+        ResourceOptimization.Candidate resource=ResourceOptimization.candidate();bindings.add(resource.binding());
+        flags.put(resource.descriptor().id(),true);capabilities.addAll(resource.descriptor().requiredCapabilities());
+        ProviderPlan all=ProviderPlan.prepare(new OptimConfig(true,flags),new CapabilitySet(capabilities),CrashMarker.Recovery.clean(),
+                bindings,Collections.emptyList(),getClass().getClassLoader());
+        assertEquals(Arrays.asList("render.buffer_growth","render.frustum.positive-vertex","runtime.resource_string_cache","text.glyph_lookup","world.fixed_budget"),all.patchPlan().selectedIds());
+        assertEquals(5,all.registrations().size());
+    }
     @Test void hostRoutingAliasIsDeclaredAndRefusalStillVisibleAtTheAlias() throws Exception {
         String mapped="net.minecraft.client.gui.FontRenderer";
         PipelineOptimizations.Candidate candidate=PipelineOptimizations.candidate(PipelineOptimizations.Kind.GLYPH_LOOKUP,

@@ -11,7 +11,7 @@ public final class ResourcePatch implements ClassTransformer {
     private static final String CACHE="o2$resourceText";
     private volatile ApplicationState state=ApplicationState.NOT_SEEN;
     @Override public String id() { return ResourceOptimization.ID; }
-    @Override public int priority() { return 440; }
+    @Override public int priority() { return 400; }
     public ApplicationState applicationState() { return state; }
     @Override public byte[] transform(String name,byte[] original) {
         if(!"jy".equals(name)){return original;}

@@ -57,7 +57,8 @@ changes. Queue latency may increase and must be measured before promotion.
 
 PipelineOptimizations exposes a fresh per-candidate handle with descriptor,
 binding and NOT_SEEN/APPLIED/UNSUPPORTED_INPUT state. Capabilities include the
-exact raw target and loader.asm5; priority 410/420/430. Each claim has independent
+exact raw target and loader.asm5; shared priority 400 for these independent
+non-overlapping candidates, matching the planner's canonical id order. Each claim has independent
 selection/recovery/exclusion through the existing ProviderPlan. No registration
 or host approval happens automatically. Keep the retained handle after planning.
 The host may supply exact routing aliases with candidate(kind, aliases); these
