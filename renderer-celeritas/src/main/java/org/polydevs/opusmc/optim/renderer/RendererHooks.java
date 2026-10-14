@@ -1,6 +1,5 @@
 package org.polydevs.opusmc.optim.renderer;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.Display;
@@ -13,6 +12,7 @@ public final class RendererHooks {
     private static volatile boolean ready;
     private static volatile long regionsCreated, regionsDeleted;
     private static Method shaders, multiTexture, settings;
+    private static VertexPointers pointers;
     private RendererHooks() { }
     public static void initialize(Class<?> configClass) {
         if (!"celeritas-region".equals(System.getProperty("opus.optim.renderer"))) return;
@@ -27,6 +27,7 @@ public final class RendererHooks {
             if (!GLContext.getCapabilities().OpenGL21) throw new IllegalStateException("O2 region backend requires OpenGL2.1");
             config = configClass;
             shaders = configClass.getMethod("isShaders"); multiTexture = configClass.getMethod("isMultiTexture"); settings = configClass.getMethod("getGameSettings");
+            pointers = new VertexPointers(Class.forName("bfy", false, loader));
             // Force framework/service linkage while startup can still fail clearly.
             Class.forName("org.taumc.celeritas.lwjgl.LWJGLServiceProvider", true, RendererHooks.class.getClassLoader());
             ready = true;
@@ -56,11 +57,7 @@ public final class RendererHooks {
     }
     public static void finish(RegionRenderer renderer, Object renderList) {
         long before = renderer.draws();
-        renderer.finish(() -> {
-            try { renderList.getClass().getMethod("a").invoke(renderList); }
-            catch (InvocationTargetException e) { throw new IllegalStateException("O2 vertex-pointer setup failed", e.getCause()); }
-            catch (ReflectiveOperationException e) { throw new IllegalStateException("O2 vertex-pointer setup unavailable", e); }
-        });
+        pointers.finish(renderer, renderList);
         if (renderer.draws() > before && !submitted) { submitted = true; System.out.println("[O2] custom region DRAW_SUBMITTED vertices="+renderer.submittedVertices()); }
     }
     private static volatile boolean submitted;

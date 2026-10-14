@@ -100,6 +100,7 @@ tasks.named("check") { dependsOn(verifyRendererJar) }
 val gameProbe = sourceSets.create("gameProbe") {
     compileClasspath += configurations.getByName("compileClasspath")
 }
+sourceSets.test { compileClasspath += gameProbe.output; runtimeClasspath += gameProbe.output }
 tasks.register<Jar>("gameProbeJar") {
     dependsOn(gameProbe.classesTaskName)
     archiveClassifier.set("game-probe")
