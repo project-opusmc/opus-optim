@@ -1,13 +1,13 @@
 # O2 implementation scope
 
-Updated 2026-10-14. O2 is being engineered as a suite, not declared complete
+Updated 2026-10-15. O2 is being engineered as a suite, not declared complete
 because one frustum patch exists. These local commits remain on opus-optim.
 Every current candidate is EXPERIMENTAL, independently enabled and OFF without
 its flag. The user-directed Opus license is unchanged.
 
 | Area | Executable code currently implemented | Work still required |
 |---|---|---|
-| Render | Celeritas-backed custom region arena, ordered multi-draw and linked pointer setup; actual terrain/reload/VBO cycles; frustum and font candidates | Broader geometry/transparent/pack parity, entity/HUD pricing |
+| Render | Celeritas-backed custom region arena, ordered/coalesced multi-draw and linked pointer setup; actual terrain/reload/VBO cycles; frustum and font candidates | Broader geometry/transparent/pack parity, entity/HUD pricing |
 | Chunk | Pinned existing upload-drain deadline capped at 2 ms per call | Compile/queue/upload stage pricing, priority/aging/generation cancellation and world lifecycle |
 | Graphics | Separate Celeritas Common Java8/LWJGL2 backend and real GL2.1 pixel/lifetime harness; bounded geometric vertex-buffer growth | Actual GL counters, shader/pack acceptance, texture lifetime and supported backend work |
 | Workload | Fixed deferrable upload cap; zero/past sentinel and FIFO/progress retained | Cross-stage budgets, queue-latency pricing and comparison before any adaptive governor |
@@ -70,3 +70,17 @@ all five implemented startup patches actually applied. Final cycle96/96/0, GL0,
 no NPE/probe failures. Independent frozen review Important registration-boundary
 issue is fixed with real negative injection tests and native replay. See the
 [managed receipts](../evidence/2026-10-14-loader-runtime/RESULTS.md).
+
+## Draw queue/packing improvement — October 15
+
+The existing optional region backend now retains live arena segments in its
+queue and merges increasing adjacent complete independent primitives at finish.
+It preserves submission order, relocation, restart boundaries and signed GL
+count limits. No extra flag or provider is introduced. Strips/fans, gaps,
+reverse ranges and incomplete primitives retain separate commands.
+
+The [current draw-batching receipt](../evidence/2026-10-15-draw-batching/RESULTS.md)
+records 151 passing active O2 tests, Java 8 real GL blended pixel parity, the
+latest managed terrain/reload/VBO/world cycle and independent A/A/A/B CPU
+packing forks. Local synthetic CPU and command-count results are separate from
+whole-game FPS and the unmeasured native command-reduction ratio.

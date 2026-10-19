@@ -1,0 +1,4 @@
+RegionDrawBatchTest > arenaRelocationIsResolvedAtFinishBeforeDecidingAdjacency() FAILED
+RegionDrawBatchTest > contiguousCompletePrimitivesUseOneCommandWithoutDroppingVertices() FAILED
+RegionDrawBatchTest > growingQueueCoalescesAcrossThePreviousCapacityBoundary() FAILED
+8 tests completed, 3 failed

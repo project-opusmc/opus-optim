@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-15",
+  "branch": "opus-optim",
+  "baseRevision": "faf630393fa04a78f3d969743fe22df790433c4a",
+  "sourceSha256": {
+    "renderer-celeritas/src/main/java/org/polydevs/opusmc/optim/renderer/RegionRenderer.java": "ac8b28be255b728030ab3cafcd110be850a996eb257f3f6562f134ea458372d7",
+    "renderer-celeritas/src/smoke/java/org/polydevs/opusmc/optim/renderer/RegionGlVerify.java": "c38752493b7e97149caef43215d9dc60a80be5e18aadc4059d6ef5040455df7d",
+    "renderer-celeritas/src/smoke/java/org/polydevs/opusmc/optim/renderer/RegionBatchBench.java": "f86ab475112c7357cfec8761ca17ca55ce6e70314f2016df171474654b6169a3",
+    "scripts/region-batch-microbench.py": "46ec847ec8578570949e2f9dfe76ccde590adcdf84c277eb31f0d0e9439e866b",
+    "renderer-celeritas/src/test/java/org/polydevs/opusmc/optim/renderer/RegionDrawBatchTest.java": "e8d6662302c53ffc36e04519d1fe3dc6b9a3e1200cbab4433871d232984c9102",
+    "renderer-celeritas/src/test/java/org/polydevs/opusmc/optim/renderer/RegionRendererTest.java": "7eb7ab8b9a5199d817783100f99f3c7da8bb98d4e85d1cc68ce34cffcb1bdf3a"
+  },
+  "tests": {
+    "api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core": {
+      "tests": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "bench": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform-opus": {
+      "tests": 47,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "renderer-celeritas": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "newRegressionTests": 8,
+  "redTestsFailedAsExpected": 3,
+  "checks": {
+    "o2TestCheck": "PASS",
+    "actualBootstrapJava8SyntheticBridge": "PASS_SYNTHETIC",
+    "realSevenClassHookVerification": "PASS",
+    "actualCeleritasJava8Gl21PixelParity": "PASS",
+    "glRenderer": "Apple M4 / GL2.1 Metal90.5",
+    "blendedFixtureCommandsBefore": 2,
+    "blendedFixtureCommandsAfter": 1,
+    "coloredPixels": 21522
+  },
+  "cpuMeasurement": {
+    "scope": "CPU queue/command packing; no GL driver/game/FPS",
+    "confirmReceipt": "packing-confirm.json",
+    "initialReceipt": "packing-first.json",
+    "pairedMedianTreatmentControl": {
+      "contiguous": 0.6690253961216956,
+      "fragmented": 0.750127290266586,
+      "reverse": 0.7368140274602079
+    },
+    "warmSteadyBytesPerBatch": 0.0,
+    "gameFpsGain": "NOT_MEASURED",
+    "nativeGameCommandReductionRatio": "NOT_MEASURED"
+  },
+  "native": {
+    "session": "1792032393139-41996",
+    "framebuffer": "2000x1300",
+    "hostExitCode": 0,
+    "probeFailures": 0,
+    "nullPointerExceptions": 0,
+    "regionsCreated": 96,
+    "regionsDeleted": 96,
+    "liveRegions": 0,
+    "glError": 0,
+    "startupTerrainReloadVboOffOnWorldReopen": "PASS",
+    "bundleStagedMatchesBuild": true,
+    "bundleManifest": {
+      "schemaVersion": 2,
+      "loaderProtocolVersion": 1,
+      "backend": "celeritas-region",
+      "minecraftVersion": "1.8.9",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "providers": [
+        "opus.optim",
+        "opus.optim.renderer"
+      ],
+      "artifacts": [
+        {
+          "file": "api-0.0.1.jar",
+          "size": 13774,
+          "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+        },
+        {
+          "file": "bench-0.0.1.jar",
+          "size": 40321,
+          "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+        },
+        {
+          "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+          "size": 887804,
+          "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+        },
+        {
+          "file": "core-0.0.1.jar",
+          "size": 29061,
+          "sha256": "57fd49761ce17ed5ee7f062ee1b45ec19643362ba90b7c670eb7c1e029994b43"
+        },
+        {
+          "file": "fastutil-7.1.0.jar",
+          "size": 17655579,
+          "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+        },
+        {
+          "file": "joml-1.10.5.jar",
+          "size": 712082,
+          "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+        },
+        {
+          "file": "platform-opus-0.0.1.jar",
+          "size": 48799,
+          "sha256": "f525a1d316087d52e51fbbc8d8058c0ca81d68a8b50150977ae08410b35b1383"
+        },
+        {
+          "file": "renderer-celeritas-0.0.1.jar",
+          "size": 27604,
+          "sha256": "eb42771d4a3488ee323a78192fbfb1b594e6f87be8bf6cb90498732e665f45c9"
+        }
+      ]
+    }
+  },
+  "hostRevisions": {
+    "runtime": "cfec425a813e0c15c384b24edf9d42aa5de352a2",
+    "launcher": "fd3e9182aada4ce01f166d4931b18e769b3e8073"
+  },
+  "review": {
+    "frozenPatchSha256": "8ef4a34ae9d4c503493573bf8c274ed58e92d178859b46867758934870351159",
+    "state": "COMPLETE_NO_ACTIONABLE_FINDINGS",
+    "scope": "Read-only frozen patch review, source/lifetime/primitive semantics/tests/benchmark boundaries; author supplied execution evidence",
+    "reviewerReranNativeOrCpuWorkload": false
+  },
+  "licenseChanged": false,
+  "installedLauncherChanged": false,
+  "remoteRefsChanged": false,
+  "defaultEnabled": false,
+  "primaryLoaderSnapshotFilesUnchanged": 32,
+  "superprojectCheck": {
+    "date": "2026-10-19",
+    "command": "ORG_GRADLE_PROJECT_opusBootstrapJar=<Runtime bootstrap artifact> ./scripts/check.sh",
+    "exitCode": 0,
+    "result": "PASS",
+    "tailMarkers": [
+      "W5 REACT CEF ORACLE: ALL PASSED",
+      "W6 PRODUCTION MIGRATION: ALL PASSED",
+      "Release-lock contract tests passed"
+    ],
+    "scope": "Executed against the tested O2 candidate working tree; final O2 pin and release lock are synchronized after this check."
+  }
+}

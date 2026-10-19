@@ -20,7 +20,7 @@ public final class RegionRenderer implements AutoCloseable {
     private final int stride;
     private final Storage storage;
     private final Map<Object, Segment> meshes = new IdentityHashMap<>();
-    private Object[] queued = new Object[256];
+    private Segment[] queued = new Segment[256];
     private IntBuffer first = ints(256), count = ints(256);
     private int pending, mode;
     private boolean closed;
@@ -43,24 +43,39 @@ public final class RegionRenderer implements AutoCloseable {
     public void queue(int drawMode, Object range) {
         check();
         if (pending != 0 && mode != drawMode) throw new IllegalArgumentException("Mixed region draw modes");
-        if (!meshes.containsKey(range)) return;
+        Segment segment = meshes.get(range);
+        if (segment == null) return;
         if (pending == 65536) throw new IllegalStateException("Region draw queue exceeds 65536 entries");
         if (pending == queued.length) {
-            Object[] grown = new Object[queued.length * 2];
+            Segment[] grown = new Segment[queued.length * 2];
             System.arraycopy(queued, 0, grown, 0, pending);
             queued = grown; first = ints(grown.length); count = ints(grown.length);
         }
-        mode = drawMode; queued[pending++] = range;
+        mode = drawMode; queued[pending++] = segment;
     }
     public void finish(Runnable pointers) {
         check(); Objects.requireNonNull(pointers, "pointers");
         if (pending == 0) return;
         first.clear(); count.clear(); long vertices = 0;
         try {
+            // Only independent, complete primitives can cross a draw boundary.
+            // Strips/fans/unknown modes retain their original restart semantics.
+            int primitive = primitiveSize(mode);
+            int start = 0, length = 0;
             for (int i = 0; i < pending; i++) {
-                Segment segment = meshes.get(queued[i]);
-                first.put(segment.offset()); count.put(segment.length()); vertices += segment.length();
+                Segment segment = queued[i];
+                int nextStart = segment.offset(), nextLength = segment.length();
+                vertices += nextLength;
+                if (i != 0 && primitive != 0 && (long) start + length == nextStart
+                        && (long) length + nextLength <= Integer.MAX_VALUE
+                        && length % primitive == 0 && nextLength % primitive == 0) {
+                    length += nextLength;
+                } else {
+                    if (i != 0) { first.put(start); count.put(length); }
+                    start = nextStart; length = nextLength;
+                }
             }
+            first.put(start); count.put(length);
             first.flip(); count.flip();
             storage.draw(mode, first, count, pointers);
             draws++; submittedVertices += vertices;
@@ -87,6 +102,15 @@ public final class RegionRenderer implements AutoCloseable {
     private void check() {
         if (Thread.currentThread() != owner) throw new IllegalStateException("Region accessed from another thread");
         if (closed) throw new IllegalStateException("Region deleted");
+    }
+    private static int primitiveSize(int mode) {
+        switch (mode) {
+            case 0: return 1; // GL_POINTS
+            case 1: return 2; // GL_LINES
+            case 4: return 3; // GL_TRIANGLES
+            case 7: return 4; // GL_QUADS
+            default: return 0;
+        }
     }
     private static IntBuffer ints(int n) { return ByteBuffer.allocateDirect(n * 4).order(ByteOrder.nativeOrder()).asIntBuffer(); }
 }

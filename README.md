@@ -7,6 +7,11 @@ patches through completed Opus Loader's managed provider SPI. See
 [implementation map](docs/ENGINEERING_STATUS.md) for scope and evidence. Candidates
 remain experimental; installation and controlled FPS acceptance are separate.
 
+The [draw-batching improvement](evidence/2026-10-15-draw-batching/RESULTS.md)
+reduces repeated identity-map work and coalesces safe adjacent ranges in the
+existing optional renderer. It has real GL pixel/lifetime and managed-game
+verification; local CPU packing timings do not establish an FPS gain.
+
 ## Modules and verification
 
 - `:api`: immutable descriptors, patch claims, capability/environment identity,
