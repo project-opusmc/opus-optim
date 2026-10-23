@@ -64,7 +64,7 @@
     "chunkInitialCapacity": "PASS_REAL_CONSTRUCTOR_WITH_OWNED_ALLOCATION_SUBSTITUTES",
     "nativeAbbaSessions": "PASS_4x96_CREATED_96_DELETED_0_LIVE_GL0",
     "allEightStagedJarsAndManifestMatch": true,
-    "rootCheck": "NOT_COMPLETED_CONSOLE_LOCKED_EXIT_78",
+    "rootCheck": "PASS_AFTER_USER_UNLOCK_EXIT_0",
     "primaryLoaderSnapshotFilesUnchanged": 32,
     "disposableFixtureRestoredAndSha256Verified": true,
     "launcherWorkspace": {
@@ -72,7 +72,8 @@
       "failed": 0,
       "ignored": 1,
       "format": "PASS"
-    }
+    },
+    "rootBuild": "PASS_EXIT_0"
   },
   "claims": {
     "glyphPayloadBytesBefore": 19266,
@@ -115,6 +116,30 @@
     {
       "result": "CEF build/test refused because macOS console locked",
       "resolution": "Pending user unlock; no password requested and no guard bypass"
+    },
+    {
+      "result": "PASS: full check exit0 and build exit0 after explicit user unlock",
+      "resolution": "W4, all three W5 CEF oracles, W6, and release-lock contract passed; no guard bypass"
     }
-  ]
+  ],
+  "unlockedSuperprojectVerification": {
+    "date": "2026-10-23",
+    "testedRootRevision": "d5dcb6697772e152ee34b7a50718c710d437e5aa",
+    "testedPins": {
+      "optim": "cf530137422de7bdd3aa01e2c42a8dbd5fbc2fe8",
+      "launcher": "cc40135ef960378e3a13a980d2778fbb06fe8be8",
+      "runtime": "cfec425a813e0c15c384b24edf9d42aa5de352a2"
+    },
+    "checkCommand": "ORG_GRADLE_PROJECT_opusBootstrapJar=<Runtime bootstrap artifact> ./scripts/check.sh",
+    "checkExitCode": 0,
+    "w4InputContractPasses": 1,
+    "w5ReactCefOraclePasses": 3,
+    "w6ProductionMigration": "PASS",
+    "releaseLockContract": "PASS",
+    "buildCommand": "./scripts/build.sh",
+    "buildExitCode": 0,
+    "checkLogSha256": "75bf48cf212705cce29f04bb9f93d5ed447d7b668c5cbcbe141a8d80f3be8607",
+    "buildLogSha256": "c2cb634f9fdf9ea6233f072e20110ca5a194189b14f36b3c8644e67611469181",
+    "scope": "Same reviewed source/artifacts; subsequent O2 changes update verification documentation only. No new game memory or FPS measurement."
+  }
 }
