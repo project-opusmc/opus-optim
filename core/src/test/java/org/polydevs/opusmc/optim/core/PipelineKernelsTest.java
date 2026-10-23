@@ -6,6 +6,13 @@ import org.polydevs.opusmc.optim.core.workload.DeadlineBudget;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PipelineKernelsTest {
+    @Test void chunkInitialBudgetPreservesSmallAndInvalidRequestsWithoutCappingGrowth() {
+        assertEquals(-1, BufferGrowth.initialChunkInts(-1));
+        assertEquals(0, BufferGrowth.initialChunkInts(0));
+        assertEquals(64, BufferGrowth.initialChunkInts(64));
+        assertEquals(8192, BufferGrowth.initialChunkInts(Integer.MAX_VALUE));
+        assertEquals(40*1024*1024, BufferGrowth.capacity(40*1024*1024,32768));
+    }
     @Test void glyphTableKeepsFirstDuplicateAndMissingCodePoints() {
         short[] table = GlyphIndex.create("AABA\u0000ç");
         assertEquals(0, GlyphIndex.lookup(table, 'A'));

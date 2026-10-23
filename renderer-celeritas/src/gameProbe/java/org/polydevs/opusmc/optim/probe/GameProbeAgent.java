@@ -5,10 +5,12 @@ public final class GameProbeAgent {
     private static final java.util.concurrent.ConcurrentLinkedQueue<java.util.concurrent.FutureTask<?>> WORK = new java.util.concurrent.ConcurrentLinkedQueue<>();
     private static volatile boolean frameStarted;
     private static String disposableDirectory;
+    private static Instrumentation instrumentation;
     private GameProbeAgent() { }
     public static void premain(String expectedDirectory, Instrumentation ignored) {
         if(expectedDirectory==null || !expectedDirectory.contains("renderer-client"))throw new IllegalArgumentException("Explicit disposable renderer-client directory required");
         disposableDirectory = expectedDirectory;
+        instrumentation = ignored;
         ignored.addTransformer(new ProbeFrameTransformer());
         Thread t=new Thread(()->run(expectedDirectory),"O2 disposable gameplay probe");t.setDaemon(true);t.start();
     }
@@ -97,6 +99,7 @@ public final class GameProbeAgent {
             Thread.sleep(5000);
             schedule(type,game,()->{
                 try {
+                    MemoryProbe.snapshot("terrain-before-screenshot", instrumentation);
                     int width=type.getField("d").getInt(game),height=type.getField("e").getInt(game);
                     ByteBuffer pixels=ByteBuffer.allocateDirect(Math.multiplyExact(Math.multiplyExact(width,height),4));
                     GL11.glReadPixels(0,0,width,height,GL11.GL_RGBA,GL11.GL_UNSIGNED_BYTE,pixels);
@@ -132,6 +135,7 @@ public final class GameProbeAgent {
                     System.out.println("[O2/PROBE] unload regionsCreated="+hooks.getMethod("regionsCreated").invoke(null)+" regionsDeleted="+hooks.getMethod("regionsDeleted").invoke(null)+" liveRegions="+live);
                     if(live!=0)throw new IllegalStateException("Region leak after world unload");
                     if(((Long)hooks.getMethod("regionsCreated").invoke(null)).longValue()!=((Long)hooks.getMethod("regionsDeleted").invoke(null)).longValue())throw new IllegalStateException("Region lifecycle count mismatch");
+                    MemoryProbe.snapshot("world-unload", instrumentation);
                 }catch(Exception e){throw new IllegalStateException(e);}
             });
             Thread.sleep(2000);
@@ -154,6 +158,7 @@ public final class GameProbeAgent {
                     long created=((Long)hooks.getMethod("regionsCreated").invoke(null)).longValue(),deleted=((Long)hooks.getMethod("regionsDeleted").invoke(null)).longValue();
                     if(live!=0||created!=deleted)throw new IllegalStateException("Region leak after second world unload");
                     if(GL11.glGetError()!=0)throw new IllegalStateException("GL error after second world unload");
+                    MemoryProbe.snapshot("final-unload", instrumentation);
                     System.out.println("[O2/PROBE] "+(baseline?"baseline quit":"lifecycle")+" workload PASS regionsCreated="+created+" regionsDeleted="+deleted+" liveRegions="+live+" glError=0; shutdown REQUEST");
                     type.getMethod("m").invoke(game);
                 }catch(Exception e){throw new IllegalStateException(e);}

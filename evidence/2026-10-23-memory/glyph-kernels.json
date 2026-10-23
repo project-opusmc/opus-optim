@@ -1,0 +1,3412 @@
+{
+  "schemaVersion": 1,
+  "scope": "REAL_FONT_WIDTH_KERNEL_OLD_VS_NEW_O2_NOT_GAME_FPS",
+  "identity": {
+    "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+    "java": "1.8.0_74",
+    "arch": "x86_64",
+    "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+    "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+    "targets": {
+      "text.glyph_lookup": {
+        "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+        "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+        "factoryStatesVerified": true,
+        "unchangedMethodsVerified": true
+      },
+      "render.buffer_growth": {
+        "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+        "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+        "factoryStatesVerified": true,
+        "unchangedMethodsVerified": true
+      },
+      "world.fixed_budget": {
+        "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+        "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+        "factoryStatesVerified": true,
+        "unchangedMethodsVerified": true
+      }
+    }
+  },
+  "coreSha256": {
+    "baseline": "57fd49761ce17ed5ee7f062ee1b45ec19643362ba90b7c670eb7c1e029994b43",
+    "treatment": "646dd2bfd0ef4493773b4a95ef4002a858c83d6d3ee6924bda9e5a2f63b14d32"
+  },
+  "javaVersion": "java version \"1.8.0_74\"\nJava(TM) SE Runtime Environment (build 1.8.0_74-b02)\nJava HotSpot(TM) 64-Bit Server VM (build 25.74-b02, mixed mode)",
+  "summaries": {
+    "ascii": {
+      "AA": {
+        "pairedRatios": [
+          0.9578190224078148,
+          0.979763042190209,
+          1.0238593669938119
+        ],
+        "medianRatio": 0.979763042190209
+      },
+      "AB": {
+        "pairedRatios": [
+          0.9963416051570588,
+          0.9952909768209321,
+          1.1703971498128514,
+          0.6763144296426341,
+          0.9812982716309601
+        ],
+        "medianRatio": 0.9952909768209321
+      }
+    },
+    "unicode": {
+      "AA": {
+        "pairedRatios": [
+          1.0251729152008577,
+          0.9163397245395499,
+          0.9931742373322281
+        ],
+        "medianRatio": 0.9931742373322281
+      },
+      "AB": {
+        "pairedRatios": [
+          0.9842977433555234,
+          0.7063855550925984,
+          1.072226776422903,
+          1.712543604213463,
+          1.0875526093088859
+        ],
+        "medianRatio": 1.072226776422903
+      }
+    },
+    "glyphs": {
+      "AA": {
+        "pairedRatios": [
+          0.9894581845551917,
+          1.0362607528898864,
+          0.7800490751605027
+        ],
+        "medianRatio": 0.9894581845551917
+      },
+      "AB": {
+        "pairedRatios": [
+          1.0513413806536298,
+          1.202872250209741,
+          1.0313977249779704,
+          1.0005343966731066,
+          1.0601889289762516
+        ],
+        "medianRatio": 1.0513413806536298
+      }
+    }
+  },
+  "runs": [
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "635c05f1-9048-4112-acaf-2789428e198c",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1587250,
+        1588375,
+        1674375,
+        1729167,
+        1678250,
+        1826417,
+        1660542,
+        1955958,
+        2060500,
+        1645916
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AA",
+      "pair": 0,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.598656177520752
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "7278d377-89a7-4d0b-8188-0b1b43056e3d",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2094416,
+        2045666,
+        2044000,
+        2300125,
+        1623083,
+        1580834,
+        1580792,
+        1588125,
+        1580750,
+        1585917
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AA",
+      "pair": 0,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5312232971191406
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "097de7ff-112b-4bdf-b862-2d28c197c46e",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1571542,
+        1564333,
+        1619875,
+        1578042,
+        1588209,
+        1567708,
+        1557333,
+        1561208,
+        1559125,
+        1569167
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AA",
+      "pair": 1,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.4957785606384277
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "3abeee66-dd4f-47bb-ab16-4fda7e3e903b",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1601292,
+        1600375,
+        1600083,
+        1601833,
+        1600041,
+        9309291,
+        1617792,
+        1599458,
+        1605250,
+        1584000
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AA",
+      "pair": 1,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5266737937927246
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "b4ff2be1-ed98-4e09-af02-4ae0416d8e65",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2065792,
+        2019833,
+        2024833,
+        2098875,
+        1601250,
+        1570125,
+        1557417,
+        1564541,
+        1479250,
+        1525250
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AA",
+      "pair": 2,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5122294425964355
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "93dc1557-98a6-485d-b643-6b9b41982454",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2067209,
+        2016625,
+        2032458,
+        2062250,
+        1658459,
+        1565583,
+        1557291,
+        1557459,
+        1588583,
+        1557292
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AA",
+      "pair": 2,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5483102798461914
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "bc4ac2bb-ae32-4c4c-80ae-ea0de1e29646",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1803500,
+        1647500,
+        1600125,
+        1600292,
+        1600083,
+        1601625,
+        1600084,
+        1600292,
+        1600042,
+        1652584
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 0,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5261573791503906
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "f4886bae-8626-4a7a-8239-2d98d3e07ae7",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2071708,
+        2029375,
+        2024042,
+        2076167,
+        1602167,
+        1567542,
+        1586708,
+        1557417,
+        1559042,
+        1557375
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 0,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.5205740928649902
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "08537566-422e-4b2d-8ae6-1da3f3dd901b",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2031541,
+        2000292,
+        2006958,
+        2236375,
+        1603208,
+        1557542,
+        1567166,
+        1557542,
+        1557541,
+        1560333
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 1,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.5117521286010742
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "4ba1e729-e2b9-4dff-ba7f-d347bd3414e8",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2070042,
+        2024416,
+        2029333,
+        2181875,
+        1607666,
+        1566375,
+        1557334,
+        1557291,
+        1563792,
+        1577708
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 1,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.518904685974121
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "3ad20921-6302-47ab-9210-9a23cee591c0",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2073083,
+        2014583,
+        2027541,
+        2113750,
+        1595500,
+        1564000,
+        1566959,
+        1565000,
+        1557333,
+        1563792
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 2,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5079779624938965
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "1f69b514-d279-4339-a3e1-9c28b304c272",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2126625,
+        2080333,
+        2119125,
+        2167959,
+        2113916,
+        1621000,
+        1580958,
+        1580875,
+        1582708,
+        1581000
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 2,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.7649331092834473
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "345deb5c-a06b-4e01-81e1-c84c6d79f6d4",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2087250,
+        2058375,
+        2056792,
+        2096084,
+        1632083,
+        1589125,
+        1580875,
+        1591542,
+        1582833,
+        1581000
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 3,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.5371441841125488
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "1a8b8c1e-7ed9-4e5e-949d-e607c36975f7",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2390625,
+        2382375,
+        2395791,
+        2389209,
+        2384084,
+        2419084,
+        2371167,
+        2376375,
+        2368750,
+        2371208
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 3,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 2.272824764251709
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "b70f83ca-96eb-47d1-8c11-9fa70ade4745",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2063250,
+        2023834,
+        2035375,
+        2078250,
+        1594208,
+        1594000,
+        1563875,
+        1557375,
+        1558708,
+        1557375
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 4,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5202560424804688
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "c3e0d187-687b-489a-9811-80c845e0889e",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "ascii",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1590709,
+        1564666,
+        1574708,
+        1557375,
+        1565625,
+        1557375,
+        1557416,
+        1568833,
+        1563917,
+        1561500
+      ],
+      "checksums": [
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272,
+        1065134977974272
+      ],
+      "blackhole": 1065134977974272,
+      "phase": "AB",
+      "pair": 4,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.4918246269226074
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "00826a8b-f30c-4c1f-9266-ec58a4b135c2",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1895458,
+        1861666,
+        1863250,
+        1867875,
+        1858959,
+        1861375,
+        1877083,
+        1867625,
+        1870333,
+        1784167
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AA",
+      "pair": 0,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.779019832611084
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "978b58ac-0566-4af8-af50-80021c27baa4",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2119792,
+        1955000,
+        1919292,
+        1905500,
+        1941500,
+        2023417,
+        1618875,
+        1538750,
+        1568458,
+        1562833
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AA",
+      "pair": 0,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.8238029479980469
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "63d7d085-e1b9-4e3f-9f42-aaf4e34aa259",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        3022375,
+        2948791,
+        2915042,
+        2942833,
+        1686792,
+        1571042,
+        1586666,
+        1594334,
+        1594292,
+        1606916
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AA",
+      "pair": 1,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5705623626708984
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "e321fd4a-b834-4672-81fb-75d2c7802fc7",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1967792,
+        1916458,
+        1911959,
+        1965541,
+        2278666,
+        1682459,
+        1602542,
+        1602042,
+        1602166,
+        1607208
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AA",
+      "pair": 1,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.7139520645141602
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "c88ff1c9-fd8f-4b56-b9cf-9e7cab25a395",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2045750,
+        1999416,
+        1998000,
+        2068291,
+        1667334,
+        1578750,
+        1578708,
+        1578833,
+        1592375,
+        1559750
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AA",
+      "pair": 2,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5543503761291504
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "b21fd6d2-d7eb-4f98-8d4e-a5ec1c47a08b",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1619917,
+        1619084,
+        1620459,
+        1622250,
+        1618250,
+        1623000,
+        1617875,
+        1618375,
+        1618208,
+        1618166
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AA",
+      "pair": 2,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5437407493591309
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "d22eda79-9e53-472f-840f-d546fea876bd",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1942583,
+        1889500,
+        1896000,
+        1954292,
+        2285417,
+        1658334,
+        1571958,
+        1581375,
+        1570792,
+        1593500
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 0,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6917390823364258
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "4c4a17ec-7521-4a55-bfd3-f119b86ee353",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2881291,
+        2857000,
+        2828041,
+        2884417,
+        1782417,
+        1695625,
+        1700958,
+        1696291,
+        1709708,
+        1697667
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 0,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.665174961090088
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "92740e07-6578-48ed-8002-3a007c7f7576",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2088208,
+        2035667,
+        2036833,
+        2074208,
+        2042750,
+        1777167,
+        1694917,
+        1715209,
+        1728250,
+        1700208
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 1,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.818100929260254
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "2aa02dae-9e32-4dda-9f75-826ffff604f0",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        3690250,
+        3496417,
+        3428709,
+        4151500,
+        1832958,
+        1726417,
+        1968958,
+        4705333,
+        1721542,
+        1721708
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 1,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 2.573808193206787
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "d0aaef79-1912-4ea0-b427-e853d9b28c54",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1580750,
+        1581708,
+        1577834,
+        1570375,
+        1571500,
+        1580000,
+        1581166,
+        1581166,
+        1588625,
+        1583875
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 2,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.5077190399169922
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "e82eeebb-56b9-4ced-9f9f-c59a02ce3541",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1718917,
+        1702625,
+        1695791,
+        1692917,
+        1703625,
+        1705083,
+        1694083,
+        1694500,
+        1692625,
+        1692416
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 2,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.6166167259216309
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "8b37880f-9118-4111-b58e-439fab58f943",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        3466834,
+        3417000,
+        3405292,
+        6074334,
+        2672041,
+        2611333,
+        2604875,
+        2616792,
+        2610833,
+        2608125
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 3,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 2.521912097930908
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "deece3c1-5aff-4a00-98b7-89f98c47195f",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1542375,
+        1542625,
+        1543416,
+        1550833,
+        1592208,
+        1544541,
+        1551625,
+        1557291,
+        1542792,
+        1543750
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 3,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.472611904144287
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "e85c67b8-bfa3-4ff1-9842-bcc7e033f574",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1960833,
+        1901167,
+        1914500,
+        1943666,
+        2038541,
+        1643833,
+        1546875,
+        1560500,
+        1544834,
+        1544208
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 4,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6903877258300781
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "e9615a23-2b12-4124-8630-89edcd6b4f29",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "unicode",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2138916,
+        2089458,
+        2078166,
+        2115292,
+        2096167,
+        1777208,
+        1701083,
+        1736833,
+        1717625,
+        1712792
+      ],
+      "checksums": [
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872,
+        547022335439872
+      ],
+      "blackhole": 547022335439872,
+      "phase": "AB",
+      "pair": 4,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.8383855819702148
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "ccf2d6e8-e61d-497b-a232-93ab22162b32",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2397917,
+        2359541,
+        2362333,
+        2395542,
+        1776166,
+        1688334,
+        1688333,
+        1690125,
+        1688417,
+        1689708
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AA",
+      "pair": 0,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6528563499450684
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "1103e1aa-4010-44f0-b060-98cbf9ce84fb",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1921625,
+        2828959,
+        1767542,
+        1718291,
+        1715292,
+        1712375,
+        1714458,
+        1712333,
+        1712375,
+        1712333
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AA",
+      "pair": 0,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.635432243347168
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "07167100-b803-451b-ac53-139958ff0663",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1802500,
+        1801875,
+        1798375,
+        1804167,
+        1801667,
+        1788000,
+        1795083,
+        1818333,
+        1817500,
+        1821792
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AA",
+      "pair": 1,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.7186999320983887
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "234c181d-6e68-4ae5-9670-f5f6c8d59a7e",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2166417,
+        2134334,
+        2135625,
+        2185209,
+        1767292,
+        1696125,
+        1699708,
+        1710959,
+        1696042,
+        1696125
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AA",
+      "pair": 1,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6585593223571777
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "46238554-84d6-42b8-a79f-b792cfd65c7b",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2157958,
+        2136375,
+        2113583,
+        2164459,
+        2282750,
+        2246459,
+        2254417,
+        2271042,
+        2246667,
+        2245834
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AA",
+      "pair": 2,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 2.142092227935791
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "febbd475-22d6-4430-808c-fc1b1fd8fab9",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2225500,
+        2183208,
+        2176292,
+        2368833,
+        1778792,
+        1725417,
+        1724166,
+        1719208,
+        1719167,
+        1721042
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AA",
+      "pair": 2,
+      "role": "repeat",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6709370613098145
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "1d0848cd-11cb-4e82-8057-bc3934695e5c",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2186375,
+        2193875,
+        2135292,
+        2195500,
+        1781917,
+        1711834,
+        1682125,
+        1688208,
+        1704458,
+        1694125
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 0,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6659502983093262
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "97464030-7d3e-4827-86bc-601e41582fa5",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2246708,
+        2209541,
+        2213833,
+        2258167,
+        1861458,
+        1787250,
+        1798667,
+        1795084,
+        1811667,
+        1792209
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 0,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.7514824867248535
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "d9412335-c46f-4faa-989b-c122acd0410e",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2272750,
+        2239625,
+        2373375,
+        2280291,
+        4952833,
+        2007166,
+        1962625,
+        1959375,
+        1960458,
+        1946958
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 1,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 2.0250277519226074
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "9d469e69-a47f-4ebb-828f-d51feadc4f47",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2213084,
+        2159959,
+        2156875,
+        2197125,
+        1779708,
+        1708125,
+        1750834,
+        1708083,
+        1707959,
+        1694333
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 1,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6834936141967773
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "ae15103e-ff08-4c0d-a41f-9fa6a7b43979",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2378083,
+        2341916,
+        2338125,
+        2378625,
+        1765875,
+        1709208,
+        1720333,
+        1677458,
+        1683000,
+        1682166
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 2,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.662353515625
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "69ffc1fb-8c5c-45d8-808e-75265098e1e9",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1798250,
+        1797417,
+        1805292,
+        1802667,
+        1797167,
+        7447666,
+        1868750,
+        1763542,
+        1765584,
+        1772417
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 2,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.7145476341247559
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "6ea1631f-3613-4f29-9ab4-1e06dd237353",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2274208,
+        2243250,
+        2234417,
+        2853000,
+        1923708,
+        1808833,
+        1808667,
+        1818958,
+        1808709,
+        1810375
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 3,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.784642219543457
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "9982902c-50ac-49a8-9bc0-3c709ed349f6",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        1892125,
+        1890792,
+        1869667,
+        1867250,
+        1873500,
+        1867292,
+        1867208,
+        1867291,
+        1876625,
+        1871000
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 3,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.783689022064209
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "93c59b5f-1df2-46de-ac17-60b239ff35e8",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "d580bafb498a1f814a73d9181861d67eded628e0c54275168588d8c3c0b5b5d0",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 19266,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        2146125,
+        2119958,
+        2127084,
+        2169250,
+        1750041,
+        1722375,
+        1689041,
+        1688959,
+        1690083,
+        1687458
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 4,
+      "role": "control",
+      "variant": "baseline",
+      "medianNsPerQuery": 1.6557769775390625
+    },
+    {
+      "schemaVersion": 1,
+      "scope": "REAL_METHOD_KERNELS_WITH_OWNED_SUBSTITUTES_NOT_GAME",
+      "sessionId": "944d3f39-6bc0-4cd2-8556-f83c4e0214b2",
+      "java": "1.8.0_74",
+      "arch": "x86_64",
+      "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+      "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+      "targets": {
+        "text.glyph_lookup": {
+          "originalSha256": "bf11b41d4cfa907e6cd3b517497cb8a82fd3ef21ef375b558dc6427c76e98c3e",
+          "patchedSha256": "219566eef226d41bc497c9fa8e4d935be93b044ab159a52abe0cab4d35abd71c",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "render.buffer_growth": {
+          "originalSha256": "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40",
+          "patchedSha256": "f6b0fc199af621de1d7af10214fcae9fba4518e4877cd46ebd6d24043a5499a7",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        },
+        "world.fixed_budget": {
+          "originalSha256": "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7",
+          "patchedSha256": "c84109853d75d493e363a4eb6036aa32c8402c4a35ab8af291e8e4459b7af43e",
+          "factoryStatesVerified": true,
+          "unchangedMethodsVerified": true
+        }
+      },
+      "helperSha256": {
+        "GlyphIndex": "fbf2d5dbf9fb878c2e0f2c3ae25c34e2725820d6bd5012148ce2981cf4e7d354",
+        "BufferGrowth": "0d0a987e5d3f9b6de99f21932bbc8705028a3f779fba3fe04cf0ca32fd7f8e43",
+        "DeadlineBudget": "edee912aaa6ec6121bc573992c4478c57f96cb5ecee7493925c71630c2a373cb"
+      },
+      "fontIndexPayloadBytes": 4608,
+      "arm": "treatment",
+      "workload": "glyphs",
+      "queriesPerSample": 1048576,
+      "warmupQueries": 10485760,
+      "sampleNanos": [
+        3079125,
+        3056041,
+        3066167,
+        3078375,
+        1883792,
+        1793875,
+        1793791,
+        1797625,
+        1782625,
+        1757750
+      ],
+      "checksums": [
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856,
+        1025094876921856
+      ],
+      "blackhole": 1025094876921856,
+      "phase": "AB",
+      "pair": 4,
+      "role": "treatment",
+      "variant": "treatment",
+      "medianNsPerQuery": 1.7554364204406738
+    }
+  ]
+}

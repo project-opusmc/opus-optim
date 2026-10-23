@@ -1,7 +1,7 @@
 # O2 render, chunk and runtime pipeline candidates
 
 The owner requests the optimizer suite, not completion of one frustum candidate.
-This increment implements three executable startup patches against current local
+The pipeline pack implements four executable startup patches against current local
 Minecraft 1.8.9 + OptiFine M5 raw bytecode. FPS/frame tails are outcomes to measure,
 not a separate feature that can promise gains without a game run. The broader
 suite remains in development. All candidates remain EXPERIMENTAL and individually
@@ -27,6 +27,8 @@ and the NUL entries. The table has at most 65,536 shorts. Format-code lookups,
 font widths, style flags and pack-owned width arrays remain live and unchanged.
 Claims: a(CZ)F, a(Ljava/lang/String;Z)V, getCharWidthFloat(C)F plus <clinit>()V
 and the private synthetic o2$glyphIndex field. Reject unknown input by identity.
+The opaque table keeps ASCII/Latin-1 direct and stores only populated upper
+Unicode pages. Callers use GlyphIndex.lookup rather than indexing its storage.
 
 ## Graphics vertex-buffer allocation
 
@@ -40,6 +42,16 @@ bookkeeping or GL call changes. This trades bounded extra capacity for fewer
 direct allocations/copies; peak memory and copy counts must be reported together.
 
 ## Chunk upload and workload control
+
+`world.chunk_buffer_capacity`: pinned bfg input
+fb4c85214e34e676e2561c9614117f85148eb45f60efdb2565557716c9c8d725.
+At its four bfd(int) constructor calls, cap only the initial integer capacity
+at 8192 (32 KiB per layer). A builder therefore starts with 128 KiB of direct
+buffers instead of 10 MiB. Original buffer growth remains responsible for larger
+meshes; this is not a maximum mesh size or a change to builder/worker counts.
+It is independent of render.buffer_growth and stays OFF without explicit selection.
+Cold reallocations, completion latency, and actual retained/native memory must
+be measured; initial capacity savings alone do not establish RSS or FPS gains.
 
 `world.fixed_budget`: pinned bho input
 381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7.

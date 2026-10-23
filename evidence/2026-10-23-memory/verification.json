@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "branch": "opus-optim",
+  "baseRevisions": {
+    "optim": "c5e2202de485dd72d69ee947011380d1e2ff0543",
+    "launcher": "fd3e9182aada4ce01f166d4931b18e769b3e8073",
+    "runtime": "cfec425a813e0c15c384b24edf9d42aa5de352a2"
+  },
+  "sourceSha256": {
+    "core/src/main/java/org/polydevs/opusmc/optim/core/render/BufferGrowth.java": "356df84ec48cc081812ec62fc2649811f4b2c8111105f81b9db9e25ebeb20bf5",
+    "core/src/main/java/org/polydevs/opusmc/optim/core/render/GlyphIndex.java": "3a4318fa46de7fda69cb9339ee5d304b450511f3ab2256315613eeda91af826f",
+    "core/src/test/java/org/polydevs/opusmc/optim/core/GlyphMemoryTest.java": "7def9cb410b37cdd19008dbf1ce3ebf3b2df01011cbf0e5ff982e8e6a21033e4",
+    "core/src/test/java/org/polydevs/opusmc/optim/core/PipelineKernelsTest.java": "cf481dc7c38ccbeafd2812e4118190ceb2288f9d843f74b6edeb8877442ef99e",
+    "docs/PIPELINE_OPTIM_SPEC.md": "38f7250a458a6c861370e49cfce0ce528ecb1b9917cd1a0dbbc7a566d1e5b84e",
+    "platform-opus/src/main/java/org/polydevs/opusmc/optim/platform/mc189/PipelineOptimizations.java": "e9db33dbc314c46617171d288193f38517edef6db6583c44bcc8cca9364233d3",
+    "platform-opus/src/main/java/org/polydevs/opusmc/optim/platform/mc189/PipelinePatch.java": "575292ad31a9bbde70301341e9f303b52e527979dcc61aab117b98cdfc684584",
+    "platform-opus/src/smoke/java/org/polydevs/opusmc/optim/smoke/PipelineVerify.java": "cd99dabf8ee6f72f4e347daf40ea4bd06ce0b32f7667b38e630e861d0b130eca",
+    "platform-opus/src/test/java/org/polydevs/opusmc/optim/platform/mc189/PipelinePatchTest.java": "74d44f68af9a9c6337e752672e051dadcc00c01c3b0964c5639d17407448d5af",
+    "renderer-celeritas/src/gameProbe/java/org/polydevs/opusmc/optim/probe/GameProbeAgent.java": "d2de1b97c304a426cb56b040c0df9694b670ce7c855cbddeae555e02b230bb28",
+    "renderer-celeritas/src/gameProbe/java/org/polydevs/opusmc/optim/probe/MemoryProbe.java": "b0e4c8158a29b615d21d5955f3a1702676de1fa9888be0234790b235770d4385",
+    "scripts/glyph-memory-microbench.py": "f706f04e1bdbb8351fd04d680069ac49afea96f98a714bb19ed4dbf0661c61d8"
+  },
+  "tests": {
+    "api": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "bench": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform-opus": {
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "renderer-celeritas": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "totalTests": 155,
+  "actualJava8": "1.8.0_74 x86_64 (Rosetta on Apple M4)",
+  "checks": {
+    "optimTestCheck": "PASS",
+    "java8BridgeSmoke": "PASS_SYNTHETIC",
+    "realFontWidthParityCases": 131072,
+    "realFontWidthMismatches": 0,
+    "smallInitialBufferGrowth": "PASS_REAL_METHOD_KERNEL",
+    "chunkInitialCapacity": "PASS_REAL_CONSTRUCTOR_WITH_OWNED_ALLOCATION_SUBSTITUTES",
+    "nativeAbbaSessions": "PASS_4x96_CREATED_96_DELETED_0_LIVE_GL0",
+    "allEightStagedJarsAndManifestMatch": true,
+    "rootCheck": "NOT_COMPLETED_CONSOLE_LOCKED_EXIT_78",
+    "primaryLoaderSnapshotFilesUnchanged": 32,
+    "disposableFixtureRestoredAndSha256Verified": true,
+    "launcherWorkspace": {
+      "passed": 126,
+      "failed": 0,
+      "ignored": 1,
+      "format": "PASS"
+    }
+  },
+  "claims": {
+    "glyphPayloadBytesBefore": 19266,
+    "glyphPayloadBytesAfter": 4608,
+    "glyphArraySizeBytesBefore": 19288,
+    "glyphArraySizeBytesAfter": 4624,
+    "chunkInitialBytesBefore": 10485760,
+    "chunkInitialBytesAfter": 131072,
+    "netProcessRssImprovement": "NOT_ESTABLISHED_TREATMENT_FINAL_RSS_HIGHER",
+    "wholeGameFpsImprovement": "NOT_MEASURED",
+    "retainedLiveHeapImprovement": "NOT_MEASURED",
+    "coldChunkLatency": "NOT_MEASURED",
+    "defaultPromotion": false
+  },
+  "review": {
+    "o2FrozenPatchSha256": "9ef6e79c24f0a938de8e7f26a6dfa3997af546a08dfaa32e75388b541fce29ff",
+    "launcherFrozenPatchSha256": "f51a850a7c5a2041742cb9806f340d76744c7e741b2d0a42fa309acd639b52d5",
+    "state": "COMPLETE_NO_REQUIRED_CORRECTNESS_FIXES",
+    "scope": "Read-only frozen-patch/source/actual pinned class review; no native workloads rerun"
+  },
+  "noPush": true,
+  "noInstall": true,
+  "licenseChanged": false,
+  "glyphBenchmarkIsolation": {
+    "method": "Author entry-by-entry ZIP comparison before executing the benchmark",
+    "differingEntries": [
+      "org/polydevs/opusmc/optim/core/render/GlyphIndex.class"
+    ],
+    "enforcedByBenchmarkScript": false
+  },
+  "checkAttemptHistory": [
+    {
+      "result": "Rust format check initially failed",
+      "resolution": "cargo fmt; full workspace fmt now passes"
+    },
+    {
+      "result": "Missing pinned legacy Gradle2.14.1 toolchain",
+      "resolution": "Pinned Gradle/JDK8 archives downloaded, SHA256 verified and extracted to existing build cache"
+    },
+    {
+      "result": "CEF build/test refused because macOS console locked",
+      "resolution": "Pending user unlock; no password requested and no guard bypass"
+    }
+  ]
+}

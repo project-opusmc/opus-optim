@@ -71,6 +71,11 @@ public final class PipelinePatch implements ClassTransformer {
                         super.visitLdcInsn(value);
                     }
                     @Override public void visitMethodInsn(int opcode,String owner,String method,String descriptor,boolean iface) {
+                        if (kind==PipelineOptimizations.Kind.CHUNK_BUFFERS && opcode==Opcodes.INVOKESPECIAL
+                                && owner.equals("bfd") && method.equals("<init>") && descriptor.equals("(I)V")) {
+                            out.visitMethodInsn(Opcodes.INVOKESTATIC,Type.getInternalName(BufferGrowth.class),"initialChunkInts","(I)I",false);
+                            edits[0]++;
+                        }
                         if (glyphPending && owner.equals("java/lang/String") && method.equals("indexOf") && descriptor.equals("(I)I")) {
                             out.visitInsn(Opcodes.SWAP);out.visitInsn(Opcodes.POP);
                             out.visitFieldInsn(Opcodes.GETSTATIC,kind.target,TABLE,"[S");out.visitInsn(Opcodes.SWAP);
@@ -100,7 +105,8 @@ public final class PipelinePatch implements ClassTransformer {
                 super.visitEnd();
             }
         },0);
-        if (edits[0]!=(alphabet==null ? 1 : 3)) { throw new IllegalStateException("Pinned anchor count changed: "+edits[0]); }
+        int expected=kind==PipelineOptimizations.Kind.CHUNK_BUFFERS ? 4 : alphabet==null ? 1 : 3;
+        if (edits[0]!=expected) { throw new IllegalStateException("Pinned anchor count changed: "+edits[0]); }
         return writer.toByteArray();
     }
     private void initialize(MethodVisitor out,String alphabet) {

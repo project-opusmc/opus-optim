@@ -14,6 +14,8 @@ public final class PipelineOptimizations {
                 "a(CZ)F", "a(Ljava/lang/String;Z)V", "getCharWidthFloat(C)F", "<clinit>()V", "o2$glyphIndex:[S"),
         BUFFER_GROWTH("render.buffer_growth", "bfd", "5d231d8bc0b76de6072d24eab8f6f49d7bb84a6044ab6a33ae84aa1296c60a40", 400,
                 "mc189.worldrenderer.optifine-m5.notch", BufferGrowth.class, "b(I)V"),
+        CHUNK_BUFFERS("world.chunk_buffer_capacity", "bfg", "fb4c85214e34e676e2561c9614117f85148eb45f60efdb2565557716c9c8d725", 400,
+                "mc189.chunk-builder.optifine-m5.notch", BufferGrowth.class, "<init>()V"),
         UPLOAD_BUDGET("world.fixed_budget", "bho", "381976963d303e09ea0fba4fe4c0b0ec6db24db0b4da10e88fce999904e372c7", 400,
                 "mc189.chunk-dispatcher.optifine-m5.notch", DeadlineBudget.class, "a(J)Z");
 

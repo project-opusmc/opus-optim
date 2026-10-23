@@ -1,0 +1,624 @@
+{
+  "scope": "MANAGED_GAME_MEMORY_OBSERVATIONS_NOT_FPS_OR_LIVE_HEAP",
+  "order": [
+    "A",
+    "B",
+    "B",
+    "A"
+  ],
+  "fixtureSha256": {
+    "optionsof.txt": "a68109c2bfbbb2880ad1380e186d99b1c333d66da30e0891ba4a6687110fe81d",
+    "options.txt": "b114e17e2840355c68919ee9dd0ff68f728c528bde1b0b6272f20e6fa036b568",
+    "O2RendererProbe/level.dat_old": "200199d4dc4c426e7069aa01b0a87fcdb05dedbfb2e78c7cee83032f2a490880",
+    "O2RendererProbe/level.dat_mcr": "612f191ee4fb13582357e92c3fe642c0a5de393f4d9771462b8f5fe18d79ad82",
+    "O2RendererProbe/level.dat": "373237206d8118843bce5391d23a8180ba3413bfcba68e1bf95b77d597d6ad22",
+    "O2RendererProbe/session.lock": "de22d4ed747379ef52a5c89ac43ed1f5319d5bf595aac4f7326e07d70323a297",
+    "O2RendererProbe/playerdata/db6e813d-31b6-3e83-b56e-4e4b53295aa1.dat": "7561d9e0e6f5c62940078d6f1d790e20bdbc2906b5861685a637544ea2f5e706",
+    "O2RendererProbe/region/r.2.-2.mca": "3944c1bd7867699e878ccca0ff69e38e34dbbba0f04947718f8bf20bcc6ccd5f",
+    "O2RendererProbe/region/r.2.-3.mca": "f179ea31fd11b5462fc635fb36e3a2fe17e3463fef8724d8375d3ae4bfb39cd5",
+    "O2RendererProbe/region/r.0.-1.mca": "6a6e27a2bd3ba362caccfad5b63513376b13022b530839ce21d51e619be9a8d5",
+    "O2RendererProbe/region/r.0.-2.mca": "15995ad717e1adc1f69a7bc730d661b578c76f08045dac95add20d7756eb45cf",
+    "O2RendererProbe/region/r.0.-3.mca": "95a95b45d1f92127a7bbc34f4d15f9bdafae99e27e96ae60450b7f8051444a11",
+    "O2RendererProbe/region/r.0.0.mca": "41c0556704eb4ce9bb7287623a2fbae42248b733d87ee456150d7fce115f9a18",
+    "O2RendererProbe/region/r.-1.-2.mca": "f12e215facf57ebfaf883d02a407a860edd952ef287193bf0ccb78cb04325b96",
+    "O2RendererProbe/region/r.-1.-1.mca": "d833e4b09bb0dc0626fbb5d2b32ff3f462a774a60fb307fff91de591144c24c7",
+    "O2RendererProbe/region/r.1.-3.mca": "12c2d36b6228d547041418879451eb7bbcb9fd2434246f9bb5371c8004f5cd6c",
+    "O2RendererProbe/region/r.1.-2.mca": "c50ff98571a78857be052d114699c9f5a9b8545fc2614c81e8e158d3d2e4818c",
+    "O2RendererProbe/data/villages_end.dat": "30e4ac6db067293fd802c616d32d1fcb9bf102f4ef811d26454e447af2218676",
+    "O2RendererProbe/data/villages_nether.dat": "30e4ac6db067293fd802c616d32d1fcb9bf102f4ef811d26454e447af2218676",
+    "O2RendererProbe/data/villages.dat": "30e4ac6db067293fd802c616d32d1fcb9bf102f4ef811d26454e447af2218676",
+    "O2RendererProbe/stats/db6e813d-31b6-3e83-b56e-4e4b53295aa1.json": "fd3c56c5613d871f35be5202af171dddea21eb4f05405113cf23e988ca050893"
+  },
+  "runs": [
+    {
+      "label": "1-baseline",
+      "arm": "baseline",
+      "session": "1792729978371-92650",
+      "hostExitCode": 0,
+      "patchSelection": [
+        "runtime.resource_string_cache",
+        "text.glyph_lookup",
+        "render.buffer_growth",
+        "render.frustum.positive-vertex",
+        "world.fixed_budget"
+      ],
+      "samples": [
+        {
+          "phase": "terrain-before-screenshot",
+          "heapUsed": 248361400,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 75137880,
+          "directUsed": 689713174,
+          "directCapacity": 689713173,
+          "directCount": 11188,
+          "gcCount": 43,
+          "gcMillis": 766,
+          "rssBytes": 504037376,
+          "glyphTables": 1,
+          "glyphArrayBytes": 19288,
+          "glyphPayloadBytes": 19266,
+          "regionGpuBytes": 10028032,
+          "regionArenas": 16,
+          "emptyRegionArenas": 12
+        },
+        {
+          "phase": "world-unload",
+          "heapUsed": 160763672,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 75979048,
+          "directUsed": 688737998,
+          "directCapacity": 688737997,
+          "directCount": 5136,
+          "gcCount": 47,
+          "gcMillis": 1018,
+          "rssBytes": 676429824,
+          "glyphTables": 1,
+          "glyphArrayBytes": 19288,
+          "glyphPayloadBytes": 19266,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        },
+        {
+          "phase": "final-unload",
+          "heapUsed": 160936352,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 77462616,
+          "directUsed": 688737998,
+          "directCapacity": 688737997,
+          "directCount": 5136,
+          "gcCount": 53,
+          "gcMillis": 1652,
+          "rssBytes": 753356800,
+          "glyphTables": 1,
+          "glyphArrayBytes": 19288,
+          "glyphPayloadBytes": 19266,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        }
+      ],
+      "pools": [
+        {
+          "phase": "terrain-before-screenshot",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 639631360
+        },
+        {
+          "phase": "world-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 60,
+          "idleDirectCapacity": 629145600
+        },
+        {
+          "phase": "final-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 639631360
+        }
+      ],
+      "bundleManifest": {
+        "schemaVersion": 2,
+        "loaderProtocolVersion": 1,
+        "backend": "celeritas-region",
+        "minecraftVersion": "1.8.9",
+        "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+        "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+        "providers": [
+          "opus.optim",
+          "opus.optim.renderer"
+        ],
+        "artifacts": [
+          {
+            "file": "api-0.0.1.jar",
+            "size": 13774,
+            "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+          },
+          {
+            "file": "bench-0.0.1.jar",
+            "size": 40321,
+            "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+          },
+          {
+            "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+            "size": 887804,
+            "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+          },
+          {
+            "file": "core-0.0.1.jar",
+            "size": 29061,
+            "sha256": "57fd49761ce17ed5ee7f062ee1b45ec19643362ba90b7c670eb7c1e029994b43"
+          },
+          {
+            "file": "fastutil-7.1.0.jar",
+            "size": 17655579,
+            "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+          },
+          {
+            "file": "joml-1.10.5.jar",
+            "size": 712082,
+            "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+          },
+          {
+            "file": "platform-opus-0.0.1.jar",
+            "size": 48799,
+            "sha256": "f525a1d316087d52e51fbbc8d8058c0ca81d68a8b50150977ae08410b35b1383"
+          },
+          {
+            "file": "renderer-celeritas-0.0.1.jar",
+            "size": 27604,
+            "sha256": "eb42771d4a3488ee323a78192fbfb1b594e6f87be8bf6cb90498732e665f45c9"
+          }
+        ]
+      },
+      "lifecycle": "[O2/PROBE] lifecycle workload PASS regionsCreated=96 regionsDeleted=96 liveRegions=0 glError=0; shutdown REQUEST"
+    },
+    {
+      "label": "2-treatment",
+      "arm": "treatment",
+      "session": "1792730046105-93729",
+      "hostExitCode": 0,
+      "patchSelection": [
+        "runtime.resource_string_cache",
+        "text.glyph_lookup",
+        "render.buffer_growth",
+        "render.frustum.positive-vertex",
+        "world.fixed_budget",
+        "world.chunk_buffer_capacity"
+      ],
+      "samples": [
+        {
+          "phase": "terrain-before-screenshot",
+          "heapUsed": 287317224,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 76946776,
+          "directUsed": 90612841,
+          "directCapacity": 90612840,
+          "directCount": 13004,
+          "gcCount": 31,
+          "gcMillis": 614,
+          "rssBytes": 921284608,
+          "glyphTables": 1,
+          "glyphArrayBytes": 4624,
+          "glyphPayloadBytes": 4608,
+          "regionGpuBytes": 10028032,
+          "regionArenas": 16,
+          "emptyRegionArenas": 12
+        },
+        {
+          "phase": "world-unload",
+          "heapUsed": 162541456,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 76560160,
+          "directUsed": 118050153,
+          "directCapacity": 118050152,
+          "directCount": 5103,
+          "gcCount": 34,
+          "gcMillis": 855,
+          "rssBytes": 885473280,
+          "glyphTables": 1,
+          "glyphArrayBytes": 4624,
+          "glyphPayloadBytes": 4608,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        },
+        {
+          "phase": "final-unload",
+          "heapUsed": 159225368,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 78417984,
+          "directUsed": 193547785,
+          "directCapacity": 193547784,
+          "directCount": 5119,
+          "gcCount": 38,
+          "gcMillis": 1487,
+          "rssBytes": 867553280,
+          "glyphTables": 1,
+          "glyphArrayBytes": 4624,
+          "glyphPayloadBytes": 4608,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        }
+      ],
+      "pools": [
+        {
+          "phase": "terrain-before-screenshot",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 49938432
+        },
+        {
+          "phase": "world-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 60,
+          "idleDirectCapacity": 79167488
+        },
+        {
+          "phase": "final-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 154796032
+        }
+      ],
+      "bundleManifest": {
+        "schemaVersion": 2,
+        "loaderProtocolVersion": 1,
+        "backend": "celeritas-region",
+        "minecraftVersion": "1.8.9",
+        "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+        "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+        "providers": [
+          "opus.optim",
+          "opus.optim.renderer"
+        ],
+        "artifacts": [
+          {
+            "file": "api-0.0.1.jar",
+            "size": 13774,
+            "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+          },
+          {
+            "file": "bench-0.0.1.jar",
+            "size": 40321,
+            "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+          },
+          {
+            "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+            "size": 887804,
+            "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+          },
+          {
+            "file": "core-0.0.1.jar",
+            "size": 29379,
+            "sha256": "50e49333dcac4770116615a1ffba9597208aaf84f15bf4e3d112e3c6e739dc80"
+          },
+          {
+            "file": "fastutil-7.1.0.jar",
+            "size": 17655579,
+            "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+          },
+          {
+            "file": "joml-1.10.5.jar",
+            "size": 712082,
+            "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+          },
+          {
+            "file": "platform-opus-0.0.1.jar",
+            "size": 49112,
+            "sha256": "9da36b47faae4f20bf89c72a124122de65c3f11433d5e683053a0295b6c114b7"
+          },
+          {
+            "file": "renderer-celeritas-0.0.1.jar",
+            "size": 27604,
+            "sha256": "eb42771d4a3488ee323a78192fbfb1b594e6f87be8bf6cb90498732e665f45c9"
+          }
+        ]
+      },
+      "lifecycle": "[O2/PROBE] lifecycle workload PASS regionsCreated=96 regionsDeleted=96 liveRegions=0 glError=0; shutdown REQUEST"
+    },
+    {
+      "label": "3-treatment",
+      "arm": "treatment",
+      "session": "1792730108760-94637",
+      "hostExitCode": 0,
+      "patchSelection": [
+        "runtime.resource_string_cache",
+        "text.glyph_lookup",
+        "render.buffer_growth",
+        "render.frustum.positive-vertex",
+        "world.fixed_budget",
+        "world.chunk_buffer_capacity"
+      ],
+      "samples": [
+        {
+          "phase": "terrain-before-screenshot",
+          "heapUsed": 402425872,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 76980376,
+          "directUsed": 91520750,
+          "directCapacity": 91520748,
+          "directCount": 15112,
+          "gcCount": 32,
+          "gcMillis": 648,
+          "rssBytes": 759533568,
+          "glyphTables": 1,
+          "glyphArrayBytes": 4624,
+          "glyphPayloadBytes": 4608,
+          "regionGpuBytes": 10028032,
+          "regionArenas": 16,
+          "emptyRegionArenas": 12
+        },
+        {
+          "phase": "world-unload",
+          "heapUsed": 161964240,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 76353792,
+          "directUsed": 124341973,
+          "directCapacity": 124341972,
+          "directCount": 5138,
+          "gcCount": 35,
+          "gcMillis": 926,
+          "rssBytes": 897634304,
+          "glyphTables": 1,
+          "glyphArrayBytes": 4624,
+          "glyphPayloadBytes": 4608,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        },
+        {
+          "phase": "final-unload",
+          "heapUsed": 158736904,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 78548080,
+          "directUsed": 199839457,
+          "directCapacity": 199839456,
+          "directCount": 5141,
+          "gcCount": 39,
+          "gcMillis": 1634,
+          "rssBytes": 967254016,
+          "glyphTables": 1,
+          "glyphArrayBytes": 4624,
+          "glyphPayloadBytes": 4608,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        }
+      ],
+      "pools": [
+        {
+          "phase": "terrain-before-screenshot",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 49938432
+        },
+        {
+          "phase": "world-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 60,
+          "idleDirectCapacity": 83361792
+        },
+        {
+          "phase": "final-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 161087488
+        }
+      ],
+      "bundleManifest": {
+        "schemaVersion": 2,
+        "loaderProtocolVersion": 1,
+        "backend": "celeritas-region",
+        "minecraftVersion": "1.8.9",
+        "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+        "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+        "providers": [
+          "opus.optim",
+          "opus.optim.renderer"
+        ],
+        "artifacts": [
+          {
+            "file": "api-0.0.1.jar",
+            "size": 13774,
+            "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+          },
+          {
+            "file": "bench-0.0.1.jar",
+            "size": 40321,
+            "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+          },
+          {
+            "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+            "size": 887804,
+            "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+          },
+          {
+            "file": "core-0.0.1.jar",
+            "size": 29379,
+            "sha256": "50e49333dcac4770116615a1ffba9597208aaf84f15bf4e3d112e3c6e739dc80"
+          },
+          {
+            "file": "fastutil-7.1.0.jar",
+            "size": 17655579,
+            "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+          },
+          {
+            "file": "joml-1.10.5.jar",
+            "size": 712082,
+            "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+          },
+          {
+            "file": "platform-opus-0.0.1.jar",
+            "size": 49112,
+            "sha256": "9da36b47faae4f20bf89c72a124122de65c3f11433d5e683053a0295b6c114b7"
+          },
+          {
+            "file": "renderer-celeritas-0.0.1.jar",
+            "size": 27604,
+            "sha256": "eb42771d4a3488ee323a78192fbfb1b594e6f87be8bf6cb90498732e665f45c9"
+          }
+        ]
+      },
+      "lifecycle": "[O2/PROBE] lifecycle workload PASS regionsCreated=96 regionsDeleted=96 liveRegions=0 glError=0; shutdown REQUEST"
+    },
+    {
+      "label": "4-baseline",
+      "arm": "baseline",
+      "session": "1792730171931-95516",
+      "hostExitCode": 0,
+      "patchSelection": [
+        "runtime.resource_string_cache",
+        "text.glyph_lookup",
+        "render.buffer_growth",
+        "render.frustum.positive-vertex",
+        "world.fixed_budget"
+      ],
+      "samples": [
+        {
+          "phase": "terrain-before-screenshot",
+          "heapUsed": 202742064,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 75650408,
+          "directUsed": 689599841,
+          "directCapacity": 689599840,
+          "directCount": 9950,
+          "gcCount": 38,
+          "gcMillis": 670,
+          "rssBytes": 903606272,
+          "glyphTables": 1,
+          "glyphArrayBytes": 19288,
+          "glyphPayloadBytes": 19266,
+          "regionGpuBytes": 10092544,
+          "regionArenas": 16,
+          "emptyRegionArenas": 12
+        },
+        {
+          "phase": "world-unload",
+          "heapUsed": 164660600,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 77840816,
+          "directUsed": 688737873,
+          "directCapacity": 688737872,
+          "directCount": 5125,
+          "gcCount": 40,
+          "gcMillis": 902,
+          "rssBytes": 772788224,
+          "glyphTables": 1,
+          "glyphArrayBytes": 19288,
+          "glyphPayloadBytes": 19266,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        },
+        {
+          "phase": "final-unload",
+          "heapUsed": 161109376,
+          "heapCommitted": 536870912,
+          "nonHeapUsed": 78464888,
+          "directUsed": 688738021,
+          "directCapacity": 688738020,
+          "directCount": 5142,
+          "gcCount": 44,
+          "gcMillis": 1569,
+          "rssBytes": 780402688,
+          "glyphTables": 1,
+          "glyphArrayBytes": 19288,
+          "glyphPayloadBytes": 19266,
+          "regionGpuBytes": 0,
+          "regionArenas": 0,
+          "emptyRegionArenas": 0
+        }
+      ],
+      "pools": [
+        {
+          "phase": "terrain-before-screenshot",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 639631360
+        },
+        {
+          "phase": "world-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 60,
+          "idleDirectCapacity": 629145600
+        },
+        {
+          "phase": "final-unload",
+          "configuredBuilders": 61,
+          "workers": 8,
+          "idleBuilders": 61,
+          "idleDirectCapacity": 639631360
+        }
+      ],
+      "bundleManifest": {
+        "schemaVersion": 2,
+        "loaderProtocolVersion": 1,
+        "backend": "celeritas-region",
+        "minecraftVersion": "1.8.9",
+        "minecraftSha256": "14f0d96d1a56fb4f5c3b2233d00699525893fe5ce3dcf181e7de59120595d298",
+        "optifineSha256": "2739760a70fca6ae5c7dc817bcc6283f18f55e38fa23778da7f387a6b724b2c4",
+        "providers": [
+          "opus.optim",
+          "opus.optim.renderer"
+        ],
+        "artifacts": [
+          {
+            "file": "api-0.0.1.jar",
+            "size": 13774,
+            "sha256": "bf05241a7352c8f8bcc120020d1feb1fbe9b9299ded07a907362154043ef341f"
+          },
+          {
+            "file": "bench-0.0.1.jar",
+            "size": 40321,
+            "sha256": "c3457c33c7efdcaea09879d876b3f24de6e51f398aba3e6a9d67870f816de766"
+          },
+          {
+            "file": "celeritas-common-2.5.0-pre.1-downgraded-8.jar",
+            "size": 887804,
+            "sha256": "51e823d63f8e58d4ece52772909ab9d0364e0ba892c981eb1bc8262836523d87"
+          },
+          {
+            "file": "core-0.0.1.jar",
+            "size": 29061,
+            "sha256": "57fd49761ce17ed5ee7f062ee1b45ec19643362ba90b7c670eb7c1e029994b43"
+          },
+          {
+            "file": "fastutil-7.1.0.jar",
+            "size": 17655579,
+            "sha256": "c266701bd7a4a2c36285862c1e682ccb7b5cb5b380d0de9bb1b34becf9e1c065"
+          },
+          {
+            "file": "joml-1.10.5.jar",
+            "size": 712082,
+            "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+          },
+          {
+            "file": "platform-opus-0.0.1.jar",
+            "size": 48799,
+            "sha256": "f525a1d316087d52e51fbbc8d8058c0ca81d68a8b50150977ae08410b35b1383"
+          },
+          {
+            "file": "renderer-celeritas-0.0.1.jar",
+            "size": 27604,
+            "sha256": "eb42771d4a3488ee323a78192fbfb1b594e6f87be8bf6cb90498732e665f45c9"
+          }
+        ]
+      },
+      "lifecycle": "[O2/PROBE] lifecycle workload PASS regionsCreated=96 regionsDeleted=96 liveRegions=0 glError=0; shutdown REQUEST"
+    }
+  ]
+}

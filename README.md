@@ -12,6 +12,12 @@ reduces repeated identity-map work and coalesces safe adjacent ranges in the
 existing optional renderer. It has real GL pixel/lifetime and managed-game
 verification; local CPU packing timings do not establish an FPS gain.
 
+The [memory increment](evidence/2026-10-23-memory/RESULTS.md) adds a sparse glyph
+table and optional demand-grown initial chunk buffers. Four native A–B–B–A runs
+show lower direct-buffer capacity, while final process RSS is higher in the
+candidate runs. The report retains this tradeoff; there is no whole-process RAM,
+CPU-speed, FPS or default-enablement claim.
+
 ## Modules and verification
 
 - `:api`: immutable descriptors, patch claims, capability/environment identity,

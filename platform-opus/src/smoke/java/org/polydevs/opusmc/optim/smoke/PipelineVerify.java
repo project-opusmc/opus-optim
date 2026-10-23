@@ -25,6 +25,11 @@ public final class PipelineVerify {
     public static final class Allocator {
         public static ByteBuffer allocate(int bytes) { return ByteBuffer.allocateDirect(bytes).order(ByteOrder.nativeOrder()); }
     }
+    public enum Layer { a, b, c, d }
+    public static final class ChunkBuffer {
+        public final ByteBuffer data;
+        public ChunkBuffer(int ints) { data=Allocator.allocate(Math.multiplyExact(ints,4)); }
+    }
     public static final class UploadTask {
         private final int id; private final long delay; private final List<Integer> completed;
         UploadTask(int id,long delay,List<Integer> completed) { this.id=id;this.delay=delay;this.completed=completed; }
@@ -74,8 +79,11 @@ public final class PipelineVerify {
             require(Arrays.equals(aliasBytes,font[1])&&alias.applicationState()==PipelinePatch.ApplicationState.APPLIED,"Host routing alias did not apply same pinned bytes");
             report.addProperty("fontMappedRoutingAliasVerified",true);
             report.addProperty("fontCases",fontParity(font));report.addProperty("fontMismatches",0);
-            report.add("buffer",bufferVerification(data.get(PipelineOptimizations.Kind.BUFFER_GROWTH)));
+            report.addProperty("fontIndexPayloadBytes",fontIndexPayloadBytes(font(font[1])));
+            report.add("buffer",bufferVerification(data.get(PipelineOptimizations.Kind.BUFFER_GROWTH),2*1024*1024));
+            report.add("smallInitialBufferGrowth",bufferVerification(data.get(PipelineOptimizations.Kind.BUFFER_GROWTH),32768));
             report.add("uploads",uploadVerification(data.get(PipelineOptimizations.Kind.UPLOAD_BUDGET)));
+            report.add("chunkInitialBuffers",chunkInitialVerification(data.get(PipelineOptimizations.Kind.CHUNK_BUFFERS)));
         } else { throw new IllegalArgumentException("Expected verify/trial"); }
         System.out.println(new Gson().toJson(report));
     }
@@ -100,9 +108,24 @@ public final class PipelineVerify {
     }
     private static void fontTrial(JsonObject report,byte[][] font,String arm,String workload) throws Exception {
         require(arm.equals("control")||arm.equals("treatment"),"Unknown arm");
-        require(workload.equals("ascii")||workload.equals("unicode"),"Unknown workload");
+        require(workload.equals("ascii")||workload.equals("unicode")||workload.equals("glyphs"),"Unknown workload");
         WidthQuery query=font(font[arm.equals("control")?0:1]);char[] chars=new char[4096];Random random=new Random(20261014);
-        for(int i=0;i<chars.length;i++){chars[i]=(char)(workload.equals("ascii")?33+random.nextInt(94):256+random.nextInt(65000));}
+        if(arm.equals("treatment"))report.addProperty("fontIndexPayloadBytes",fontIndexPayloadBytes(query));
+        String[] alphabet={null};
+        new ClassReader(font[0]).accept(new ClassVisitor(Opcodes.ASM5) {
+            @Override public MethodVisitor visitMethod(int access,String name,String desc,String signature,String[] exceptions) {
+                return new MethodVisitor(Opcodes.ASM5) {
+                    @Override public void visitLdcInsn(Object value) {
+                        if(value instanceof String && ((String)value).length()==256) {
+                            require(alphabet[0]==null||alphabet[0].equals(value),"Ambiguous alphabet");alphabet[0]=(String)value;
+                        }
+                    }
+                };
+            }
+        },ClassReader.SKIP_DEBUG|ClassReader.SKIP_FRAMES);
+        require(alphabet[0]!=null,"Pinned glyph alphabet unavailable");
+        for(int i=0;i<chars.length;i++){chars[i]=workload.equals("glyphs")?alphabet[0].charAt(random.nextInt(256)):
+                (char)(workload.equals("ascii")?33+random.nextInt(94):256+random.nextInt(65000));}
         report.addProperty("arm",arm);report.addProperty("workload",workload);
         for(int i=0;i<5;i++){blackhole=fontRun(query,chars,512);}
         JsonArray elapsed=new JsonArray(),sums=new JsonArray();
@@ -113,11 +136,39 @@ public final class PipelineVerify {
     private static long fontRun(WidthQuery query,char[] chars,int repeats) {
         long sum=0;for(int r=0;r<repeats;r++){for(char c:chars){sum+=Float.floatToIntBits(query.width(c));}}return sum;
     }
-    private static JsonObject bufferVerification(byte[][] bytes) throws Exception {
+    private static long fontIndexPayloadBytes(WidthQuery query) throws Exception {
+        java.lang.reflect.Field field=query.getClass().getDeclaredField("o2$glyphIndex");
+        field.setAccessible(true);return ((short[])field.get(null)).length*2L;
+    }
+    private static JsonObject chunkInitialVerification(byte[][] source) throws Exception {
+        JsonObject report=new JsonObject();
+        for(int arm=0;arm<2;arm++) {
+            ClassReader reader=new ClassReader(source[arm]);ClassWriter writer=new ClassWriter(0);
+            reader.accept(new ClassVisitor(Opcodes.ASM5,writer) {
+                private String type(String t){return t.equals("bfd")?Type.getInternalName(ChunkBuffer.class):t.equals("adf")?Type.getInternalName(Layer.class):t;}
+                private String desc(String d){return d.replace("Lbfd;","L"+Type.getInternalName(ChunkBuffer.class)+";").replace("Ladf;","L"+Type.getInternalName(Layer.class)+";");}
+                @Override public FieldVisitor visitField(int a,String n,String d,String s,Object v){return super.visitField((a&~Opcodes.ACC_PRIVATE)|Opcodes.ACC_PUBLIC,n,desc(d),s,v);}
+                @Override public MethodVisitor visitMethod(int a,String n,String d,String s,String[] ex){return new MethodVisitor(Opcodes.ASM5,super.visitMethod(a,n,desc(d),s,ex)) {
+                    @Override public void visitTypeInsn(int op,String t){super.visitTypeInsn(op,type(t));}
+                    @Override public void visitFieldInsn(int op,String o,String n,String d){super.visitFieldInsn(op,type(o),n,desc(d));}
+                    @Override public void visitMethodInsn(int op,String o,String n,String d,boolean i){super.visitMethodInsn(op,type(o),n,desc(d),i);}
+                };}
+            },0);
+            byte[] code=writer.toByteArray();class Loader extends ClassLoader {Loader(){super(PipelineVerify.class.getClassLoader());}Class<?> define(){return defineClass("bfg",code,0,code.length);}}
+            Object instance=new Loader().define().getConstructor().newInstance();Object[] layers=(Object[])instance.getClass().getField("a").get(instance);
+            require(layers.length==4,"Chunk layer count changed");long bytes=0;
+            for(Object layer:layers){ByteBuffer data=((ChunkBuffer)layer).data;bytes+=data.capacity();require(data.isDirect()&&data.order()==ByteOrder.nativeOrder(),"Chunk buffer allocation semantics changed");}
+            require(bytes==(arm==0?10485760:131072),"Unexpected chunk initial capacity");
+            JsonObject row=new JsonObject();row.addProperty("layers",4);row.addProperty("initialDirectBytesPerBuilder",bytes);
+            report.add(arm==0?"control":"treatment",row);
+        }
+        return report;
+    }
+    private static JsonObject bufferVerification(byte[][] bytes,int initialBytes) throws Exception {
         JsonObject report=new JsonObject();
         for(int arm=0;arm<2;arm++) {
             Class<?> t=kernel(bytes[arm],"buffer");Object o=t.getConstructor().newInstance();
-            ByteBuffer initial=Allocator.allocate(2*1024*1024);for(int i=0;i<1024;i++){initial.put(i,(byte)i);}
+            ByteBuffer initial=Allocator.allocate(initialBytes);for(int i=0;i<1024;i++){initial.put(i,(byte)i);}
             t.getField("a").set(o,initial);t.getField("b").set(o,initial.asIntBuffer());t.getField("c").set(o,initial.asShortBuffer());t.getField("d").set(o,initial.asFloatBuffer());
             t.getField("m").set(o,new VertexFormat());Sprite first=new Sprite();Sprite[] sprites=new Sprite[16384];sprites[0]=first;
             t.getField("quadSprites").set(o,sprites);t.getField("quadSpritesPrev").set(o,sprites);
@@ -216,7 +267,7 @@ public final class PipelineVerify {
     private static void verifyUntouchedMethods(byte[] before,byte[] after,PipelineOptimizations.Kind kind) throws Exception {
         Map<String,String> a=methods(before),b=methods(after);Set<String> allowed=new HashSet<>();
         if(kind==PipelineOptimizations.Kind.GLYPH_LOOKUP){allowed.addAll(Arrays.asList("a(CZ)F","a(Ljava/lang/String;Z)V","getCharWidthFloat(C)F","<clinit>()V"));}
-        else{allowed.add(kind==PipelineOptimizations.Kind.BUFFER_GROWTH?"b(I)V":"a(J)Z");}
+        else{allowed.add(kind==PipelineOptimizations.Kind.CHUNK_BUFFERS?"<init>()V":kind==PipelineOptimizations.Kind.BUFFER_GROWTH?"b(I)V":"a(J)Z");}
         for(String method:a.keySet()){if(!allowed.contains(method)){require(a.get(method).equals(b.get(method)),"Unrelated method changed: "+method);}}
     }
     static Map<String,String> methods(byte[] bytes) throws Exception {

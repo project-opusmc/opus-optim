@@ -10,6 +10,31 @@ import org.polydevs.opusmc.optim.platform.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PipelinePatchTest {
+    @Test void chunkBuilderLimitsEachInitialLayerTo32KiB() throws Exception {
+        ClassWriter buffer=type("bfd");
+        buffer.visitField(Opcodes.ACC_PUBLIC,"capacity","I",null,null).visitEnd();
+        MethodVisitor c=buffer.visitMethod(Opcodes.ACC_PUBLIC,"<init>","(I)V",null,null);c.visitCode();
+        c.visitVarInsn(Opcodes.ALOAD,0);c.visitMethodInsn(Opcodes.INVOKESPECIAL,"java/lang/Object","<init>","()V",false);
+        c.visitVarInsn(Opcodes.ALOAD,0);c.visitVarInsn(Opcodes.ILOAD,1);c.visitInsn(Opcodes.ICONST_4);c.visitInsn(Opcodes.IMUL);
+        c.visitFieldInsn(Opcodes.PUTFIELD,"bfd","capacity","I");c.visitInsn(Opcodes.RETURN);c.visitMaxs(3,2);c.visitEnd();buffer.visitEnd();
+        ClassWriter builder=type("bfg");builder.visitField(Opcodes.ACC_PUBLIC,"layers","[Lbfd;",null,null).visitEnd();
+        MethodVisitor m=builder.visitMethod(Opcodes.ACC_PUBLIC,"<init>","()V",null,null);m.visitCode();
+        m.visitVarInsn(Opcodes.ALOAD,0);m.visitMethodInsn(Opcodes.INVOKESPECIAL,"java/lang/Object","<init>","()V",false);
+        m.visitVarInsn(Opcodes.ALOAD,0);m.visitInsn(Opcodes.ICONST_4);m.visitTypeInsn(Opcodes.ANEWARRAY,"bfd");m.visitFieldInsn(Opcodes.PUTFIELD,"bfg","layers","[Lbfd;");
+        int[] capacities={2097152,131072,131072,262144};
+        for(int i=0;i<4;i++) {
+            m.visitVarInsn(Opcodes.ALOAD,0);m.visitFieldInsn(Opcodes.GETFIELD,"bfg","layers","[Lbfd;");m.visitLdcInsn(i);
+            m.visitTypeInsn(Opcodes.NEW,"bfd");m.visitInsn(Opcodes.DUP);m.visitLdcInsn(capacities[i]);
+            m.visitMethodInsn(Opcodes.INVOKESPECIAL,"bfd","<init>","(I)V",false);m.visitInsn(Opcodes.AASTORE);
+        }
+        m.visitInsn(Opcodes.RETURN);m.visitMaxs(5,1);m.visitEnd();builder.visitEnd();
+        byte[] changed=rewrite(PipelineOptimizations.Kind.valueOf("CHUNK_BUFFERS"),builder.toByteArray());
+        class Loader extends ClassLoader {Loader(){super(PipelinePatchTest.class.getClassLoader());}Class<?> load(String n,byte[] b){return defineClass(n,b,0,b.length);}}
+        Loader loader=new Loader();Class<?> bufferType=loader.load("bfd",buffer.toByteArray()),builderType=loader.load("bfg",changed);
+        Object instance=builderType.getConstructor().newInstance();Object[] layers=(Object[])builderType.getField("layers").get(instance);
+        assertEquals(4,layers.length);
+        for(Object layer:layers)assertEquals(32768,bufferType.getField("capacity").getInt(layer));
+    }
     @Test void allIndependentCandidatesCanBePreparedTogether() {
         List<TransformerBinding> bindings=new ArrayList<>();Map<String,Boolean> flags=new HashMap<>();Set<String> capabilities=new HashSet<>();
         bindings.add(FrustumOptimization.candidate().binding());flags.put(FrustumOptimization.ID,true);
@@ -21,8 +46,8 @@ class PipelinePatchTest {
         flags.put(resource.descriptor().id(),true);capabilities.addAll(resource.descriptor().requiredCapabilities());
         ProviderPlan all=ProviderPlan.prepare(new OptimConfig(true,flags),new CapabilitySet(capabilities),CrashMarker.Recovery.clean(),
                 bindings,Collections.emptyList(),getClass().getClassLoader());
-        assertEquals(Arrays.asList("render.buffer_growth","render.frustum.positive-vertex","runtime.resource_string_cache","text.glyph_lookup","world.fixed_budget"),all.patchPlan().selectedIds());
-        assertEquals(5,all.registrations().size());
+        assertEquals(Arrays.asList("render.buffer_growth","render.frustum.positive-vertex","runtime.resource_string_cache","text.glyph_lookup","world.chunk_buffer_capacity","world.fixed_budget"),all.patchPlan().selectedIds());
+        assertEquals(6,all.registrations().size());
     }
     @Test void hostRoutingAliasIsDeclaredAndRefusalStillVisibleAtTheAlias() throws Exception {
         String mapped="net.minecraft.client.gui.FontRenderer";

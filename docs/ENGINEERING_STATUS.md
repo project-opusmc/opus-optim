@@ -1,6 +1,6 @@
 # O2 implementation scope
 
-Updated 2026-10-15. O2 is being engineered as a suite, not declared complete
+Updated 2026-10-23. O2 is being engineered as a suite, not declared complete
 because one frustum patch exists. These local commits remain on opus-optim.
 Every current candidate is EXPERIMENTAL, independently enabled and OFF without
 its flag. The user-directed Opus license is unchanged.
@@ -8,7 +8,7 @@ its flag. The user-directed Opus license is unchanged.
 | Area | Executable code currently implemented | Work still required |
 |---|---|---|
 | Render | Celeritas-backed custom region arena, ordered/coalesced multi-draw and linked pointer setup; actual terrain/reload/VBO cycles; frustum and font candidates | Broader geometry/transparent/pack parity, entity/HUD pricing |
-| Chunk | Pinned existing upload-drain deadline capped at 2 ms per call | Compile/queue/upload stage pricing, priority/aging/generation cancellation and world lifecycle |
+| Chunk | Pinned upload-drain deadline capped at 2 ms per call; independently selected small initial builder buffers with existing growth | Compile/queue/upload stage pricing, cold-growth latency, priority/aging/generation cancellation and long-session memory |
 | Graphics | Separate Celeritas Common Java8/LWJGL2 backend and real GL2.1 pixel/lifetime harness; bounded geometric vertex-buffer growth | Actual GL counters, shader/pack acceptance, texture lifetime and supported backend work |
 | Workload | Fixed deferrable upload cap; zero/past sentinel and FIFO/progress retained | Cross-stage budgets, queue-latency pricing and comparison before any adaptive governor |
 | Core runtime | Immutable glyph index, allocation/copy reduction, immutable text cache and pinned terminated-server wait guard | Broader lifecycle/physical GUI acceptance, resource metadata invalidation/decode/cache, live hit-rate/heap pricing and additional allocation hotspots |
@@ -64,7 +64,7 @@ See [renderer status](RENDERER_INTEGRATION.md) for exact boundaries.
 See [current Loader Runtime integration](LOADER_RUNTIME_INTEGRATION.md) for the
 new managed path, source receipts and its independent native acceptance.
 
-Current managed native acceptance: Runtimee983989/O2f45c7c4/Launcher813783f.
+Earlier managed native acceptance: Runtimee983989/O2f45c7c4/Launcher813783f.
 O2-absent clientREADY and selected terrain/reload/VBO/world cycle both pass;
 all five implemented startup patches actually applied. Final cycle96/96/0, GL0,
 no NPE/probe failures. Independent frozen review Important registration-boundary
@@ -84,3 +84,15 @@ records 151 passing active O2 tests, Java 8 real GL blended pixel parity, the
 latest managed terrain/reload/VBO/world cycle and independent A/A/A/B CPU
 packing forks. Local synthetic CPU and command-count results are separate from
 whole-game FPS and the unmeasured native command-reduction ratio.
+
+## Memory increment — October 23
+
+The [memory receipt](../evidence/2026-10-23-memory/RESULTS.md) records 155 passing
+O2 tests, actual Java 8 constructor/growth/font kernels and four managed native
+runs in A–B–B–A order. The new `world.chunk_buffer_capacity` candidate starts
+each builder at 128 KiB instead of 10 MiB, keeping existing growth and worker/
+pool counts. The glyph table payload drops from 19,266 to 4,608 bytes while
+ASCII stays direct. Terrain direct capacity falls from about 658 to 86–87 MiB
+in this fixture, but final-unload RSS is higher in the candidate runs. This is
+not evidence of lower total RAM, live heap, CPU time or FPS. The candidate stays
+EXPERIMENTAL/OFF; cold growth and longer workloads still require measurement.

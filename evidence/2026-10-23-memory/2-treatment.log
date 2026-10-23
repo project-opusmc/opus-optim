@@ -1,0 +1,30 @@
+[O2/PROBE] frame dispatch hooked after host transforms
+[O2/PROBE] early CEF before game-loop PASS framebuffer=2000x1300 GL=0
+[O2/PROBE] disposable pauseOnLostFocus=false
+[O2/PROBE] offline world launch requested
+[O2/PROBE] world=true screen=none chunks=C: 120/4624 (s) D: 8, pC: 000, pU: 0, aB: 61
+[O2/MEMORY] phase=terrain-before-screenshot heapUsed=287317224 heapCommitted=536870912 nonHeapUsed=76946776 directUsed=90612841 directCapacity=90612840 directCount=13004 gcCount=31 gcMillis=614 rssBytes=921284608 glyphTables=1 glyphArrayBytes=4624 glyphPayloadBytes=4608 regionGpuBytes=10028032 regionArenas=16 emptyRegionArenas=12
+[O2/MEMORY_POOL] phase=terrain-before-screenshot configuredBuilders=61 workers=8 idleBuilders=61 idleDirectCapacity=49938432
+[O2/PROBE] actual terrain frame=2000x1300 regionsCreated=32 glError=0
+[O2/PROBE] renderer-reload useVbo=true oldLive=16 deleted=16 liveRegions=16 glError=0
+[O2/PROBE] renderer-reload actualDraws=572 liveRegions=16
+[O2/PROBE] vbo-off useVbo=false oldLive=16 deleted=16 liveRegions=0 glError=0
+[O2/PROBE] vbo-off fallback liveRegions=0 glError=0
+[O2/PROBE] vbo-on useVbo=true oldLive=0 deleted=0 liveRegions=16 glError=0
+[O2/PROBE] vbo-on actualDraws=740 liveRegions=16
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] integrated world API unload BEGIN
+[O2/PROBE] unload BEGIN liveRegions=16
+[O2/PROBE] unload END liveRegions=0
+[O2/PROBE] unload regionsCreated=64 regionsDeleted=64 liveRegions=0
+[O2/MEMORY] phase=world-unload heapUsed=162541456 heapCommitted=536870912 nonHeapUsed=76560160 directUsed=118050153 directCapacity=118050152 directCount=5103 gcCount=34 gcMillis=855 rssBytes=885473280 glyphTables=1 glyphArrayBytes=4624 glyphPayloadBytes=4608 regionGpuBytes=0 regionArenas=0 emptyRegionArenas=0
+[O2/MEMORY_POOL] phase=world-unload configuredBuilders=61 workers=8 idleBuilders=60 idleDirectCapacity=79167488
+[O2/PROBE] offline world reopen requested
+[O2/PROBE] world-reopen actualDraws=100 liveRegions=16
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] applied pending Minecraft tasks=0
+[O2/PROBE] second integrated world API unload BEGIN
+[O2/MEMORY] phase=final-unload heapUsed=159225368 heapCommitted=536870912 nonHeapUsed=78417984 directUsed=193547785 directCapacity=193547784 directCount=5119 gcCount=38 gcMillis=1487 rssBytes=867553280 glyphTables=1 glyphArrayBytes=4624 glyphPayloadBytes=4608 regionGpuBytes=0 regionArenas=0 emptyRegionArenas=0
+[O2/MEMORY_POOL] phase=final-unload configuredBuilders=61 workers=8 idleBuilders=61 idleDirectCapacity=154796032
+[O2/PROBE] lifecycle workload PASS regionsCreated=96 regionsDeleted=96 liveRegions=0 glError=0; shutdown REQUEST
